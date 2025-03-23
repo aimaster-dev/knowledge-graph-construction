@@ -1,11 +1,15 @@
 [llm]
 model = "gemma3"
-api_key = "ollama"
-max_tokens = 8000
-temperature = 0.2
+#model = "claude-3.5-sonnet-v2"
+#model = "gpt4o"
+api_key = "sk-1234"
+base_url = "http://localhost:11434/v1/chat/completions"
+#base_url = "http://localhost:4000/v1/chat/completions"
+max_tokens = 4096
+temperature = 0.8
 
 [chunking]
-chunk_size = 200  # Number of words per chunk
+chunk_size = 100  # Number of words per chunk
 overlap = 20      # Number of words to overlap between chunks
 
 [prompts]
@@ -17,10 +21,10 @@ Your task: Read the text below (delimited by triple backticks) and identify all 
 
 Follow these rules carefully:
 
-- Atomic Terms: Identify distinct key terms (e.g., objects, locations, organizations, acronyms, people, conditions, concepts). Avoid merging multiple ideas into one term (they should be as "atomistic" as possible).
+- Atomic Terms: Identify distinct key terms (e.g., objects, locations, organizations, acronyms, people, conditions, concepts, feelings). Avoid merging multiple ideas into one term (they should be as "atomistic" as possible).
 - Unified References: Replace any pronouns (e.g., "he," "she," "it," "they," etc.) with the actual referenced entity, if identifiable.
 - Pairwise Relationships: If multiple terms co-occur in the same sentence (or a short paragraph that makes them contextually related), create one triple for each pair that has a meaningful relationship.
-- Predicate: Use a short phrase (ideally 1 to 3 words) to describe how the subject relates to the object.
+- Predicate: Use a short phrase (ideally 1 to 3 words) to describe how the subject relates to the object. Ensure that all possible relationships are identifed in the text and are captured in an S-P-O relation.. 
 
 Output Requirements:
 

@@ -3,7 +3,7 @@ import requests
 import json
 import re
 
-def call_llm(model, user_prompt, api_key, system_prompt=None, max_tokens=1000, temperature=0.2) -> str:
+def call_llm(model, user_prompt, api_key, system_prompt=None, max_tokens=1000, temperature=0.2, base_url=None) -> str:
     """
     Call the language model API.
     
@@ -14,6 +14,7 @@ def call_llm(model, user_prompt, api_key, system_prompt=None, max_tokens=1000, t
         system_prompt: Optional system prompt to set context
         max_tokens: Maximum number of tokens to generate
         temperature: Sampling temperature
+        base_url: The base URL for the API endpoint
         
     Returns:
         The model's response as a string
@@ -49,7 +50,7 @@ def call_llm(model, user_prompt, api_key, system_prompt=None, max_tokens=1000, t
     }
     
     response = requests.post(
-        f"http://localhost:11434/v1/chat/completions",
+        base_url,
         headers=headers,
         json=payload
     )
