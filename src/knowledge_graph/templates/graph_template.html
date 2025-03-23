@@ -3,6 +3,7 @@
         <div>
             <button onclick="togglePhysics()" class="btn btn-primary">Toggle Physics</button>
             <button onclick="stabilizeNetwork()" class="btn btn-secondary">Stabilize</button>
+            <button onclick="toggleDarkMode()" id="theme-toggle" class="btn btn-info">Dark Mode</button>
         </div>
         <div>
             <span style="margin-right: 15px;"><strong>Communities:</strong></span>
@@ -15,6 +16,34 @@
     </div>
     <div id="mynetwork" class="card-body"></div>
 </div>
+
+<style id="theme-styles">
+    /* Light mode (default) */
+    body.light-mode {
+        background-color: white;
+        color: black;
+    }
+    
+    /* Dark mode */
+    body.dark-mode {
+        background-color: #121212;
+        color: #e0e0e0;
+    }
+    
+    body.dark-mode .card {
+        background-color: #1e1e1e;
+        border-color: #333;
+    }
+    
+    body.dark-mode .btn {
+        border-color: #444;
+    }
+    
+    body.dark-mode #mynetwork {
+        border-color: #333;
+        background-color: #000000;
+    }
+</style>
 
 <script>
 function togglePhysics() {
@@ -31,11 +60,82 @@ function stabilizeNetwork() {
     network.stabilize(100);
 }
 
+function toggleDarkMode() {
+    const body = document.body;
+    const toggleBtn = document.getElementById('theme-toggle');
+    
+    if (body.classList.contains('dark-mode')) {
+        // Switch to light mode
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+        toggleBtn.textContent = 'Dark Mode';
+        
+        // Update network with light mode settings
+        network.setOptions({
+            background: {
+                color: 'white'
+            },
+            nodes: {
+                font: {
+                    color: '#000000'
+                }
+            },
+            edges: {
+                font: {
+                    color: '#000000',
+                    strokeWidth: 4  // Default border for light mode
+                }
+            }
+        });
+    } else {
+        // Switch to dark mode
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+        toggleBtn.textContent = 'Light Mode';
+        
+        // Update network with dark mode settings
+        network.setOptions({
+            background: {
+                color: '#1e1e1e'
+            },
+            nodes: {
+                font: {
+                    color: '#ffffff'
+                }
+            },
+            edges: {
+                font: {
+                    color: '#ffdd00',  // Yellow color for edge text
+                    strokeWidth: 0     // Remove text border/stroke in dark mode
+                }
+            }
+        });
+    }
+}
+
 // Once network is loaded, add info box
 network.once("stabilizationIterationsDone", function() {
     // Auto-stabilize after initial load
     setTimeout(function() {
         network.stopSimulation();
     }, 1000);
+    
+    // Ensure node and edge text colors are set correctly for initial light mode
+    network.setOptions({
+        nodes: {
+            font: {
+                color: '#000000'
+            }
+        },
+        edges: {
+            font: {
+                color: '#000000',
+                strokeWidth: 4  // Default border for light mode
+            }
+        }
+    });
 });
+
+// Set initial theme class
+document.body.classList.add('light-mode');
 </script> 
