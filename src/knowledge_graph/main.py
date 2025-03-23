@@ -13,18 +13,19 @@ from src.knowledge_graph.config import load_config
 from src.knowledge_graph.llm import call_llm, extract_json_from_text
 from src.knowledge_graph.visualization import visualize_knowledge_graph, sample_data_visualization
 
-def process_with_llm(config):
+def process_with_llm(config, input_text=None):
     """
     Process input text with LLM to extract triples.
     
     Args:
         config: Configuration dictionary
+        input_text: Optional input text to override config value
         
     Returns:
         List of extracted triples or None if processing failed
     """
     # Extract configuration values
-    data = config["data"]["input"]
+    data = input_text if input_text is not None else config["data"]["input"]
     
     # Choose which system prompt to use
     system_prompt = config["prompts"]["system_prompt"]
@@ -66,6 +67,7 @@ def main():
     parser.add_argument('--test', action='store_true', help='Generate a test visualization with sample data')
     parser.add_argument('--config', type=str, default='config.toml', help='Path to configuration file')
     parser.add_argument('--output', type=str, default='knowledge_graph.html', help='Output HTML file path')
+    parser.add_argument('--input', type=str, help='Path to input text file (overrides the input in config file)')
     
     args = parser.parse_args()
     
@@ -81,8 +83,19 @@ def main():
         print(f"Failed to load configuration from {args.config}. Exiting.")
         return
     
+    # Load input text from file if provided
+    input_text = None
+    if args.input:
+        try:
+            with open(args.input, 'r', encoding='utf-8') as f:
+                input_text = f.read()
+            print(f"Using input text from file: {args.input}")
+        except Exception as e:
+            print(f"Error reading input file {args.input}: {e}")
+            return
+    
     # Process with LLM
-    result = process_with_llm(config)
+    result = process_with_llm(config, input_text)
     
     if result:
         # Visualize the knowledge graph

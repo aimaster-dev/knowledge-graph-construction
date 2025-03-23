@@ -43,13 +43,14 @@ generate-graph [options]
 - `--test`: Generate a test visualization with sample data
 - `--config`: Path to configuration file (default: `config.toml`)
 - `--output`: Output HTML file path (default: `knowledge_graph.html`)
+- `--input`: Path to input text file (overrides the input in config file)
 
 ## Configuration
 
 The tool is configured using a TOML file (default: `config.toml`). The configuration file contains:
 
 - LLM settings (model, API key, etc.)
-- Input data
+- Input data (can be overridden with the `--input` command line option)
 - Prompts for knowledge extraction
 
 ## Project Structure
