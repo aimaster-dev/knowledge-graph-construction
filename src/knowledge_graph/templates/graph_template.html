@@ -1,0 +1,41 @@
+<div class="card" style="width: 100%">
+    <div id="graph-controls" style="margin: 10px; display: flex; justify-content: space-between;">
+        <div>
+            <button onclick="togglePhysics()" class="btn btn-primary">Toggle Physics</button>
+            <button onclick="stabilizeNetwork()" class="btn btn-secondary">Stabilize</button>
+        </div>
+        <div>
+            <span style="margin-right: 15px;"><strong>Communities:</strong></span>
+            <span style="background-color: #e41a1c; width: 20px; height: 20px; display: inline-block; margin-right: 5px;"></span>
+            <span style="background-color: #377eb8; width: 20px; height: 20px; display: inline-block; margin-right: 5px;"></span>
+            <span style="background-color: #4daf4a; width: 20px; height: 20px; display: inline-block; margin-right: 5px;"></span>
+            <span style="background-color: #984ea3; width: 20px; height: 20px; display: inline-block; margin-right: 5px;"></span>
+            <span style="background-color: #ff7f00; width: 20px; height: 20px; display: inline-block; margin-right: 5px;"></span>
+        </div>
+    </div>
+    <div id="mynetwork" class="card-body"></div>
+</div>
+
+<script>
+function togglePhysics() {
+    if (network.physics.options.enabled) {
+        network.physics.stopSimulation();
+        network.setOptions({physics: {enabled: false}});
+    } else {
+        network.setOptions({physics: {enabled: true}});
+        network.startSimulation();
+    }
+}
+
+function stabilizeNetwork() {
+    network.stabilize(100);
+}
+
+// Once network is loaded, add info box
+network.once("stabilizationIterationsDone", function() {
+    // Auto-stabilize after initial load
+    setTimeout(function() {
+        network.stopSimulation();
+    }, 1000);
+});
+</script> 

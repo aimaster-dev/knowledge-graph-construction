@@ -5,50 +5,16 @@ import re
 import os
 from pyvis.network import Network
 
-# HTML template for visualization
-HTML_TEMPLATE = """
-<div class="card" style="width: 100%">
-    <div id="graph-controls" style="margin: 10px; display: flex; justify-content: space-between;">
-        <div>
-            <button onclick="togglePhysics()" class="btn btn-primary">Toggle Physics</button>
-            <button onclick="stabilizeNetwork()" class="btn btn-secondary">Stabilize</button>
-        </div>
-        <div>
-            <span style="margin-right: 15px;"><strong>Communities:</strong></span>
-            <span style="background-color: #e41a1c; width: 20px; height: 20px; display: inline-block; margin-right: 5px;"></span>
-            <span style="background-color: #377eb8; width: 20px; height: 20px; display: inline-block; margin-right: 5px;"></span>
-            <span style="background-color: #4daf4a; width: 20px; height: 20px; display: inline-block; margin-right: 5px;"></span>
-            <span style="background-color: #984ea3; width: 20px; height: 20px; display: inline-block; margin-right: 5px;"></span>
-            <span style="background-color: #ff7f00; width: 20px; height: 20px; display: inline-block; margin-right: 5px;"></span>
-        </div>
-    </div>
-    <div id="mynetwork" class="card-body"></div>
-</div>
-
-<script>
-function togglePhysics() {
-    if (network.physics.options.enabled) {
-        network.physics.stopSimulation();
-        network.setOptions({physics: {enabled: false}});
-    } else {
-        network.setOptions({physics: {enabled: true}});
-        network.startSimulation();
-    }
-}
-
-function stabilizeNetwork() {
-    network.stabilize(100);
-}
-
-// Once network is loaded, add info box
-network.once("stabilizationIterationsDone", function() {
-    // Auto-stabilize after initial load
-    setTimeout(function() {
-        network.stopSimulation();
-    }, 1000);
-});
-</script>
-"""
+# HTML template for visualization is now stored in a separate file
+def _load_html_template():
+    """Load the HTML template from the template file."""
+    template_path = os.path.join(os.path.dirname(__file__), 'templates', 'graph_template.html')
+    try:
+        with open(template_path, 'r', encoding='utf-8') as f:
+            return f.read()
+    except Exception as e:
+        print(f"Warning: Could not load template file: {e}")
+        return '<div id="mynetwork" class="card-body"></div>'  # Fallback to basic template
 
 def visualize_knowledge_graph(triples, output_file="knowledge_graph.html"):
     """
@@ -299,7 +265,7 @@ def _save_and_modify_html(net, output_file, community_count, all_nodes, triples)
         html = f.read()
     
     # Add our custom controls by replacing the div with our template
-    html = html.replace('<div id="mynetwork" class="card-body"></div>', HTML_TEMPLATE)
+    html = html.replace('<div id="mynetwork" class="card-body"></div>', _load_html_template())
     
     # Fix the duplicate title issue
     # Remove the default PyVis header
@@ -357,3 +323,7 @@ def sample_data_visualization(output_file="sample_knowledge_graph.html"):
     
     print(f"\nVisualization saved to {output_file}")
     print(f"To view, open: file://{os.path.abspath(output_file)}") 
+
+if __name__ == "__main__":
+    # Run sample visualization when this module is run directly
+    sample_data_visualization() 
