@@ -40,10 +40,37 @@ generate-graph --input your_input_file.txt [options]
 
 ## Command Line Options
 
-- `--input`: Path to input text file (required)
+- `--input`: Path to input text file (required unless using `--test`)
 - `--test`: Generate a test visualization with sample data
 - `--config`: Path to configuration file (default: `config.toml`)
 - `--output`: Output HTML file path (default: `knowledge_graph.html`)
+- `--debug`: Enable debug output (raw LLM responses and extracted JSON)
+
+## Usage Examples
+
+### Process your own text file:
+
+```bash
+python generate-graph.py --input your_text_file.txt
+```
+
+### Generate a test visualization with sample data:
+
+```bash
+python generate-graph.py --test
+```
+
+### Customize the output file name:
+
+```bash
+python generate-graph.py --input your_text_file.txt --output custom_graph.html
+```
+
+### Enable debug output:
+
+```bash
+python generate-graph.py --input your_text_file.txt --debug
+```
 
 ## Configuration
 

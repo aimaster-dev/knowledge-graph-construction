@@ -14,13 +14,14 @@ from src.knowledge_graph.llm import call_llm, extract_json_from_text
 from src.knowledge_graph.visualization import visualize_knowledge_graph, sample_data_visualization
 from src.knowledge_graph.text_utils import chunk_text
 
-def process_with_llm(config, input_text):
+def process_with_llm(config, input_text, debug=False):
     """
     Process input text with LLM to extract triples.
     
     Args:
         config: Configuration dictionary
         input_text: Text to analyze
+        debug: If True, print detailed debug information
         
     Returns:
         List of extracted triples or None if processing failed
@@ -40,10 +41,11 @@ def process_with_llm(config, input_text):
     metadata = {}
     response = call_llm(model, user_prompt, api_key, system_prompt, max_tokens, temperature)
     
-    # Print raw response for debugging
-    print("Raw LLM response:")
-    print(response)
-    print("\n---\n")
+    # Print raw response only if debug mode is on
+    if debug:
+        print("Raw LLM response:")
+        print(response)
+        print("\n---\n")
     
     # Extract JSON from the response
     result = extract_json_from_text(response)
@@ -51,14 +53,19 @@ def process_with_llm(config, input_text):
     if result:
         # Add metadata to each item
         result = [dict(item, **metadata) for item in result]
-        print("Extracted JSON:")
-        print(json.dumps(result, indent=2))  # Pretty print the JSON
+        
+        # Print extracted JSON only if debug mode is on
+        if debug:
+            print("Extracted JSON:")
+            print(json.dumps(result, indent=2))  # Pretty print the JSON
+        
         return result
     else:
+        # Always print error messages even if debug is off
         print("\n\nERROR ### Could not extract valid JSON from response: ", response, "\n\n")
         return None
 
-def process_text_in_chunks(config, full_text):
+def process_text_in_chunks(config, full_text, debug=False):
     """
     Process a large text by breaking it into chunks with overlap,
     and then processing each chunk separately.
@@ -66,6 +73,7 @@ def process_text_in_chunks(config, full_text):
     Args:
         config: Configuration dictionary
         full_text: The complete text to process
+        debug: If True, print detailed debug information
     
     Returns:
         List of all extracted triples from all chunks
@@ -85,7 +93,7 @@ def process_text_in_chunks(config, full_text):
         print(f"\nProcessing chunk {i+1}/{len(text_chunks)} ({len(chunk.split())} words)")
         
         # Process the chunk with LLM
-        chunk_results = process_with_llm(config, chunk)
+        chunk_results = process_with_llm(config, chunk, debug)
         
         if chunk_results:
             # Add chunk information to each triple
@@ -107,13 +115,24 @@ def main():
     parser.add_argument('--test', action='store_true', help='Generate a test visualization with sample data')
     parser.add_argument('--config', type=str, default='config.toml', help='Path to configuration file')
     parser.add_argument('--output', type=str, default='knowledge_graph.html', help='Output HTML file path')
-    parser.add_argument('--input', type=str, required=True, help='Path to input text file (required)')
+    parser.add_argument('--input', type=str, required=False, help='Path to input text file (required unless --test is used)')
+    parser.add_argument('--debug', action='store_true', help='Enable debug output (raw LLM responses and extracted JSON)')
     
     args = parser.parse_args()
     
     # If test flag is provided, generate a sample visualization
     if args.test:
+        print("Generating sample data visualization...")
         sample_data_visualization(args.output)
+        print(f"\nSample visualization saved to {args.output}")
+        print(f"To view the visualization, open the following file in your browser:")
+        print(f"file://{os.path.abspath(args.output)}")
+        return
+    
+    # For normal processing, input file is required
+    if not args.input:
+        print("Error: --input is required unless --test is used")
+        parser.print_help()
         return
     
     # Normal processing continues below
@@ -133,7 +152,7 @@ def main():
         return
     
     # Process text in chunks
-    result = process_text_in_chunks(config, input_text)
+    result = process_text_in_chunks(config, input_text, args.debug)
     
     if result:
         # Visualize the knowledge graph
