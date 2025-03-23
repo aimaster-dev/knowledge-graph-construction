@@ -5,9 +5,10 @@ requires-python = ">=3.12"
 [[package]]
 name = "ai-knowledge-graph"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "networkx" },
+    { name = "python-louvain" },
     { name = "pyvis" },
     { name = "pyvis-network" },
     { name = "requests" },
@@ -17,6 +18,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "networkx", specifier = ">=3.4.2" },
+    { name = "python-louvain", specifier = ">=0.16" },
     { name = "pyvis", specifier = ">=0.3.2" },
     { name = "pyvis-network", specifier = ">=0.0.6" },
     { name = "requests", specifier = ">=2.32.3" },
@@ -380,6 +382,16 @@ sdist = { url = "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee
 wheels = [
     { url = "https://files.pythonhosted.org/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl", hash = "sha256:a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427", size = 229892 },
 ]
+
+[[package]]
+name = "python-louvain"
+version = "0.16"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "networkx" },
+    { name = "numpy" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/7c/0d/8787b021d52eb8764c0bb18ab95f720cf554902044c6a5cb1865daf45763/python-louvain-0.16.tar.gz", hash = "sha256:b7ba2df5002fd28d3ee789a49532baad11fe648e4f2117cf0798e7520a1da56b", size = 204641 }
 
 [[package]]
 name = "pytz"

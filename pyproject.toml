@@ -1,6 +1,6 @@
 [project]
 name = "ai-knowledge-graph"
-version = "0.1.0"
+version = "0.2.0"
 description = "Takes a text document and generates an interactive knowledge graph"
 authors = [{ name = "Robert McDermott", email = "robert.c.mcdermott@gmail.com" }, ]
 readme = "README.md"
@@ -11,4 +11,15 @@ dependencies = [
     "pyvis-network>=0.0.6",
     "requests>=2.32.3",
     "tomli>=2.2.1",
+    "python-louvain>=0.16"
 ]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+generate-graph = "src.knowledge_graph.main:main"
+
+[tool.setuptools]
+package-dir = {"" = "."}

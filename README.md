@@ -1,88 +1,71 @@
-# AI Knowledge Graph Generator and Visualizer
+# AI Knowledge Graph Generator
 
-This tool extracts knowledge triples (Subject-Predicate-Object relationships) from text using an LLM and visualizes them as an interactive knowledge graph with community detection.
+A tool that takes text input and generates an interactive knowledge graph visualization.
 
-## Features
+## Overview
 
-- **LLM-based Knowledge Extraction**: Uses a local LLM through Ollama to extract knowledge triples from text
-- **Interactive Visualization**: Creates an interactive HTML visualization of the knowledge graph
-- **Community Detection**: Identifies and colors node communities
-- **Importance Weighting**: Sizes nodes based on their importance in the graph
-- **Physics Simulation**: Interactive physics-based layout with stabilization controls
+This tool uses a large language model (LLM) to extract subject-predicate-object relationships from text, and then visualizes these relationships as a knowledge graph. The visualization is interactive and allows for exploring connections between concepts.
 
 ## Installation
 
-1. Clone this repository:
-   ```
-   git clone <repository-url>
-   cd ai-knowlege-graph
-   ```
+1. Clone this repository
+2. Make sure you have Python 3.12+ installed
+3. Install dependencies:
 
-2. Install the required dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
-
-3. Make sure you have [Ollama](https://ollama.ai/) installed and running locally.
+```bash
+pip install -e .
+```
 
 ## Usage
 
-### Configuration
+You can run the tool in different ways:
 
-Edit the `config.toml` file to configure:
-- The input text to analyze
-- The LLM to use (via Ollama)
-- System and user prompts for the LLM
+### Using uv run (recommended)
 
-### Run the Graph Generator
-
-Run the script to extract knowledge and generate the visualization:
-
-```
-python generate-graph.py
+```bash
+uv run generate-graph.py [options]
 ```
 
-The visualization will be saved as `knowledge_graph.html` in the current directory.
+### Using standard Python
 
-### Test Visualization
-
-To test the visualization with sample data (without LLM processing):
-
-```
-python generate-graph.py --test
+```bash
+python generate-graph.py [options]
 ```
 
-This will generate a `sample_knowledge_graph.html` file.
+### After installation
 
-## Visualization Features
+```bash
+generate-graph [options]
+```
 
-The generated HTML visualization includes:
-- Interactive node movement
-- Node coloring by community
-- Node sizing by importance (calculated based on centrality)
-- Edge labels showing relationships
-- Physics controls (toggle physics, stabilize layout)
-- Community color legend
+## Command Line Options
 
-## How it Works
+- `--test`: Generate a test visualization with sample data
+- `--config`: Path to configuration file (default: `config.toml`)
+- `--output`: Output HTML file path (default: `knowledge_graph.html`)
 
-1. **Knowledge Extraction**: The tool sends the input text to the LLM with a prompt requesting S-P-O (Subject-Predicate-Object) triples.
-2. **JSON Parsing**: The LLM response is parsed to extract the JSON array of triples.
-3. **Graph Construction**: A directed graph is built using NetworkX with nodes and edges from the triples.
-4. **Community Detection**: Communities are identified to color-code related nodes.
-5. **Importance Calculation**: Node importance is calculated based on centrality metrics.
-6. **Visualization**: The graph is visualized as an interactive HTML page using PyVis.
+## Configuration
 
-## Modifying the Code
+The tool is configured using a TOML file (default: `config.toml`). The configuration file contains:
 
-- **Prompt Engineering**: Edit the prompts in `config.toml` to change how the LLM extracts knowledge.
-- **Visualization Settings**: Modify the visualization parameters in the code (colors, physics, layout).
-- **Community Detection**: The code currently uses a degree-based community detection fallback, but will try to use the Louvain method if available.
+- LLM settings (model, API key, etc.)
+- Input data
+- Prompts for knowledge extraction
 
-## Example Output
+## Project Structure
 
-When you open the HTML file in a browser, you'll see an interactive graph with:
-- Nodes representing entities (colored by community)
-- Directed edges showing relationships
-- Hover tooltips displaying node information
-- Controls for manipulating the physics simulation
+```
+├── generate-graph.py         # Root entry point script
+├── src/                      # Source code directory
+│   ├── generate_graph.py     # Module entry point script
+│   └── knowledge_graph/      # Main package
+│       ├── __init__.py       # Package initialization 
+│       ├── main.py           # Main logic and CLI interface
+│       ├── config.py         # Configuration handling
+│       ├── llm.py            # LLM interaction utilities
+│       └── visualization.py  # Graph visualization utilities
+```
+
+## License
+
+See [LICENSE](LICENSE) file for details.
