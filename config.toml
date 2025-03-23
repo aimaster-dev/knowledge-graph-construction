@@ -4,6 +4,10 @@ api_key = "ollama"
 max_tokens = 8000
 temperature = 0.2
 
+[chunking]
+chunk_size = 200  # Number of words per chunk
+overlap = 20      # Number of words to overlap between chunks
+
 [prompts]
 system_prompt = """
 You are an advanced AI system specialized in knowledge extraction and knowledge graph generation.

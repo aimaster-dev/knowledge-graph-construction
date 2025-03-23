@@ -50,7 +50,20 @@ generate-graph --input your_input_file.txt [options]
 The tool is configured using a TOML file (default: `config.toml`). The configuration file contains:
 
 - LLM settings (model, API key, etc.)
+- Chunking settings (for processing large input files)
 - Prompts for knowledge extraction
+
+### Chunking Configuration
+
+For processing large input files, the tool splits the text into smaller chunks with overlap:
+
+```toml
+[chunking]
+chunk_size = 500  # Number of words per chunk
+overlap = 50      # Number of words to overlap between chunks
+```
+
+These settings help ensure that large documents are properly analyzed without exceeding LLM context limits.
 
 ## Project Structure
 

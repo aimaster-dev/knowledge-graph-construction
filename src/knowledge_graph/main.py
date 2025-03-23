@@ -12,6 +12,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspa
 from src.knowledge_graph.config import load_config
 from src.knowledge_graph.llm import call_llm, extract_json_from_text
 from src.knowledge_graph.visualization import visualize_knowledge_graph, sample_data_visualization
+from src.knowledge_graph.text_utils import chunk_text
 
 def process_with_llm(config, input_text):
     """
@@ -57,6 +58,48 @@ def process_with_llm(config, input_text):
         print("\n\nERROR ### Could not extract valid JSON from response: ", response, "\n\n")
         return None
 
+def process_text_in_chunks(config, full_text):
+    """
+    Process a large text by breaking it into chunks with overlap,
+    and then processing each chunk separately.
+    
+    Args:
+        config: Configuration dictionary
+        full_text: The complete text to process
+    
+    Returns:
+        List of all extracted triples from all chunks
+    """
+    # Get chunking parameters from config
+    chunk_size = config.get("chunking", {}).get("chunk_size", 500)
+    overlap = config.get("chunking", {}).get("overlap", 50)
+    
+    # Split text into chunks
+    text_chunks = chunk_text(full_text, chunk_size, overlap)
+    
+    print(f"Processing text in {len(text_chunks)} chunks (size: {chunk_size} words, overlap: {overlap} words)")
+    
+    # Process each chunk
+    all_results = []
+    for i, chunk in enumerate(text_chunks):
+        print(f"\nProcessing chunk {i+1}/{len(text_chunks)} ({len(chunk.split())} words)")
+        
+        # Process the chunk with LLM
+        chunk_results = process_with_llm(config, chunk)
+        
+        if chunk_results:
+            # Add chunk information to each triple
+            for item in chunk_results:
+                item["chunk"] = i + 1
+            
+            # Add to overall results
+            all_results.extend(chunk_results)
+        else:
+            print(f"Warning: Failed to extract triples from chunk {i+1}")
+    
+    print(f"\nExtracted a total of {len(all_results)} triples from all chunks")
+    return all_results
+
 def main():
     """Main entry point for the knowledge graph generator."""
     # Parse command line arguments
@@ -89,8 +132,8 @@ def main():
         print(f"Error reading input file {args.input}: {e}")
         return
     
-    # Process with LLM
-    result = process_with_llm(config, input_text)
+    # Process text in chunks
+    result = process_text_in_chunks(config, input_text)
     
     if result:
         # Visualize the knowledge graph
