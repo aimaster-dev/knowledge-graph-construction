@@ -23,34 +23,33 @@ You can run the tool in different ways:
 ### Using uv run (recommended)
 
 ```bash
-uv run generate-graph.py [options]
+uv run generate-graph.py --input your_input_file.txt [options]
 ```
 
 ### Using standard Python
 
 ```bash
-python generate-graph.py [options]
+python generate-graph.py --input your_input_file.txt [options]
 ```
 
 ### After installation
 
 ```bash
-generate-graph [options]
+generate-graph --input your_input_file.txt [options]
 ```
 
 ## Command Line Options
 
+- `--input`: Path to input text file (required)
 - `--test`: Generate a test visualization with sample data
 - `--config`: Path to configuration file (default: `config.toml`)
 - `--output`: Output HTML file path (default: `knowledge_graph.html`)
-- `--input`: Path to input text file (overrides the input in config file)
 
 ## Configuration
 
 The tool is configured using a TOML file (default: `config.toml`). The configuration file contains:
 
 - LLM settings (model, API key, etc.)
-- Input data (can be overridden with the `--input` command line option)
 - Prompts for knowledge extraction
 
 ## Project Structure
