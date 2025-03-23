@@ -1,0 +1,7 @@
+*/__pycache__
+*/.DS_Store
+.DS_Store
+.ipynb_checkpoints/
+# old_notebooks
+# PyVis generated libraries
+lib/

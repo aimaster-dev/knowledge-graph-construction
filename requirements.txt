@@ -1,0 +1,5 @@
+networkx>=2.8.0
+pyvis>=0.3.0
+requests>=2.28.0
+tomli>=2.0.0
+python-louvain>=0.16  # Community detection algorithm (Louvain method) 
