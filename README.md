@@ -76,6 +76,7 @@ These settings help ensure that large documents are properly analyzed without ex
 │       ├── main.py           # Main logic and CLI interface
 │       ├── config.py         # Configuration handling
 │       ├── llm.py            # LLM interaction utilities
+│       ├── text_utils.py     # Text processing utilities for chunking
 │       └── visualization.py  # Graph visualization utilities
 ```
 
