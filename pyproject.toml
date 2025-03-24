@@ -1,6 +1,6 @@
 [project]
 name = "ai-knowledge-graph"
-version = "0.4.3"
+version = "0.5.0"
 description = "Takes a text document and generates an interactive knowledge graph"
 authors = [{ name = "Robert McDermott", email = "robert.c.mcdermott@gmail.com" }, ]
 readme = "README.md"
