@@ -96,7 +96,7 @@ def visualize_knowledge_graph(triples, output_file="knowledge_graph.html"):
     
     # Create a PyVis network with explicit configuration
     net = Network(
-        height="750px", 
+        height="100%", 
         width="100%", 
         directed=True,
         notebook=False,

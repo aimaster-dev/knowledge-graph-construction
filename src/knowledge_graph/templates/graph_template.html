@@ -1,4 +1,4 @@
-<div class="card" style="width: 100%">
+<div class="card" style="width: 100%; height: 100vh; display: flex; flex-direction: column;">
     <div id="graph-controls" style="margin: 10px; display: flex; justify-content: space-between;">
         <div>
             <button onclick="togglePhysics()" id="physics-toggle" class="btn btn-primary">Disable Physics</button>
@@ -141,7 +141,7 @@
             <button onclick="resetSelection()" class="btn btn-primary">Reset Selection</button>
         </div>
     </div>
-    <div id="mynetwork" class="card-body"></div>
+    <div id="mynetwork" class="card-body" style="flex: 1;"></div>
 </div>
 
 <style id="theme-styles">
@@ -149,12 +149,40 @@
     body.light-mode {
         background-color: white;
         color: black;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        overflow: hidden;
     }
     
     /* Dark mode */
     body.dark-mode {
         background-color: #121212;
         color: #e0e0e0;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        overflow: hidden;
+    }
+    
+    /* Full height layout styling */
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    
+    .card {
+        border-radius: 0;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    
+    .card-body {
+        padding: 0;
+        overflow: hidden;
     }
     
     body.dark-mode .card {
@@ -271,6 +299,18 @@ function updateNodeTextColors(color) {
     }
 }
 
+// Function to resize the network container when menus open/close
+function resizeNetwork() {
+    // Allow a brief moment for DOM updates
+    setTimeout(function() {
+        // Resize the network to fit the container
+        if (window.network) {
+            network.redraw();
+            network.fit();
+        }
+    }, 100);
+}
+
 function togglePhysics() {
     const toggleBtn = document.getElementById('physics-toggle');
     
@@ -304,6 +344,9 @@ function togglePhysicsSettings() {
         button.classList.remove('btn-info');
         button.classList.add('btn-outline-info');
     }
+    
+    // Resize network when toggling menu
+    resizeNetwork();
 }
 
 function changeSolver() {
@@ -485,6 +528,9 @@ function toggleFilterMenu() {
         button.classList.remove('btn-info');
         button.classList.add('btn-outline-info');
     }
+    
+    // Resize network when toggling menu
+    resizeNetwork();
 }
 
 function populateFilterOptions() {
@@ -845,6 +891,9 @@ network.once("stabilizationIterationsDone", function() {
             physicsToggleBtn.classList.remove('btn-outline-primary');
             physicsToggleBtn.classList.add('btn-primary');
         }
+        
+        // Make sure the network fits the available space
+        network.fit();
     }, 1000);
     
     // Ensure node and edge text colors are set correctly for initial light mode
@@ -868,5 +917,12 @@ network.once("stabilizationIterationsDone", function() {
     updateNodeTextColors('#000000');
     
     console.log("Network stabilization complete");
+});
+
+// Handle window resize events to make sure the network always fits
+window.addEventListener('resize', function() {
+    if (window.network) {
+        network.fit();
+    }
 });
 </script> 
