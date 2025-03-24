@@ -1,7 +1,8 @@
 <div class="card" style="width: 100%">
     <div id="graph-controls" style="margin: 10px; display: flex; justify-content: space-between;">
         <div>
-            <button onclick="togglePhysics()" class="btn btn-primary">Toggle Physics</button>
+            <button onclick="togglePhysics()" id="physics-toggle" class="btn btn-primary">Disable Physics</button>
+            <button onclick="togglePhysicsSettings()" id="physics-settings-toggle" class="btn btn-outline-info">Physics Settings</button>
             <button onclick="stabilizeNetwork()" class="btn btn-secondary">Stabilize</button>
             <button onclick="toggleDarkMode()" id="theme-toggle" class="btn btn-info">Dark Mode</button>
             <button onclick="toggleFilterMenu()" id="filter-toggle" class="btn btn-outline-info">Show Filters</button>
@@ -15,6 +16,108 @@
             <span style="background-color: #ff7f00; width: 20px; height: 20px; display: inline-block; margin-right: 5px;"></span>
         </div>
     </div>
+    
+    <div id="physics-settings-container" style="display: none; margin: 10px; padding: 15px; border: 1px solid #ddd; border-radius: 5px;">
+        <h5>Physics Settings</h5>
+        <div style="display: flex; flex-wrap: wrap; gap: 15px;">
+            <div style="min-width: 200px;">
+                <label for="physics-solver">Solver</label>
+                <select id="physics-solver" class="form-select" onchange="changeSolver()">
+                    <option value="forceAtlas2Based">Force Atlas 2</option>
+                    <option value="barnesHut">Barnes-Hut</option>
+                    <option value="repulsion">Repulsion</option>
+                </select>
+            </div>
+            
+            <!-- Force Atlas 2 settings -->
+            <div id="forceAtlas2Based-settings" class="solver-settings">
+                <div class="setting-group">
+                    <label for="fa2-gravConstant">Gravitational Constant</label>
+                    <input type="range" id="fa2-gravConstant" min="-200" max="0" value="-50" class="form-range" oninput="updatePhysicsValue(this)">
+                    <small class="value-display">-50</small>
+                </div>
+                <div class="setting-group">
+                    <label for="fa2-centralGravity">Central Gravity</label>
+                    <input type="range" id="fa2-centralGravity" min="0" max="1" step="0.01" value="0.01" class="form-range" oninput="updatePhysicsValue(this)">
+                    <small class="value-display">0.01</small>
+                </div>
+                <div class="setting-group">
+                    <label for="fa2-springLength">Spring Length</label>
+                    <input type="range" id="fa2-springLength" min="10" max="500" value="100" class="form-range" oninput="updatePhysicsValue(this)">
+                    <small class="value-display">100</small>
+                </div>
+                <div class="setting-group">
+                    <label for="fa2-springConstant">Spring Constant</label>
+                    <input type="range" id="fa2-springConstant" min="0" max="1" step="0.01" value="0.08" class="form-range" oninput="updatePhysicsValue(this)">
+                    <small class="value-display">0.08</small>
+                </div>
+            </div>
+            
+            <!-- Barnes-Hut settings -->
+            <div id="barnesHut-settings" class="solver-settings" style="display: none;">
+                <div class="setting-group">
+                    <label for="bh-gravConstant">Gravitational Constant</label>
+                    <input type="range" id="bh-gravConstant" min="-30000" max="-1000" value="-8000" class="form-range" oninput="updatePhysicsValue(this)">
+                    <small class="value-display">-8000</small>
+                </div>
+                <div class="setting-group">
+                    <label for="bh-centralGravity">Central Gravity</label>
+                    <input type="range" id="bh-centralGravity" min="0" max="1" step="0.01" value="0.3" class="form-range" oninput="updatePhysicsValue(this)">
+                    <small class="value-display">0.3</small>
+                </div>
+                <div class="setting-group">
+                    <label for="bh-springLength">Spring Length</label>
+                    <input type="range" id="bh-springLength" min="10" max="500" value="250" class="form-range" oninput="updatePhysicsValue(this)">
+                    <small class="value-display">250</small>
+                </div>
+                <div class="setting-group">
+                    <label for="bh-springConstant">Spring Constant</label>
+                    <input type="range" id="bh-springConstant" min="0" max="1" step="0.01" value="0.04" class="form-range" oninput="updatePhysicsValue(this)">
+                    <small class="value-display">0.04</small>
+                </div>
+                <div class="setting-group">
+                    <label for="bh-damping">Damping</label>
+                    <input type="range" id="bh-damping" min="0" max="1" step="0.01" value="0.09" class="form-range" oninput="updatePhysicsValue(this)">
+                    <small class="value-display">0.09</small>
+                </div>
+            </div>
+            
+            <!-- Repulsion settings -->
+            <div id="repulsion-settings" class="solver-settings" style="display: none;">
+                <div class="setting-group">
+                    <label for="rep-nodeDistance">Node Distance</label>
+                    <input type="range" id="rep-nodeDistance" min="10" max="300" value="100" class="form-range" oninput="updatePhysicsValue(this)">
+                    <small class="value-display">100</small>
+                </div>
+                <div class="setting-group">
+                    <label for="rep-centralGravity">Central Gravity</label>
+                    <input type="range" id="rep-centralGravity" min="0" max="1" step="0.01" value="0.2" class="form-range" oninput="updatePhysicsValue(this)">
+                    <small class="value-display">0.2</small>
+                </div>
+                <div class="setting-group">
+                    <label for="rep-springLength">Spring Length</label>
+                    <input type="range" id="rep-springLength" min="10" max="500" value="200" class="form-range" oninput="updatePhysicsValue(this)">
+                    <small class="value-display">200</small>
+                </div>
+                <div class="setting-group">
+                    <label for="rep-springStrength">Spring Strength</label>
+                    <input type="range" id="rep-springStrength" min="0" max="1" step="0.01" value="0.05" class="form-range" oninput="updatePhysicsValue(this)">
+                    <small class="value-display">0.05</small>
+                </div>
+                <div class="setting-group">
+                    <label for="rep-damping">Damping</label>
+                    <input type="range" id="rep-damping" min="0" max="1" step="0.01" value="0.09" class="form-range" oninput="updatePhysicsValue(this)">
+                    <small class="value-display">0.09</small>
+                </div>
+            </div>
+            
+            <div style="margin-top: 15px;">
+                <button onclick="applyPhysicsSettings()" class="btn btn-success">Apply Settings</button>
+                <button onclick="resetPhysicsSettings()" class="btn btn-outline-secondary">Reset</button>
+            </div>
+        </div>
+    </div>
+    
     <div id="filter-menu-container" style="display: none; margin: 10px;">
         <div class="filter-row" style="display: flex; gap: 10px; margin-bottom: 10px;">
             <select id="node-select" class="form-select" style="flex: 1;">
@@ -72,6 +175,39 @@
         background-color: #333;
         color: #e0e0e0;
         border-color: #555;
+    }
+    
+    /* Physics settings styles */
+    #physics-settings-container {
+        background-color: #f8f9fa;
+    }
+    
+    body.dark-mode #physics-settings-container {
+        background-color: #2d2d2d;
+        border-color: #444;
+    }
+    
+    .setting-group {
+        margin-bottom: 12px;
+        min-width: 200px;
+    }
+    
+    .setting-group label {
+        display: block;
+        margin-bottom: 3px;
+        font-size: 14px;
+    }
+    
+    .setting-group .value-display {
+        display: inline-block;
+        min-width: 40px;
+        text-align: right;
+    }
+    
+    .solver-settings {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
     }
     
     /* Node label colors - strong selectors to override vis.js styles */
@@ -136,13 +272,136 @@ function updateNodeTextColors(color) {
 }
 
 function togglePhysics() {
+    const toggleBtn = document.getElementById('physics-toggle');
+    
     if (network.physics.options.enabled) {
         network.physics.stopSimulation();
         network.setOptions({physics: {enabled: false}});
+        toggleBtn.textContent = 'Enable Physics';
+        toggleBtn.classList.remove('btn-primary');
+        toggleBtn.classList.add('btn-outline-primary');
     } else {
         network.setOptions({physics: {enabled: true}});
         network.startSimulation();
+        toggleBtn.textContent = 'Disable Physics';
+        toggleBtn.classList.remove('btn-outline-primary');
+        toggleBtn.classList.add('btn-primary');
     }
+}
+
+function togglePhysicsSettings() {
+    const container = document.getElementById('physics-settings-container');
+    const button = document.getElementById('physics-settings-toggle');
+    
+    if (container.style.display === 'none') {
+        container.style.display = 'block';
+        button.textContent = 'Hide Physics Settings';
+        button.classList.remove('btn-outline-info');
+        button.classList.add('btn-info');
+    } else {
+        container.style.display = 'none';
+        button.textContent = 'Physics Settings';
+        button.classList.remove('btn-info');
+        button.classList.add('btn-outline-info');
+    }
+}
+
+function changeSolver() {
+    const selectedSolver = document.getElementById('physics-solver').value;
+    
+    // Hide all solver setting sections
+    document.querySelectorAll('.solver-settings').forEach(el => {
+        el.style.display = 'none';
+    });
+    
+    // Show the selected solver settings
+    document.getElementById(`${selectedSolver}-settings`).style.display = 'flex';
+}
+
+function updatePhysicsValue(input) {
+    // Update the display value next to the slider
+    const valueDisplay = input.nextElementSibling;
+    valueDisplay.textContent = input.value;
+}
+
+function applyPhysicsSettings() {
+    const solver = document.getElementById('physics-solver').value;
+    let physicsOptions = { solver: solver };
+    
+    // Get the settings for the selected solver
+    if (solver === 'forceAtlas2Based') {
+        physicsOptions.forceAtlas2Based = {
+            gravitationalConstant: parseFloat(document.getElementById('fa2-gravConstant').value),
+            centralGravity: parseFloat(document.getElementById('fa2-centralGravity').value),
+            springLength: parseFloat(document.getElementById('fa2-springLength').value),
+            springConstant: parseFloat(document.getElementById('fa2-springConstant').value)
+        };
+    } else if (solver === 'barnesHut') {
+        physicsOptions.barnesHut = {
+            gravitationalConstant: parseFloat(document.getElementById('bh-gravConstant').value),
+            centralGravity: parseFloat(document.getElementById('bh-centralGravity').value),
+            springLength: parseFloat(document.getElementById('bh-springLength').value),
+            springConstant: parseFloat(document.getElementById('bh-springConstant').value),
+            damping: parseFloat(document.getElementById('bh-damping').value)
+        };
+    } else if (solver === 'repulsion') {
+        physicsOptions.repulsion = {
+            nodeDistance: parseFloat(document.getElementById('rep-nodeDistance').value),
+            centralGravity: parseFloat(document.getElementById('rep-centralGravity').value),
+            springLength: parseFloat(document.getElementById('rep-springLength').value),
+            springConstant: parseFloat(document.getElementById('rep-springStrength').value),
+            damping: parseFloat(document.getElementById('rep-damping').value)
+        };
+    }
+    
+    // Apply the settings
+    network.setOptions({ physics: physicsOptions });
+    
+    // Restart the simulation
+    network.startSimulation();
+    
+    // Update the physics toggle button
+    const toggleBtn = document.getElementById('physics-toggle');
+    toggleBtn.textContent = 'Disable Physics';
+    toggleBtn.classList.remove('btn-outline-primary');
+    toggleBtn.classList.add('btn-primary');
+    
+    console.log('Applied physics settings:', physicsOptions);
+}
+
+function resetPhysicsSettings() {
+    // Reset Force Atlas 2 settings
+    document.getElementById('fa2-gravConstant').value = -50;
+    document.getElementById('fa2-centralGravity').value = 0.01;
+    document.getElementById('fa2-springLength').value = 100;
+    document.getElementById('fa2-springConstant').value = 0.08;
+    
+    // Reset Barnes-Hut settings
+    document.getElementById('bh-gravConstant').value = -8000;
+    document.getElementById('bh-centralGravity').value = 0.3;
+    document.getElementById('bh-springLength').value = 250;
+    document.getElementById('bh-springConstant').value = 0.04;
+    document.getElementById('bh-damping').value = 0.09;
+    
+    // Reset Repulsion settings
+    document.getElementById('rep-nodeDistance').value = 100;
+    document.getElementById('rep-centralGravity').value = 0.2;
+    document.getElementById('rep-springLength').value = 200;
+    document.getElementById('rep-springStrength').value = 0.05;
+    document.getElementById('rep-damping').value = 0.09;
+    
+    // Update all displayed values
+    document.querySelectorAll('.form-range').forEach(input => {
+        const valueDisplay = input.nextElementSibling;
+        valueDisplay.textContent = input.value;
+    });
+    
+    // Reset to Force Atlas 2
+    document.getElementById('physics-solver').value = 'forceAtlas2Based';
+    changeSolver();
+    
+    // Apply the default settings
+    applyPhysicsSettings();
 }
 
 function stabilizeNetwork() {
@@ -285,6 +544,20 @@ document.body.classList.add('light-mode');
             }
         });
         
+        // Set physics toggle button state based on network physics state
+        const physicsToggleBtn = document.getElementById('physics-toggle');
+        if (physicsToggleBtn) {
+            if (network.physics.options.enabled) {
+                physicsToggleBtn.textContent = 'Disable Physics';
+                physicsToggleBtn.classList.remove('btn-outline-primary');
+                physicsToggleBtn.classList.add('btn-primary');
+            } else {
+                physicsToggleBtn.textContent = 'Enable Physics';
+                physicsToggleBtn.classList.remove('btn-primary');
+                physicsToggleBtn.classList.add('btn-outline-primary');
+            }
+        }
+        
         // Apply direct SVG manipulation
         const textElements = document.querySelectorAll('.vis-network text');
         textElements.forEach(el => {
@@ -355,7 +628,15 @@ document.body.classList.add('light-mode');
 network.once("stabilizationIterationsDone", function() {
     // Auto-stabilize after initial load
     setTimeout(function() {
-        network.stopSimulation();
+        // Don't stop simulation since physics is now on by default
+        
+        // Set physics toggle button state
+        const physicsToggleBtn = document.getElementById('physics-toggle');
+        if (physicsToggleBtn) {
+            physicsToggleBtn.textContent = 'Disable Physics';
+            physicsToggleBtn.classList.remove('btn-outline-primary');
+            physicsToggleBtn.classList.add('btn-primary');
+        }
     }, 1000);
     
     // Ensure node and edge text colors are set correctly for initial light mode

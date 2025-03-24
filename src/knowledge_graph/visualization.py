@@ -227,6 +227,7 @@ def _get_visualization_options():
     """Get options for PyVis visualization."""
     # Configure physics for better visualization
     physics_options = {
+        "enabled": True,  # Physics on by default
         "solver": "forceAtlas2Based",
         "forceAtlas2Based": {
             "gravitationalConstant": -50,
@@ -235,7 +236,8 @@ def _get_visualization_options():
             "springConstant": 0.08
         },
         "stabilization": {
-            "iterations": 200  # Increased for better layout
+            "iterations": 200,  # Increased for better layout
+            "enabled": True
         }
     }
     
