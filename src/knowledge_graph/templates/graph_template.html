@@ -120,7 +120,7 @@
     
     <div id="filter-menu-container" style="display: none; margin: 10px;">
         <div class="filter-row" style="display: flex; gap: 10px; margin-bottom: 10px;">
-            <select id="node-select" class="form-select" style="flex: 1;">
+            <select id="node-select" class="form-select" style="flex: 1;" onchange="selectNode(this.value)">
                 <option value="">Select a Node by ID</option>
             </select>
             <button onclick="resetSelection()" class="btn btn-primary">Reset Selection</button>
@@ -503,10 +503,92 @@ function populateFilterOptions() {
         option.text = nodeId;
         nodeSelect.appendChild(option);
     });
-}
-
-function resetSelection() {
-    network.unselectAll();
+    
+    // Also handle the filter property and value selectors
+    const itemSelect = document.getElementById('item-select');
+    const propertySelect = document.getElementById('property-select');
+    const valueSelect = document.getElementById('value-select');
+    
+    // Clear previous values
+    while (propertySelect.options.length > 1) propertySelect.remove(1);
+    while (valueSelect.options.length > 1) valueSelect.remove(1);
+    
+    // When item type changes, update available properties
+    itemSelect.onchange = function() {
+        const selectedItem = itemSelect.value;
+        
+        // Clear previous property options
+        while (propertySelect.options.length > 1) propertySelect.remove(1);
+        while (valueSelect.options.length > 1) valueSelect.remove(1);
+        
+        if (selectedItem === 'node') {
+            // Add node properties
+            const nodeProperties = ['id', 'label', 'color', 'title', 'community'];
+            nodeProperties.forEach(prop => {
+                const option = document.createElement('option');
+                option.value = prop;
+                option.text = prop;
+                propertySelect.appendChild(option);
+            });
+        } else if (selectedItem === 'edge') {
+            // Add edge properties
+            const edgeProperties = ['from', 'to', 'label', 'title'];
+            edgeProperties.forEach(prop => {
+                const option = document.createElement('option');
+                option.value = prop;
+                option.text = prop;
+                propertySelect.appendChild(option);
+            });
+        }
+    };
+    
+    // When property changes, populate possible values
+    propertySelect.onchange = function() {
+        const selectedItem = itemSelect.value;
+        const selectedProperty = propertySelect.value;
+        
+        if (!selectedItem || !selectedProperty) return;
+        
+        // Clear previous value options
+        while (valueSelect.options.length > 1) valueSelect.remove(1);
+        
+        const values = new Set();
+        
+        if (selectedItem === 'node') {
+            // Get all unique values for the selected node property
+            const nodes = network.body.data.nodes.get();
+            nodes.forEach(node => {
+                if (node[selectedProperty] !== undefined) {
+                    // Handle special case for community in node color
+                    if (selectedProperty === 'community') {
+                        // Extract community from node color (simplified approach)
+                        const colorIndex = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#ffff33', '#a65628', '#f781bf'].indexOf(node.color);
+                        if (colorIndex >= 0) {
+                            values.add(colorIndex.toString());
+                        }
+                    } else {
+                        values.add(node[selectedProperty].toString());
+                    }
+                }
+            });
+        } else if (selectedItem === 'edge') {
+            // Get all unique values for the selected edge property
+            const edges = network.body.data.edges.get();
+            edges.forEach(edge => {
+                if (edge[selectedProperty] !== undefined) {
+                    values.add(edge[selectedProperty].toString());
+                }
+            });
+        }
+        
+        // Add values to select
+        Array.from(values).sort().forEach(value => {
+            const option = document.createElement('option');
+            option.value = value;
+            option.text = value;
+            valueSelect.appendChild(option);
+        });
+    };
 }
 
 function filterSelection() {
@@ -514,11 +596,137 @@ function filterSelection() {
     const property = document.getElementById('property-select').value;
     const value = document.getElementById('value-select').value;
     
-    if (itemType && property && value) {
-        // This is a simplified version - you would need to implement actual filtering logic
-        alert('Filtering not fully implemented in this simplified version');
-    } else {
+    if (!itemType || !property || !value) {
         alert('Please select all filter criteria');
+        return;
+    }
+    
+    try {
+        const nodesToShow = [];
+        const edgesToShow = [];
+        
+        // If we're filtering nodes directly
+        if (itemType === 'node') {
+            const nodes = network.body.data.nodes.get();
+            nodes.forEach(node => {
+                let match = false;
+                
+                // Handle special case for community
+                if (property === 'community') {
+                    const colorIndex = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#ffff33', '#a65628', '#f781bf'].indexOf(node.color);
+                    match = colorIndex.toString() === value;
+                } else {
+                    match = node[property] && node[property].toString() === value;
+                }
+                
+                if (match) {
+                    nodesToShow.push(node.id);
+                    
+                    // Also include connected edges
+                    const connectedEdges = network.getConnectedEdges(node.id);
+                    connectedEdges.forEach(edgeId => {
+                        const edge = network.body.data.edges.get(edgeId);
+                        if (nodesToShow.includes(edge.from) || nodesToShow.includes(edge.to)) {
+                            edgesToShow.push(edgeId);
+                        }
+                    });
+                }
+            });
+        }
+        // If we're filtering edges
+        else if (itemType === 'edge') {
+            const edges = network.body.data.edges.get();
+            edges.forEach(edge => {
+                if (edge[property] && edge[property].toString() === value) {
+                    edgesToShow.push(edge.id);
+                    // Include connected nodes
+                    nodesToShow.push(edge.from);
+                    nodesToShow.push(edge.to);
+                }
+            });
+        }
+        
+        // Apply the filter by hiding all nodes/edges except our selection
+        const allNodes = network.body.data.nodes.get();
+        const allEdges = network.body.data.edges.get();
+        
+        const nodeUpdates = [];
+        const edgeUpdates = [];
+        
+        allNodes.forEach(node => {
+            nodeUpdates.push({
+                id: node.id,
+                hidden: !nodesToShow.includes(node.id)
+            });
+        });
+        
+        allEdges.forEach(edge => {
+            edgeUpdates.push({
+                id: edge.id,
+                hidden: !edgesToShow.includes(edge.id)
+            });
+        });
+        
+        // Apply updates
+        network.body.data.nodes.update(nodeUpdates);
+        network.body.data.edges.update(edgeUpdates);
+        
+        console.log(`Filtered to show ${nodesToShow.length} nodes and ${edgesToShow.length} edges`);
+    } catch (error) {
+        console.error('Error applying filter:', error);
+        alert('Error applying filter. See console for details.');
+    }
+}
+
+function resetSelection() {
+    // Clear any selection
+    network.unselectAll();
+    
+    // Reset the visibility of all nodes and edges
+    const allNodes = network.body.data.nodes.get();
+    const allEdges = network.body.data.edges.get();
+    
+    const nodeUpdates = allNodes.map(node => ({
+        id: node.id,
+        hidden: false
+    }));
+    
+    const edgeUpdates = allEdges.map(edge => ({
+        id: edge.id,
+        hidden: false
+    }));
+    
+    // Apply updates
+    network.body.data.nodes.update(nodeUpdates);
+    network.body.data.edges.update(edgeUpdates);
+    
+    console.log('Reset all filters');
+}
+
+function selectNode(nodeId) {
+    if (!nodeId) {
+        resetSelection();
+        return;
+    }
+    
+    try {
+        // Get the selected node
+        const node = network.body.data.nodes.get(nodeId);
+        if (!node) return;
+        
+        // Focus on the node
+        network.selectNodes([nodeId]);
+        network.focus(nodeId, {
+            scale: 1.5,
+            animation: {
+                duration: 1000,
+                easingFunction: "easeInOutQuad"
+            }
+        });
+        
+        console.log(`Selected node: ${nodeId}`);
+    } catch (error) {
+        console.error('Error selecting node:', error);
     }
 }
 
