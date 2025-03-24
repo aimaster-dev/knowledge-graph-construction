@@ -6,6 +6,7 @@
             <button onclick="stabilizeNetwork()" class="btn btn-secondary">Stabilize</button>
             <button onclick="toggleDarkMode()" id="theme-toggle" class="btn btn-info">Dark Mode</button>
             <button onclick="toggleFilterMenu()" id="filter-toggle" class="btn btn-outline-info">Show Filters</button>
+            <button onclick="toggleLabels()" id="labels-toggle" class="btn btn-primary">Hide Labels</button>
         </div>
         <div>
             <span style="margin-right: 15px;"><strong>Communities:</strong></span>
@@ -311,6 +312,51 @@ function resizeNetwork() {
     }, 100);
 }
 
+// Global variable to track label state
+let labelsVisible = true;
+
+// Function to toggle node and edge labels
+function toggleLabels() {
+    const toggleBtn = document.getElementById('labels-toggle');
+    
+    // Toggle the state
+    labelsVisible = !labelsVisible;
+    
+    if (labelsVisible) {
+        // Show labels
+        network.setOptions({
+            nodes: {
+                font: { 
+                    size: 14,
+                    color: document.body.classList.contains('dark-mode') ? '#ffffff' : '#000000'
+                }
+            },
+            edges: {
+                font: { 
+                    size: 12,
+                    color: document.body.classList.contains('dark-mode') ? '#ffdd00' : '#000000'
+                }
+            }
+        });
+        toggleBtn.textContent = 'Hide Labels';
+        toggleBtn.classList.remove('btn-outline-primary');
+        toggleBtn.classList.add('btn-primary');
+    } else {
+        // Hide labels
+        network.setOptions({
+            nodes: {
+                font: { size: 0 }
+            },
+            edges: {
+                font: { size: 0 }
+            }
+        });
+        toggleBtn.textContent = 'Show Labels';
+        toggleBtn.classList.remove('btn-primary');
+        toggleBtn.classList.add('btn-outline-primary');
+    }
+}
+
 function togglePhysics() {
     const toggleBtn = document.getElementById('physics-toggle');
     
@@ -469,13 +515,15 @@ function toggleDarkMode() {
             nodes: {
                 font: {
                     color: '#000000',
-                    strokeWidth: 0
+                    strokeWidth: 0,
+                    size: labelsVisible ? 14 : 0
                 }
             },
             edges: {
                 font: {
                     color: '#000000',
-                    strokeWidth: 4  // Default border for light mode
+                    strokeWidth: 4,
+                    size: labelsVisible ? 12 : 0
                 }
             }
         });
@@ -496,13 +544,15 @@ function toggleDarkMode() {
             nodes: {
                 font: {
                     color: '#ffffff',
-                    strokeWidth: 0
+                    strokeWidth: 0,
+                    size: labelsVisible ? 14 : 0
                 }
             },
             edges: {
                 font: {
                     color: '#ffdd00',  // Yellow color for edge text
-                    strokeWidth: 0     // Remove text border/stroke in dark mode
+                    strokeWidth: 0,    // Remove text border/stroke in dark mode
+                    size: labelsVisible ? 12 : 0
                 }
             }
         });
@@ -902,13 +952,15 @@ network.once("stabilizationIterationsDone", function() {
             font: {
                 color: '#000000',
                 face: 'Tahoma',
-                strokeWidth: 0
+                strokeWidth: 0,
+                size: 14
             }
         },
         edges: {
             font: {
                 color: '#000000',
-                strokeWidth: 4  // Default border for light mode
+                strokeWidth: 4,  // Default border for light mode
+                size: 12
             }
         }
     });
