@@ -4,6 +4,7 @@
             <button onclick="togglePhysics()" class="btn btn-primary">Toggle Physics</button>
             <button onclick="stabilizeNetwork()" class="btn btn-secondary">Stabilize</button>
             <button onclick="toggleDarkMode()" id="theme-toggle" class="btn btn-info">Dark Mode</button>
+            <button onclick="toggleFilterMenu()" id="filter-toggle" class="btn btn-outline-info">Show Filters</button>
         </div>
         <div>
             <span style="margin-right: 15px;"><strong>Communities:</strong></span>
@@ -12,6 +13,29 @@
             <span style="background-color: #4daf4a; width: 20px; height: 20px; display: inline-block; margin-right: 5px;"></span>
             <span style="background-color: #984ea3; width: 20px; height: 20px; display: inline-block; margin-right: 5px;"></span>
             <span style="background-color: #ff7f00; width: 20px; height: 20px; display: inline-block; margin-right: 5px;"></span>
+        </div>
+    </div>
+    <div id="filter-menu-container" style="display: none; margin: 10px;">
+        <div class="filter-row" style="display: flex; gap: 10px; margin-bottom: 10px;">
+            <select id="node-select" class="form-select" style="flex: 1;">
+                <option value="">Select a Node by ID</option>
+            </select>
+            <button onclick="resetSelection()" class="btn btn-primary">Reset Selection</button>
+        </div>
+        <div class="filter-row" style="display: flex; gap: 10px;">
+            <select id="item-select" class="form-select" style="flex: 1;">
+                <option value="">Select a network item</option>
+                <option value="node">Nodes</option>
+                <option value="edge">Edges</option>
+            </select>
+            <select id="property-select" class="form-select" style="flex: 1;">
+                <option value="">Select a property</option>
+            </select>
+            <select id="value-select" class="form-select" style="flex: 1;">
+                <option value="">Select value(s)</option>
+            </select>
+            <button onclick="filterSelection()" class="btn btn-primary">Filter</button>
+            <button onclick="resetSelection()" class="btn btn-primary">Reset Selection</button>
         </div>
     </div>
     <div id="mynetwork" class="card-body"></div>
@@ -43,9 +67,74 @@
         border-color: #333;
         background-color: #000000;
     }
+    
+    body.dark-mode .form-select {
+        background-color: #333;
+        color: #e0e0e0;
+        border-color: #555;
+    }
+    
+    /* Node label colors - strong selectors to override vis.js styles */
+    .vis-network .vis-node {
+        font-family: Tahoma, sans-serif;
+    }
+    
+    /* Strongest selectors for node text color */
+    .vis-network text,
+    .vis-network text.vis-text,
+    .vis-network .vis-node text,
+    .vis-network text[class*="vis-"],
+    .vis-network .vis-label text {
+        fill: #000000 !important;
+        stroke: none !important;
+        color: #000000 !important;
+    }
+    
+    body.dark-mode .vis-network text,
+    body.dark-mode .vis-network text.vis-text,
+    body.dark-mode .vis-network .vis-node text,
+    body.dark-mode .vis-network text[class*="vis-"],
+    body.dark-mode .vis-network .vis-label text {
+        fill: #ffffff !important;
+        stroke: none !important;
+        color: #ffffff !important;
+    }
 </style>
 
 <script>
+// Helper function to ensure node text colors are correct
+function updateNodeTextColors(color) {
+    if (!network || !network.body || !network.body.data || !network.body.data.nodes) return;
+    
+    try {
+        // Update through vis.js API
+        const nodeIds = network.body.data.nodes.getIds();
+        const updates = nodeIds.map(nodeId => ({
+            id: nodeId,
+            font: { 
+                color: color,
+                strokeWidth: 0 
+            }
+        }));
+        network.body.data.nodes.update(updates);
+        
+        // Direct manipulation of SVG text elements as fallback
+        setTimeout(() => {
+            try {
+                const textElements = document.querySelectorAll('.vis-network text');
+                textElements.forEach(el => {
+                    el.style.fill = color;
+                    el.setAttribute('fill', color);
+                });
+            } catch (e) {
+                console.error('Error directly manipulating SVG:', e);
+            }
+        }, 100);
+    } catch (e) {
+        console.error('Error updating node colors:', e);
+    }
+}
+
 function togglePhysics() {
     if (network.physics.options.enabled) {
         network.physics.stopSimulation();
@@ -77,7 +166,8 @@ function toggleDarkMode() {
             },
             nodes: {
                 font: {
-                    color: '#000000'
+                    color: '#000000',
+                    strokeWidth: 0
                 }
             },
             edges: {
@@ -87,6 +177,9 @@ function toggleDarkMode() {
                 }
             }
         });
+        
+        // Force correct node text color
+        updateNodeTextColors('#000000');
     } else {
         // Switch to dark mode
         body.classList.remove('light-mode');
@@ -100,7 +193,8 @@ function toggleDarkMode() {
             },
             nodes: {
                 font: {
-                    color: '#ffffff'
+                    color: '#ffffff',
+                    strokeWidth: 0
                 }
             },
             edges: {
@@ -110,10 +204,154 @@ function toggleDarkMode() {
                 }
             }
         });
+        
+        // Force correct node text color
+        updateNodeTextColors('#ffffff');
     }
 }
 
-// Once network is loaded, add info box
+function toggleFilterMenu() {
+    const container = document.getElementById('filter-menu-container');
+    const button = document.getElementById('filter-toggle');
+    
+    if (container.style.display === 'none') {
+        container.style.display = 'block';
+        button.textContent = 'Hide Filters';
+        button.classList.remove('btn-outline-info');
+        button.classList.add('btn-info');
+        populateFilterOptions();
+    } else {
+        container.style.display = 'none';
+        button.textContent = 'Show Filters';
+        button.classList.remove('btn-info');
+        button.classList.add('btn-outline-info');
+    }
+}
+
+function populateFilterOptions() {
+    // Get all node IDs for the node selector
+    const nodeSelect = document.getElementById('node-select');
+    // Clear existing options except the first one
+    while (nodeSelect.options.length > 1) {
+        nodeSelect.remove(1);
+    }
+    
+    // Add all nodes to the select
+    const nodeIds = network.body.data.nodes.getIds();
+    nodeIds.forEach(nodeId => {
+        const option = document.createElement('option');
+        option.value = nodeId;
+        option.text = nodeId;
+        nodeSelect.appendChild(option);
+    });
+}
+
+function resetSelection() {
+    network.unselectAll();
+}
+
+function filterSelection() {
+    const itemType = document.getElementById('item-select').value;
+    const property = document.getElementById('property-select').value;
+    const value = document.getElementById('value-select').value;
+    
+    if (itemType && property && value) {
+        // This is a simplified version - you would need to implement actual filtering logic
+        alert('Filtering not fully implemented in this simplified version');
+    } else {
+        alert('Please select all filter criteria');
+    }
+}
+
+// Set initial theme class
+document.body.classList.add('light-mode');
+
+// Rewritten approach for node text colors
+(function() {
+    // Function to handle network initialization
+    function initializeNetwork() {
+        if (!window.network) return false;
+        
+        console.log("Setting initial network options");
+        
+        // Force node text color settings
+        network.setOptions({
+            nodes: {
+                font: {
+                    color: '#000000',
+                    face: 'Tahoma',
+                    strokeWidth: 0
+                }
+            }
+        });
+        
+        // Apply direct SVG manipulation
+        const textElements = document.querySelectorAll('.vis-network text');
+        textElements.forEach(el => {
+            el.style.fill = '#000000';
+            el.setAttribute('fill', '#000000');
+            el.style.stroke = 'none';
+            el.setAttribute('stroke', 'none');
+        });
+        
+        return true;
+    }
+    
+    // Add a style tag to force node colors
+    const style = document.createElement('style');
+    style.textContent = `
+        .vis-network text { fill: #000000 !important; color: #000000 !important; }
+        body.dark-mode .vis-network text { fill: #ffffff !important; color: #ffffff !important; }
+    `;
+    document.head.appendChild(style);
+    
+    // Try to initialize immediately
+    if (initializeNetwork()) {
+        console.log("Network initialized immediately");
+    }
+    
+    // DOMContentLoaded approach
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check for network repeatedly
+        const networkCheck = setInterval(() => {
+            if (initializeNetwork()) {
+                console.log("Network initialized via interval");
+                clearInterval(networkCheck);
+            }
+        }, 50);
+        
+        // Backup timeout approaches
+        for (let i = 1; i <= 20; i++) {
+            setTimeout(() => {
+                if (window.network) {
+                    console.log(`Applying color fix at ${i*100}ms`);
+                    initializeNetwork();
+                    updateNodeTextColors('#000000');
+                }
+            }, i * 100);
+        }
+    });
+    
+    // Add mutation observer to catch when network is added to DOM
+    const observer = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+            if (mutation.addedNodes.length) {
+                if (window.network) {
+                    console.log("Network detected via mutation observer");
+                    initializeNetwork();
+                    updateNodeTextColors('#000000');
+                    observer.disconnect();
+                    break;
+                }
+            }
+        }
+    });
+    
+    // Start observing
+    observer.observe(document.body, { childList: true, subtree: true });
+})();
+
+// Original network stabilization listener (keep this)
 network.once("stabilizationIterationsDone", function() {
     // Auto-stabilize after initial load
     setTimeout(function() {
@@ -124,7 +362,9 @@ network.once("stabilizationIterationsDone", function() {
     network.setOptions({
         nodes: {
             font: {
-                color: '#000000'
+                color: '#000000',
+                face: 'Tahoma',
+                strokeWidth: 0
             }
         },
         edges: {
@@ -134,8 +374,10 @@ network.once("stabilizationIterationsDone", function() {
             }
         }
     });
+    
+    // Fix any nodes that might have incorrect font color
+    updateNodeTextColors('#000000');
+    
+    console.log("Network stabilization complete");
 });
-
-// Set initial theme class
-document.body.classList.add('light-mode');
 </script> 

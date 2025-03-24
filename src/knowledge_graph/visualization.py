@@ -79,7 +79,7 @@ def visualize_knowledge_graph(triples, output_file="knowledge_graph.html"):
             node, 
             color=colors[community % len(colors)],  # Ensure we don't go out of bounds
             label=node,  # Explicit label
-            title=f"{node}<br>Connections: {degree.get(node, 0)}",  # Tooltip with info
+            title=f"{node} - Connections: {degree.get(node, 0)}",  # Simple tooltip without HTML tags
             size=node_sizes[node]
         )
     
@@ -99,7 +99,12 @@ def visualize_knowledge_graph(triples, output_file="knowledge_graph.html"):
         height="750px", 
         width="100%", 
         directed=True,
-        notebook=False
+        notebook=False,
+        cdn_resources='in_line',  # Include resources in-line to ensure independence
+        bgcolor="#ffffff",
+        font_color=True,
+        select_menu=False,
+        filter_menu=False
     )
     
     # Dump some debug info
@@ -114,6 +119,7 @@ def visualize_knowledge_graph(triples, output_file="knowledge_graph.html"):
     
     # Set all options in one go with proper JSON
     net.set_options(json.dumps(options))
+    
     
     # Save the network as HTML and modify with custom template
     _save_and_modify_html(net, output_file, community_count, all_nodes, triples)
@@ -202,7 +208,8 @@ def _add_nodes_and_edges_to_network(net, G):
             label=str(node_id),  # Ensure label is a string
             title=str(node_data.get('title', node_id)),  # Ensure title is a string
             shape="dot",
-            size=node_data.get('size', 10)
+            size=node_data.get('size', 10),
+            font={'color': '#000000'}  # Explicitly set font color to black
         )
     
     # Add edges with all their attributes
@@ -242,7 +249,8 @@ def _get_visualization_options():
         },
         "nodes": {
             "font": {"size": 14, "face": "Tahoma"},
-            "scaling": {"min": 10, "max": 30}  # Ensure nodes are visible
+            "scaling": {"min": 10, "max": 30},  # Ensure nodes are visible
+            "tooltipDelay": 200
         },
         "interaction": {
             "hover": True,
