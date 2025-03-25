@@ -164,6 +164,11 @@
         </div>
     </div>
     <div id="mynetwork" class="card-body" style="flex: 1;"></div>
+    <div id="footer" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); padding: 5px 10px; text-align: center; font-size: 0.85rem; background-color: rgba(255, 255, 255, 0.7); border-radius: 4px; backdrop-filter: blur(2px); z-index: 100;">
+        <a href="https://github.com/robert-mcdermott/ai-knowledge-graph" target="_blank" style="text-decoration: none; color: inherit;">
+            Project: AI-Knowledge-Graph
+        </a>
+    </div>
 </div>
 
 <style id="theme-styles">
@@ -237,8 +242,6 @@
         border-color: #444;
     }
     
-    }
-    
     .setting-group {
         margin-bottom: 12px;
         min-width: 200px;
@@ -299,6 +302,17 @@
         background-color: #1e1e1e;
         border-color: #444;
         color: #e0e0e0;
+    }
+    
+    /* Footer styles */
+    #footer {
+        color: #6c757d;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    }
+    
+    body.dark-mode #footer {
+        background-color: rgba(30, 30, 30, 0.7) !important;
+        color: #adb5bd;
     }
 </style>
 
