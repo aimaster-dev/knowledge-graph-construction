@@ -12,8 +12,8 @@ This system takes text documents, extracts knowledge in the form of Subject-Pred
 
 ## Requirements
 
-- Python 3.8+
-- Required packages (install using `pip install -r requirements.txt`)
+- Python 3.11+
+- Required packages (install using `pip install -r requirements.txt` or `uv sync`)
 
 ## Quick Start
 
@@ -26,20 +26,26 @@ This system takes text documents, extracts knowledge in the form of Subject-Pred
 python generate-graph.py --input your_text_file.txt --output knowledge_graph.html
 ```
 
+Or with UV:
+
+```bash
+uv run generate-graph.py --input your_text_file.txt --output knowledge_graph.html
+```
+
 ## Configuration
 
 The system can be configured using the `config.toml` file:
 
 ```toml
 [llm]
-model = "claude-3.5-sonnet-v2"  # or other models like "gpt4o", "gemma3"
-api_key = "your-api-key"
-base_url = "http://localhost:4000/v1/chat/completions"  # Change as needed
-max_tokens = 8096
-temperature = 0.8
+model = "gemma3"
+api_key = "sk-1234"
+base_url = "http://localhost:11434/v1/chat/completions"
+max_tokens = 8192
+temperature = 0.2
 
 [chunking]
-chunk_size = 500  # Number of words per chunk
+chunk_size = 200  # Number of words per chunk
 overlap = 20      # Number of words to overlap between chunks
 
 [standardization]
@@ -65,14 +71,26 @@ apply_transitive = true    # Apply transitive inference rules
 ## How It Works
 
 1. **Chunking**: The document is split into overlapping chunks to fit within the LLM's context window
-2. **SPO Extraction**: Each chunk is processed to extract Subject-Predicate-Object triplets
-3. **Entity Standardization**:
+2. **First Pass - SPO Extraction**: 
+   - Each chunk is processed by the LLM to extract Subject-Predicate-Object triplets
+   - Implemented in the `process_with_llm` function
+   - The LLM identifies entities and their relationships within each text segment
+   - Results are collected across all chunks to form the initial knowledge graph
+3. **Second Pass - Entity Standardization**:
    - Basic standardization through text normalization
-   - Optional LLM-assisted entity alignment
-4. **Relationship Inference**:
+   - Optional LLM-assisted entity alignment (controlled by `standardization.use_llm_for_entities` config)
+   - When enabled, the LLM reviews all unique entities from the graph and identifies groups that refer to the same concept
+   - This resolves cases where the same entity appears differently across chunks (e.g., "AI", "artificial intelligence", "AI system")
+   - Standardization helps create a more coherent and navigable knowledge graph
+4. **Third Pass - Relationship Inference**:
    - Automatic inference of transitive relationships
-   - Optional LLM-assisted inference between disconnected graph components
+   - Optional LLM-assisted inference between disconnected graph components (controlled by `inference.use_llm_for_inference` config)
+   - When enabled, the LLM analyzes representative entities from disconnected communities and infers plausible relationships
+   - This reduces graph fragmentation by adding logical connections not explicitly stated in the text
+   - Both rule-based and LLM-based inference methods work together to create a more comprehensive graph
 5. **Visualization**: An interactive HTML visualization is generated using the PyVis library
+
+Both the second and third passes are optional and can be disabled in the configuration to minimize LLM usage or control these processes manually.
 
 ## Visualization Features
 
@@ -84,9 +102,5 @@ apply_transitive = true    # Apply transitive inference rules
 ## Customization
 
 - Edit prompts in `config.toml` to customize knowledge extraction behavior
-- Modify visualization settings in `src/knowledge_graph/visualization.py`
+- Modify visualization settings in `src/knowledge_graph/visualization.py` and the html template `src/knowlege_graph/templates/graph_template.html`
 - Adjust entity standardization and inference parameters in `config.toml`
-
-## License
-
-[License Information]
