@@ -1,16 +1,16 @@
 [llm]
-#model = "gemma3"
-model = "claude-3.5-sonnet-v2"
+model = "gemma3:3b"
+#model = "claude-3.5-sonnet-v2"
 #model = "gpt4o"
 api_key = "sk-1234"
-#base_url = "http://localhost:11434/v1/chat/completions"
-base_url = "http://localhost:4000/v1/chat/completions"
+base_url = "http://localhost:11434/v1/chat/completions"
+#base_url = "http://localhost:4000/v1/chat/completions"
 max_tokens = 8192
-temperature = 0.2
+temperature = 0.6
 
 [chunking]
-chunk_size = 200  # Number of words per chunk
-overlap = 20      # Number of words to overlap between chunks
+chunk_size = 100  # Number of words per chunk
+overlap = 10      # Number of words to overlap between chunks
 
 [standardization]
 enabled = true             # Whether to enable entity standardization
@@ -39,10 +39,11 @@ Follow these rules carefully:
 - Atomic Terms: Identify distinct key terms (e.g., objects, locations, organizations, acronyms, people, conditions, concepts, feelings). Avoid merging multiple ideas into one term (they should be as "atomistic" as possible).
 - Unified References: Replace any pronouns (e.g., "he," "she," "it," "they," etc.) with the actual referenced entity, if identifiable.
 - Pairwise Relationships: If multiple terms co-occur in the same sentence (or a short paragraph that makes them contextually related), create one triple for each pair that has a meaningful relationship.
-- Predicate: Use a short phrase (ideally 1 to 3 words) to describe how the subject relates to the object.
+- Predicate: Use a very short phrase (ideally 1 to 3 words, but no more that 3 words, abbreviate long words to keep the predicate short) to describe how the subject relates to the object.
 - Ensure that all possible relationships are identified in the text and are captured in an S-P-O relation.
 - Standardize terminology: If the same concept appears with slight variations (e.g., "artificial intelligence" and "AI"), use the most common or canonical form consistently.
 - Make all the text of S-P-O text lower-case, even Names of people and places.
+- If a person is mentioned by name, create a relation to their location, profession and what they are known for (invented, wrote, started, title, etc.) if known and if it fits the context of the informaiton. 
 
 Important Considerations:
 - Aim for precision in entity naming - use specific forms that distinguish between similar but different entities

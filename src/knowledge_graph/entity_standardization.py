@@ -406,7 +406,8 @@ def _infer_relationships_with_llm(triples, communities, config):
               ...
             ]
             
-            Only include highly plausible relationships with clear predicates. 
+            Only include highly plausible relationships with clear predicates.
+            The inferred relationships (predicates) should be very short and concise. 1 to 3 words (3 words max). Abreviate long words to keep the predicate short.
             For predicates, use short phrases that clearly describe the relationship.
             """
             

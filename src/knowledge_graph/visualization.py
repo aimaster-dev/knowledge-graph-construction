@@ -303,12 +303,12 @@ def _get_visualization_options(edge_smooth=False):
         "physics": physics_options,
         "edges": {
             "color": {"inherit": True},
-            "font": {"size": 12},
+            "font": {"size": 11},
             "smooth": edge_smoothing  # Apply edge smoothing setting
         },
         "nodes": {
             "font": {"size": 14, "face": "Tahoma"},
-            "scaling": {"min": 10, "max": 30},  # Ensure nodes are visible
+            "scaling": {"min": 10, "max": 50},  # Ensure nodes are visible
             "tooltipDelay": 200
         },
         "interaction": {
