@@ -2,7 +2,7 @@
 
 # AI Powered Knowledge Graph Generator
 
-This system takes text documents, extracts knowledge in the form of Subject-Predicate-Object (SPO) triplets, and visualizes the relationships as an interactive knowledge graph.
+This system takes an unstructured text document, and uses an LLM of you choice to extract knowledge in the form of Subject-Predicate-Object (SPO) triplets, and visualizes the relationships as an interactive knowledge graph. 
 
 ## Features
 
