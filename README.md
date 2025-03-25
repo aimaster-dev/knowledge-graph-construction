@@ -33,6 +33,31 @@ Or with UV:
 ```bash
 uv run generate-graph.py --input your_text_file.txt --output knowledge_graph.html
 ```
+Or installing and using as a module:
+
+```bash
+pip install --upgrade -e .
+generate-graph.py --input your_text_file.txt --output knowledge_graph.html
+```
+
+### Usage help
+
+```bash
+generate-graph --help
+usage: generate-graph [-h] [--test] [--config CONFIG] [--output OUTPUT] [--input INPUT] [--debug] [--no-standardize] [--no-inference]
+
+Knowledge Graph Generator and Visualizer
+
+options:
+  -h, --help        show this help message and exit
+  --test            Generate a test visualization with sample data
+  --config CONFIG   Path to configuration file
+  --output OUTPUT   Output HTML file path
+  --input INPUT     Path to input text file (required unless --test is used)
+  --debug           Enable debug output (raw LLM responses and extracted JSON)
+  --no-standardize  Disable entity standardization
+  --no-inference    Disable relationship inference
+```
 
 ## Configuration
 
@@ -99,13 +124,8 @@ Both the second and third passes are optional and can be disabled in the configu
 - **Color-coded Communities**: Node colors represent different communities
 - **Node Size**: Nodes sized by importance (degree, betweenness, eigenvector centrality)
 - **Relationship Types**: Original relationships shown as solid lines, inferred relationships as dashed lines
-- **Interactive Controls**: Zoom, pan, hover for details, and physics controls
-
-## Customization
-
-- Edit prompts in `config.toml` to customize knowledge extraction behavior
-- Modify visualization settings in `src/knowledge_graph/visualization.py` and the html template `src/knowlege_graph/templates/graph_template.html`
-- Adjust entity standardization and inference parameters in `config.toml`
+- **Interactive Controls**: Zoom, pan, hover for details, filtering and physics controls
+- **Light (default) and Dark mode themes.
 
 ## Project Layout
 
