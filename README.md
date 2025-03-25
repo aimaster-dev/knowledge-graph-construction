@@ -1,4 +1,4 @@
-![ai-knowledge-graph-example](data/ai-knowlege-graph-example.png)
+![ai-knowledge-graph-example](https://github.com/robert-mcdermott/ai-knowledge-graph/blob/main/data/ai-knowledge-graph-example.png)
 
 # AI Powered Knowledge Graph Generator
 
