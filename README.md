@@ -128,10 +128,3 @@ Both the second and third passes are optional and can be disabled in the configu
             └── graph_template.html # Base template for interactive graph
 ```
 
-This layout follows a modular structure that separates the core functionality into focused modules. The system uses a layered architecture where:
-
-1. Entry point scripts handle command-line arguments and program initialization
-2. Core modules handle specific tasks like LLM interaction, entity standardization, and visualization
-3. Configuration is separated from code for easy customization
-4. Third-party libraries are organized in the lib directory
-5. Sample data is provided for testing and examples
