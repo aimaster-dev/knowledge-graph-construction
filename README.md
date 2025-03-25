@@ -104,3 +104,34 @@ Both the second and third passes are optional and can be disabled in the configu
 - Edit prompts in `config.toml` to customize knowledge extraction behavior
 - Modify visualization settings in `src/knowledge_graph/visualization.py` and the html template `src/knowlege_graph/templates/graph_template.html`
 - Adjust entity standardization and inference parameters in `config.toml`
+
+## Project Layout
+
+```
+.
+├── config.toml                     # Main configuration file for the system
+├── generate-graph.py               # Entry point script for backward compatibility
+├── pyproject.toml                  # Python project metadata and build configuration
+├── requirements.txt                # Python dependencies for 'pip' users
+├── uv.lock                         # Python dependencies for 'uv' users
+└── src/                            # Source code
+    ├── generate_graph.py           # Main entry point script
+    └── knowledge_graph/            # Core package
+        ├── __init__.py             # Package initialization
+        ├── config.py               # Configuration loading and validation
+        ├── entity_standardization.py # Entity standardization algorithms
+        ├── llm.py                  # LLM interaction and response processing
+        ├── main.py                 # Main program flow and orchestration
+        ├── text_utils.py           # Text processing and chunking utilities
+        ├── visualization.py        # Knowledge graph visualization generator
+        └── templates/              # HTML templates for visualization
+            └── graph_template.html # Base template for interactive graph
+```
+
+This layout follows a modular structure that separates the core functionality into focused modules. The system uses a layered architecture where:
+
+1. Entry point scripts handle command-line arguments and program initialization
+2. Core modules handle specific tasks like LLM interaction, entity standardization, and visualization
+3. Configuration is separated from code for easy customization
+4. Third-party libraries are organized in the lib directory
+5. Sample data is provided for testing and examples
