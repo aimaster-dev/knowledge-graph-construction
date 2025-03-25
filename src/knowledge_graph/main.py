@@ -13,6 +13,7 @@ from src.knowledge_graph.config import load_config
 from src.knowledge_graph.llm import call_llm, extract_json_from_text
 from src.knowledge_graph.visualization import visualize_knowledge_graph, sample_data_visualization
 from src.knowledge_graph.text_utils import chunk_text
+from src.knowledge_graph.entity_standardization import standardize_entities, infer_relationships
 
 def process_with_llm(config, input_text, debug=False):
     """
@@ -107,6 +108,15 @@ def process_text_in_chunks(config, full_text, debug=False):
             print(f"Warning: Failed to extract triples from chunk {i+1}")
     
     print(f"\nExtracted a total of {len(all_results)} triples from all chunks")
+    
+    # Apply entity standardization if enabled
+    if config.get("standardization", {}).get("enabled", False):
+        all_results = standardize_entities(all_results, config)
+    
+    # Apply relationship inference if enabled
+    if config.get("inference", {}).get("enabled", False):
+        all_results = infer_relationships(all_results, config)
+    
     return all_results
 
 def main():
@@ -118,6 +128,8 @@ def main():
     parser.add_argument('--output', type=str, default='knowledge_graph.html', help='Output HTML file path')
     parser.add_argument('--input', type=str, required=False, help='Path to input text file (required unless --test is used)')
     parser.add_argument('--debug', action='store_true', help='Enable debug output (raw LLM responses and extracted JSON)')
+    parser.add_argument('--no-standardize', action='store_true', help='Disable entity standardization')
+    parser.add_argument('--no-inference', action='store_true', help='Disable relationship inference')
     
     args = parser.parse_args()
     
@@ -143,6 +155,12 @@ def main():
         print(f"Failed to load configuration from {args.config}. Exiting.")
         return
     
+    # Override configuration settings with command line arguments
+    if args.no_standardize:
+        config.setdefault("standardization", {})["enabled"] = False
+    if args.no_inference:
+        config.setdefault("inference", {})["enabled"] = False
+    
     # Load input text from file
     try:
         with open(args.input, 'r', encoding='utf-8') as f:
@@ -156,6 +174,15 @@ def main():
     result = process_text_in_chunks(config, input_text, args.debug)
     
     if result:
+        # Save the raw data as JSON for potential reuse
+        json_output = args.output.replace('.html', '.json')
+        try:
+            with open(json_output, 'w', encoding='utf-8') as f:
+                json.dump(result, f, indent=2)
+            print(f"Saved raw knowledge graph data to {json_output}")
+        except Exception as e:
+            print(f"Warning: Could not save raw data to {json_output}: {e}")
+        
         # Visualize the knowledge graph
         stats = visualize_knowledge_graph(result, args.output)
         print("\nKnowledge Graph Statistics:")

@@ -3,7 +3,7 @@ requires-python = ">=3.12"
 
 [[package]]
 name = "ai-knowledge-graph"
-version = "0.4.2"
+version = "0.5.3"
 source = { editable = "." }
 dependencies = [
     { name = "networkx" },

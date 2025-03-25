@@ -1,0 +1,442 @@
+"""Entity standardization and relationship inference for knowledge graphs."""
+import re
+from collections import defaultdict
+from src.knowledge_graph.llm import call_llm
+
+def standardize_entities(triples, config):
+    """
+    Standardize entity names across all triples.
+    
+    Args:
+        triples: List of dictionaries with 'subject', 'predicate', and 'object' keys
+        config: Configuration dictionary
+        
+    Returns:
+        List of triples with standardized entity names
+    """
+    if not triples:
+        return triples
+    
+    print("Standardizing entity names across all triples...")
+    
+    # 1. Extract all unique entities
+    all_entities = set()
+    for triple in triples:
+        all_entities.add(triple["subject"].lower())
+        all_entities.add(triple["object"].lower())
+    
+    # 2. Group similar entities - first by exact match after lowercasing and removing stopwords
+    standardized_entities = {}
+    entity_groups = defaultdict(list)
+    
+    # Helper function to normalize text for comparison
+    def normalize_text(text):
+        # Convert to lowercase
+        text = text.lower()
+        # Remove common stopwords that might appear in entity names
+        stopwords = {"the", "a", "an", "of", "and", "or", "in", "on", "at", "to", "for", "with", "by", "as"}
+        words = [word for word in re.findall(r'\b\w+\b', text) if word not in stopwords]
+        return " ".join(words)
+    
+    # Process entities in order of complexity (longer entities first)
+    sorted_entities = sorted(all_entities, key=lambda x: (-len(x), x))
+    
+    for entity in sorted_entities:
+        normalized = normalize_text(entity)
+        if normalized:  # Skip empty strings
+            entity_groups[normalized].append(entity)
+    
+    # 3. For each group, choose the most representative name
+    for group_key, variants in entity_groups.items():
+        if len(variants) == 1:
+            # Only one variant, use it directly
+            standardized_entities[variants[0]] = variants[0]
+        else:
+            # Multiple variants, choose the most common or the shortest one as standard
+            # Sort by frequency in triples, then by length (shorter is better)
+            variant_counts = defaultdict(int)
+            for triple in triples:
+                for variant in variants:
+                    if triple["subject"] == variant:
+                        variant_counts[variant] += 1
+                    if triple["object"] == variant:
+                        variant_counts[variant] += 1
+            
+            # Choose the most common variant as the standard form
+            standard_form = sorted(variants, key=lambda x: (-variant_counts[x], len(x)))[0]
+            for variant in variants:
+                standardized_entities[variant] = standard_form
+    
+    # 4. Apply standardization to all triples
+    standardized_triples = []
+    for triple in triples:
+        standardized_triple = {
+            "subject": standardized_entities.get(triple["subject"].lower(), triple["subject"]),
+            "predicate": triple["predicate"],
+            "object": standardized_entities.get(triple["object"].lower(), triple["object"]),
+            "chunk": triple.get("chunk", 0)
+        }
+        standardized_triples.append(standardized_triple)
+    
+    # 5. Optional: Use LLM to help with entity resolution for ambiguous cases
+    if config.get("standardization", {}).get("use_llm_for_entities", False):
+        standardized_triples = _resolve_entities_with_llm(standardized_triples, config)
+    
+    print(f"Standardized {len(all_entities)} entities into {len(set(standardized_entities.values()))} standard forms")
+    return standardized_triples
+
+def infer_relationships(triples, config):
+    """
+    Infer additional relationships between entities to reduce isolated communities.
+    
+    Args:
+        triples: List of dictionaries with standardized entity names
+        config: Configuration dictionary
+        
+    Returns:
+        List of triples with additional inferred relationships
+    """
+    if not triples or len(triples) < 2:
+        return triples
+    
+    print("Inferring additional relationships between entities...")
+    
+    # Create a graph representation for easier traversal
+    graph = defaultdict(set)
+    for triple in triples:
+        subj = triple["subject"]
+        obj = triple["object"]
+        graph[subj].add(obj)
+    
+    # Find disconnected communities
+    communities = _identify_communities(graph)
+    print(f"Identified {len(communities)} disconnected communities in the graph")
+    
+    # Use LLM to infer relationships between isolated communities if configured
+    if config.get("inference", {}).get("use_llm_for_inference", True):
+        new_triples = _infer_relationships_with_llm(triples, communities, config)
+        if new_triples:
+            triples.extend(new_triples)
+    
+    # Apply transitive inference rules
+    transitive_triples = _apply_transitive_inference(triples, graph)
+    if transitive_triples:
+        triples.extend(transitive_triples)
+    
+    # De-duplicate triples
+    unique_triples = _deduplicate_triples(triples)
+    
+    print(f"Added {len(unique_triples) - len(triples)} inferred relationships")
+    return unique_triples
+
+def _identify_communities(graph):
+    """
+    Identify disconnected communities in the graph.
+    
+    Args:
+        graph: Dictionary representing the graph structure
+        
+    Returns:
+        List of sets, where each set contains nodes in a community
+    """
+    # Get all nodes
+    all_nodes = set(graph.keys()).union(*[graph[node] for node in graph])
+    
+    # Track visited nodes
+    visited = set()
+    communities = []
+    
+    # Depth-first search to find connected components
+    def dfs(node, community):
+        visited.add(node)
+        community.add(node)
+        
+        # Visit outgoing edges
+        for neighbor in graph.get(node, []):
+            if neighbor not in visited:
+                dfs(neighbor, community)
+        
+        # Visit incoming edges (we need to check all nodes)
+        for source, targets in graph.items():
+            if node in targets and source not in visited:
+                dfs(source, community)
+    
+    # Find all communities
+    for node in all_nodes:
+        if node not in visited:
+            community = set()
+            dfs(node, community)
+            communities.append(community)
+    
+    return communities
+
+def _apply_transitive_inference(triples, graph):
+    """
+    Apply transitive inference to find new relationships.
+    
+    Args:
+        triples: List of triple dictionaries
+        graph: Dictionary representing the graph structure
+        
+    Returns:
+        List of new inferred triples
+    """
+    new_triples = []
+    
+    # Predicates by subject-object pairs
+    predicates = {}
+    for triple in triples:
+        key = (triple["subject"], triple["object"])
+        predicates[key] = triple["predicate"]
+    
+    # Find transitive relationships: A -> B -> C implies A -> C
+    for subj in graph:
+        for mid in graph[subj]:
+            for obj in graph.get(mid, []):
+                # Only consider paths where A->B->C and A!=C
+                if subj != obj and (subj, obj) not in predicates:
+                    # Create a new predicate combining the two relationships
+                    pred1 = predicates.get((subj, mid), "relates to")
+                    pred2 = predicates.get((mid, obj), "relates to")
+                    
+                    # Generate a new predicate based on the transitive relationship
+                    new_pred = f"indirectly {pred1}" if pred1 == pred2 else f"{pred1} via {mid}"
+                    
+                    # Add the new transitive relationship
+                    new_triples.append({
+                        "subject": subj,
+                        "predicate": new_pred,
+                        "object": obj,
+                        "inferred": True  # Mark as inferred
+                    })
+    
+    return new_triples
+
+def _deduplicate_triples(triples):
+    """
+    Remove duplicate triples, keeping the original (non-inferred) ones.
+    
+    Args:
+        triples: List of triple dictionaries
+        
+    Returns:
+        List of unique triples
+    """
+    # Use tuple of (subject, predicate, object) as key
+    unique_triples = {}
+    
+    for triple in triples:
+        key = (triple["subject"], triple["predicate"], triple["object"])
+        # Keep original triples (not inferred) when duplicates exist
+        if key not in unique_triples or not triple.get("inferred", False):
+            unique_triples[key] = triple
+    
+    return list(unique_triples.values())
+
+def _resolve_entities_with_llm(triples, config):
+    """
+    Use LLM to help resolve entity references and standardize entity names.
+    
+    Args:
+        triples: List of triples with potentially non-standardized entities
+        config: Configuration dictionary
+        
+    Returns:
+        List of triples with LLM-assisted entity standardization
+    """
+    # Extract all unique entities
+    all_entities = set()
+    for triple in triples:
+        all_entities.add(triple["subject"])
+        all_entities.add(triple["object"])
+    
+    # If there are too many entities, limit to the most frequent ones
+    if len(all_entities) > 100:
+        # Count entity occurrences
+        entity_counts = defaultdict(int)
+        for triple in triples:
+            entity_counts[triple["subject"]] += 1
+            entity_counts[triple["object"]] += 1
+        
+        # Keep only the top 100 most frequent entities
+        all_entities = {entity for entity, count in 
+                       sorted(entity_counts.items(), key=lambda x: -x[1])[:100]}
+    
+    # Prepare prompt for LLM
+    entity_list = "\n".join(sorted(all_entities))
+    system_prompt = """
+    You are an expert in entity resolution and knowledge representation.
+    Your task is to standardize entity names from a knowledge graph to ensure consistency.
+    """
+    user_prompt = f"""
+    Below is a list of entity names extracted from a knowledge graph. 
+    Some may refer to the same real-world entities but with different wording.
+    
+    Please identify groups of entities that refer to the same concept, and provide a standardized name for each group.
+    Return your answer as a JSON object where the keys are the standardized names and the values are arrays of all variant names that should map to that standard name.
+    Only include entities that have multiple variants or need standardization.
+    
+    Entity list:
+    {entity_list}
+    
+    Format your response as valid JSON like this:
+    {{
+      "standardized name 1": ["variant 1", "variant 2"],
+      "standardized name 2": ["variant 3", "variant 4", "variant 5"]
+    }}
+    """
+    
+    try:
+        # LLM configuration
+        model = config["llm"]["model"]
+        api_key = config["llm"]["api_key"]
+        max_tokens = config["llm"]["max_tokens"]
+        temperature = config["llm"]["temperature"]
+        base_url = config["llm"]["base_url"]
+        
+        # Call LLM
+        response = call_llm(model, user_prompt, api_key, system_prompt, max_tokens, temperature, base_url)
+        
+        # Extract JSON mapping
+        import json
+        from src.knowledge_graph.llm import extract_json_from_text
+        
+        entity_mapping = extract_json_from_text(response)
+        
+        if entity_mapping and isinstance(entity_mapping, dict):
+            # Apply the mapping to standardize entities
+            entity_to_standard = {}
+            for standard, variants in entity_mapping.items():
+                for variant in variants:
+                    entity_to_standard[variant] = standard
+                # Also map the standard form to itself
+                entity_to_standard[standard] = standard
+            
+            # Apply standardization to triples
+            for triple in triples:
+                triple["subject"] = entity_to_standard.get(triple["subject"], triple["subject"])
+                triple["object"] = entity_to_standard.get(triple["object"], triple["object"])
+                
+            print(f"Applied LLM-based entity standardization for {len(entity_mapping)} entity groups")
+        else:
+            print("Could not extract valid entity mapping from LLM response")
+    
+    except Exception as e:
+        print(f"Error in LLM-based entity resolution: {e}")
+    
+    return triples
+
+def _infer_relationships_with_llm(triples, communities, config):
+    """
+    Use LLM to infer relationships between disconnected communities.
+    
+    Args:
+        triples: List of existing triples
+        communities: List of community sets
+        config: Configuration dictionary
+        
+    Returns:
+        List of new inferred triples
+    """
+    # Skip if there's only one community
+    if len(communities) <= 1:
+        print("Only one community found, skipping LLM-based relationship inference")
+        return []
+    
+    # Focus on the largest communities
+    large_communities = sorted(communities, key=len, reverse=True)[:5]
+    
+    # For each pair of large communities, try to infer relationships
+    new_triples = []
+    
+    for i, comm1 in enumerate(large_communities):
+        for j, comm2 in enumerate(large_communities):
+            if i >= j:
+                continue  # Skip self-comparisons and duplicates
+            
+            # Select representative entities from each community
+            rep1 = list(comm1)[:min(5, len(comm1))]
+            rep2 = list(comm2)[:min(5, len(comm2))]
+            
+            # Prepare relevant existing triples for context
+            context_triples = []
+            for triple in triples:
+                if triple["subject"] in rep1 or triple["subject"] in rep2 or \
+                   triple["object"] in rep1 or triple["object"] in rep2:
+                    context_triples.append(triple)
+            
+            # Limit context size
+            if len(context_triples) > 20:
+                context_triples = context_triples[:20]
+            
+            # Convert triples to text for prompt
+            triples_text = "\n".join([
+                f"{t['subject']} {t['predicate']} {t['object']}"
+                for t in context_triples
+            ])
+            
+            # Prepare entity lists
+            entities1 = ", ".join(rep1)
+            entities2 = ", ".join(rep2)
+            
+            # Create prompt for LLM
+            system_prompt = """
+            You are an expert in knowledge representation and inference. 
+            Your task is to infer plausible relationships between disconnected entities in a knowledge graph.
+            """
+            
+            user_prompt = f"""
+            I have a knowledge graph with two disconnected communities of entities. 
+            
+            Community 1 entities: {entities1}
+            Community 2 entities: {entities2}
+            
+            Here are some existing relationships involving these entities:
+            {triples_text}
+            
+            Please infer 2-3 plausible relationships between entities from Community 1 and entities from Community 2.
+            Return your answer as a JSON array of triples in the following format:
+            
+            [
+              {{
+                "subject": "entity from community 1",
+                "predicate": "inferred relationship",
+                "object": "entity from community 2"
+              }},
+              ...
+            ]
+            
+            Only include highly plausible relationships with clear predicates. 
+            For predicates, use short phrases that clearly describe the relationship.
+            """
+            
+            try:
+                # LLM configuration
+                model = config["llm"]["model"]
+                api_key = config["llm"]["api_key"]
+                max_tokens = config["llm"]["max_tokens"]
+                temperature = config["llm"]["temperature"]
+                base_url = config["llm"]["base_url"]
+                
+                # Call LLM
+                response = call_llm(model, user_prompt, api_key, system_prompt, max_tokens, temperature, base_url)
+                
+                # Extract JSON results
+                from src.knowledge_graph.llm import extract_json_from_text
+                inferred_triples = extract_json_from_text(response)
+                
+                if inferred_triples and isinstance(inferred_triples, list):
+                    # Mark as inferred and add to new triples
+                    for triple in inferred_triples:
+                        if "subject" in triple and "predicate" in triple and "object" in triple:
+                            triple["inferred"] = True
+                            new_triples.append(triple)
+                    
+                    print(f"Inferred {len(inferred_triples)} new relationships between communities")
+                else:
+                    print("Could not extract valid inferred relationships from LLM response")
+            
+            except Exception as e:
+                print(f"Error in LLM-based relationship inference: {e}")
+    
+    return new_triples 

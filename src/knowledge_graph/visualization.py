@@ -42,14 +42,22 @@ def visualize_knowledge_graph(triples, output_file="knowledge_graph.html"):
     # Set of all unique nodes
     all_nodes = set()
     
+    # Track inferred vs. original relationships
+    inferred_edges = set()
+    
     # Add all subjects and objects as nodes
     for triple in triples:
         subject = triple["subject"]
         obj = triple["object"]
         all_nodes.add(subject)
         all_nodes.add(obj)
+        
+        # Mark inferred relationships
+        if triple.get("inferred", False):
+            inferred_edges.add((subject, obj))
     
     print(f"Found {len(all_nodes)} unique nodes")
+    print(f"Found {len(inferred_edges)} inferred relationships")
     
     # Create an undirected graph for community detection and centrality measures
     G_undirected = nx.Graph()
@@ -85,13 +93,21 @@ def visualize_knowledge_graph(triples, output_file="knowledge_graph.html"):
     
     # Add edges with predicates as labels
     for triple in triples:
+        subject = triple["subject"]
+        obj = triple["object"]
+        
+        # Determine if this is an inferred relationship
+        is_inferred = triple.get("inferred", False)
+        
         G.add_edge(
-            triple["subject"], 
-            triple["object"], 
+            subject, 
+            obj, 
             title=triple["predicate"],
             label=triple["predicate"],
             arrows="to",   # Add arrow direction
-            width=1        # Edge width
+            width=1,       # Edge width
+            dashes=is_inferred,  # Use dashed lines for inferred relationships
+            color="#555555" if is_inferred else None  # Lighter color for inferred relationships
         )
     
     # Create a PyVis network with explicit configuration
@@ -125,9 +141,12 @@ def visualize_knowledge_graph(triples, output_file="knowledge_graph.html"):
     _save_and_modify_html(net, output_file, community_count, all_nodes, triples)
     
     # Return statistics
+    original_edges = len(triples) - len(inferred_edges)
     stats = {
         "nodes": len(all_nodes),
         "edges": len(triples),
+        "original_edges": original_edges,
+        "inferred_edges": len(inferred_edges),
         "communities": len(set(node_communities.values()))
     }
     print(f"Graph Statistics: {json.dumps(stats, indent=2)}")
@@ -215,13 +234,23 @@ def _add_nodes_and_edges_to_network(net, G):
     # Add edges with all their attributes
     for edge in G.edges(data=True):
         source, target, data = edge
-        net.add_edge(
-            source, 
-            target, 
-            title=data.get('title', ''),
-            label=data.get('label', ''),
-            arrows="to"
-        )
+        
+        # Support for dashed lines for inferred relationships
+        edge_options = {
+            'title': data.get('title', ''),
+            'label': data.get('label', ''),
+            'arrows': "to"
+        }
+        
+        # Add dashes if specified
+        if data.get('dashes', False):
+            edge_options['dashes'] = True
+        
+        # Add color if specified
+        if data.get('color'):
+            edge_options['color'] = data.get('color')
+        
+        net.add_edge(source, target, **edge_options)
 
 def _get_visualization_options():
     """Get options for PyVis visualization."""

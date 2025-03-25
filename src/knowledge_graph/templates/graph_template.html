@@ -7,14 +7,35 @@
             <button onclick="toggleDarkMode()" id="theme-toggle" class="btn btn-info">Dark Mode</button>
             <button onclick="toggleFilterMenu()" id="filter-toggle" class="btn btn-outline-info">Show Filters</button>
             <button onclick="toggleLabels()" id="labels-toggle" class="btn btn-primary">Hide Labels</button>
+            <button onclick="toggleStats()" id="stats-toggle" class="btn btn-outline-secondary">Stats</button>
         </div>
         <div>
-            <span style="margin-right: 15px;"><strong>Communities:</strong></span>
-            <span style="background-color: #e41a1c; width: 20px; height: 20px; display: inline-block; margin-right: 5px;"></span>
-            <span style="background-color: #377eb8; width: 20px; height: 20px; display: inline-block; margin-right: 5px;"></span>
-            <span style="background-color: #4daf4a; width: 20px; height: 20px; display: inline-block; margin-right: 5px;"></span>
-            <span style="background-color: #984ea3; width: 20px; height: 20px; display: inline-block; margin-right: 5px;"></span>
-            <span style="background-color: #ff7f00; width: 20px; height: 20px; display: inline-block; margin-right: 5px;"></span>
+            <span style="margin-right: 15px;"><strong>Edge Types:</strong></span>
+            <span style="width: 30px; height: 2px; background-color: #666666; display: inline-block; margin-right: 5px;"></span>
+            <span style="margin-right: 15px;">Extracted</span>
+            <span style="width: 30px; height: 2px; border-top: 1px dashed #666666; display: inline-block; margin-right: 5px;"></span>
+            <span>Inferred</span>
+        </div>
+    </div>
+    
+    <div id="stats-container" style="display: none; margin: 10px; padding: 15px; border: 1px solid #ddd; border-radius: 5px;">
+        <h5>Graph Statistics</h5>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+            <div class="stat-item">
+                <strong>Nodes:</strong> <span id="stat-nodes">-</span>
+            </div>
+            <div class="stat-item">
+                <strong>Edges:</strong> <span id="stat-edges">-</span>
+            </div>
+            <div class="stat-item">
+                <strong>Extracted Edges:</strong> <span id="stat-extracted">-</span>
+            </div>
+            <div class="stat-item">
+                <strong>Inferred Edges:</strong> <span id="stat-inferred">-</span>
+            </div>
+            <div class="stat-item">
+                <strong>Communities:</strong> <span id="stat-communities">-</span>
+            </div>
         </div>
     </div>
     
@@ -143,6 +164,11 @@
         </div>
     </div>
     <div id="mynetwork" class="card-body" style="flex: 1;"></div>
+    <div id="footer" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); padding: 5px 10px; text-align: center; font-size: 0.85rem; background-color: rgba(255, 255, 255, 0.7); border-radius: 4px; backdrop-filter: blur(2px); z-index: 100;">
+        <a href="https://github.com/robert-mcdermott/ai-knowledge-graph" target="_blank" style="text-decoration: none; color: inherit;">
+            Project: AI-Knowledge-Graph
+        </a>
+    </div>
 </div>
 
 <style id="theme-styles">
@@ -263,6 +289,30 @@
         fill: #ffffff !important;
         stroke: none !important;
         color: #ffffff !important;
+    }
+    
+    /* Stats container styles */
+    #stats-container {
+        background-color: #f8f9fa;
+        border-color: #ddd;
+        color: #212529;
+    }
+    
+    body.dark-mode #stats-container {
+        background-color: #1e1e1e;
+        border-color: #444;
+        color: #e0e0e0;
+    }
+    
+    /* Footer styles */
+    #footer {
+        color: #6c757d;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    }
+    
+    body.dark-mode #footer {
+        background-color: rgba(30, 30, 30, 0.7) !important;
+        color: #adb5bd;
     }
 </style>
 
@@ -976,5 +1026,116 @@ window.addEventListener('resize', function() {
     if (window.network) {
         network.fit();
     }
+});
+
+function toggleStats() {
+    const container = document.getElementById('stats-container');
+    const button = document.getElementById('stats-toggle');
+    
+    if (container.style.display === 'none') {
+        container.style.display = 'block';
+        button.textContent = 'Hide Stats';
+        button.classList.remove('btn-outline-secondary');
+        button.classList.add('btn-secondary');
+        
+        // Update statistics
+        updateGraphStats();
+    } else {
+        container.style.display = 'none';
+        button.textContent = 'Stats';
+        button.classList.remove('btn-secondary');
+        button.classList.add('btn-outline-secondary');
+    }
+    
+    // Resize network when toggling menu
+    resizeNetwork();
+}
+
+function updateGraphStats() {
+    if (!network || !network.body || !network.body.data) return;
+    
+    try {
+        // Count nodes
+        const totalNodes = network.body.data.nodes.length;
+        document.getElementById('stat-nodes').textContent = totalNodes;
+        
+        // Count edges
+        const totalEdges = network.body.data.edges.length;
+        document.getElementById('stat-edges').textContent = totalEdges;
+        
+        // Count edge types (assuming a property on the edge indicating if it's inferred)
+        let extractedEdges = 0;
+        let inferredEdges = 0;
+        
+        network.body.data.edges.forEach(edge => {
+            // This logic might need to be adjusted based on how your edges are marked
+            if (edge.dashes === true || (Array.isArray(edge.dashes) && edge.dashes.length > 0)) {
+                inferredEdges++;
+            } else {
+                extractedEdges++;
+            }
+        });
+        
+        document.getElementById('stat-extracted').textContent = extractedEdges;
+        document.getElementById('stat-inferred').textContent = inferredEdges;
+        
+        // Count communities (based on node colors)
+        const communities = new Set();
+        network.body.data.nodes.forEach(node => {
+            if (node.color) {
+                communities.add(node.color);
+            }
+        });
+        
+        document.getElementById('stat-communities').textContent = communities.size;
+    } catch (error) {
+        console.error('Error updating graph statistics:', error);
+    }
+}
+
+// Update stats when network is stabilized
+network.once("stabilizationIterationsDone", function() {
+    // Add statistics update
+    updateGraphStats();
+    
+    // Original code continues...
+    setTimeout(function() {
+        // Don't stop simulation since physics is now on by default
+        
+        // Set physics toggle button state
+        const physicsToggleBtn = document.getElementById('physics-toggle');
+        if (physicsToggleBtn) {
+            physicsToggleBtn.textContent = 'Disable Physics';
+            physicsToggleBtn.classList.remove('btn-outline-primary');
+            physicsToggleBtn.classList.add('btn-primary');
+        }
+        
+        // Make sure the network fits the available space
+        network.fit();
+    }, 1000);
+    
+    // Ensure node and edge text colors are set correctly for initial light mode
+    network.setOptions({
+        nodes: {
+            font: {
+                color: '#000000',
+                face: 'Tahoma',
+                strokeWidth: 0,
+                size: 14
+            }
+        },
+        edges: {
+            font: {
+                color: '#000000',
+                strokeWidth: 4,  // Default border for light mode
+                size: 12
+            }
+        }
+    });
+    
+    // Fix any nodes that might have incorrect font color
+    updateNodeTextColors('#000000');
+    
+    console.log("Network stabilization complete");
 });
 </script> 

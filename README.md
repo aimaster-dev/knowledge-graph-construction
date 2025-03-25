@@ -1,112 +1,92 @@
 # AI Knowledge Graph Generator
 
-A tool that takes text input and generates an interactive knowledge graph visualization.
+This system takes text documents, extracts knowledge in the form of Subject-Predicate-Object (SPO) triplets, and visualizes the relationships as an interactive knowledge graph.
 
-## Overview
+## Features
 
-This tool uses a large language model (LLM) to extract subject-predicate-object relationships from text, and then visualizes these relationships as a knowledge graph. The visualization is interactive and allows for exploring connections between concepts.
+- **Text Chunking**: Automatically splits large documents into manageable chunks for processing
+- **Knowledge Extraction**: Uses AI to identify entities and their relationships
+- **Entity Standardization**: Ensures consistent entity naming across document chunks
+- **Relationship Inference**: Discovers additional relationships between disconnected parts of the graph
+- **Interactive Visualization**: Creates a beautiful, interactive graph visualization
 
-## Installation
+## Requirements
+
+- Python 3.8+
+- Required packages (install using `pip install -r requirements.txt`)
+
+## Quick Start
 
 1. Clone this repository
-2. Make sure you have Python 3.12+ installed
-3. Install dependencies:
+2. Install dependencies: `pip install -r requirements.txt`
+3. Configure your settings in `config.toml`
+4. Run the system:
 
 ```bash
-pip install -e .
-```
-
-## Usage
-
-You can run the tool in different ways:
-
-### Using uv run (recommended)
-
-```bash
-uv run generate-graph.py --input your_input_file.txt [options]
-```
-
-### Using standard Python
-
-```bash
-python generate-graph.py --input your_input_file.txt [options]
-```
-
-### After installation
-
-```bash
-generate-graph --input your_input_file.txt [options]
-```
-
-## Command Line Options
-
-- `--input`: Path to input text file (required unless using `--test`)
-- `--test`: Generate a test visualization with sample data
-- `--config`: Path to configuration file (default: `config.toml`)
-- `--output`: Output HTML file path (default: `knowledge_graph.html`)
-- `--debug`: Enable debug output (raw LLM responses and extracted JSON)
-
-## Usage Examples
-
-### Process your own text file:
-
-```bash
-python generate-graph.py --input your_text_file.txt
-```
-
-### Generate a test visualization with sample data:
-
-```bash
-python generate-graph.py --test
-```
-
-### Customize the output file name:
-
-```bash
-python generate-graph.py --input your_text_file.txt --output custom_graph.html
-```
-
-### Enable debug output:
-
-```bash
-python generate-graph.py --input your_text_file.txt --debug
+python generate-graph.py --input your_text_file.txt --output knowledge_graph.html
 ```
 
 ## Configuration
 
-The tool is configured using a TOML file (default: `config.toml`). The configuration file contains:
-
-- LLM settings (model, API key, etc.)
-- Chunking settings (for processing large input files)
-- Prompts for knowledge extraction
-
-### Chunking Configuration
-
-For processing large input files, the tool splits the text into smaller chunks with overlap:
+The system can be configured using the `config.toml` file:
 
 ```toml
+[llm]
+model = "claude-3.5-sonnet-v2"  # or other models like "gpt4o", "gemma3"
+api_key = "your-api-key"
+base_url = "http://localhost:4000/v1/chat/completions"  # Change as needed
+max_tokens = 8096
+temperature = 0.8
+
 [chunking]
 chunk_size = 500  # Number of words per chunk
-overlap = 50      # Number of words to overlap between chunks
+overlap = 20      # Number of words to overlap between chunks
+
+[standardization]
+enabled = true            # Enable entity standardization
+use_llm_for_entities = true  # Use LLM for additional entity resolution
+
+[inference]
+enabled = true             # Enable relationship inference
+use_llm_for_inference = true  # Use LLM for relationship inference
+apply_transitive = true    # Apply transitive inference rules
 ```
 
-These settings help ensure that large documents are properly analyzed without exceeding LLM context limits.
+## Command Line Options
 
-## Project Structure
+- `--input FILE`: Input text file to process
+- `--output FILE`: Output HTML file for visualization (default: knowledge_graph.html)
+- `--config FILE`: Path to config file (default: config.toml)
+- `--debug`: Enable debug output with raw LLM responses
+- `--no-standardize`: Disable entity standardization
+- `--no-inference`: Disable relationship inference
+- `--test`: Generate sample visualization using test data
 
-```
-├── generate-graph.py         # Root entry point script
-├── src/                      # Source code directory
-│   ├── generate_graph.py     # Module entry point script
-│   └── knowledge_graph/      # Main package
-│       ├── __init__.py       # Package initialization 
-│       ├── main.py           # Main logic and CLI interface
-│       ├── config.py         # Configuration handling
-│       ├── llm.py            # LLM interaction utilities
-│       ├── text_utils.py     # Text processing utilities for chunking
-│       └── visualization.py  # Graph visualization utilities
-```
+## How It Works
+
+1. **Chunking**: The document is split into overlapping chunks to fit within the LLM's context window
+2. **SPO Extraction**: Each chunk is processed to extract Subject-Predicate-Object triplets
+3. **Entity Standardization**:
+   - Basic standardization through text normalization
+   - Optional LLM-assisted entity alignment
+4. **Relationship Inference**:
+   - Automatic inference of transitive relationships
+   - Optional LLM-assisted inference between disconnected graph components
+5. **Visualization**: An interactive HTML visualization is generated using the PyVis library
+
+## Visualization Features
+
+- **Color-coded Communities**: Node colors represent different communities
+- **Node Size**: Nodes sized by importance (degree, betweenness, eigenvector centrality)
+- **Relationship Types**: Original relationships shown as solid lines, inferred relationships as dashed lines
+- **Interactive Controls**: Zoom, pan, hover for details, and physics controls
+
+## Customization
+
+- Edit prompts in `config.toml` to customize knowledge extraction behavior
+- Modify visualization settings in `src/knowledge_graph/visualization.py`
+- Adjust entity standardization and inference parameters in `config.toml`
 
 ## License
 
-See [LICENSE](LICENSE) file for details.
+[License Information]
