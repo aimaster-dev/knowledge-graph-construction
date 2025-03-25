@@ -9,7 +9,7 @@ max_tokens = 8192
 temperature = 0.2
 
 [chunking]
-chunk_size = 500  # Number of words per chunk
+chunk_size = 200  # Number of words per chunk
 overlap = 20      # Number of words to overlap between chunks
 
 [standardization]
