@@ -110,12 +110,12 @@ Both the second and third passes are optional and can be disabled in the configu
 ```
 .
 ├── config.toml                     # Main configuration file for the system
-├── generate-graph.py               # Entry point script for backward compatibility
+├── generate-graph.py               # Entry point when run directly as a script
 ├── pyproject.toml                  # Python project metadata and build configuration
 ├── requirements.txt                # Python dependencies for 'pip' users
 ├── uv.lock                         # Python dependencies for 'uv' users
 └── src/                            # Source code
-    ├── generate_graph.py           # Main entry point script
+    ├── generate_graph.py           # Main entry point script when run as a module
     └── knowledge_graph/            # Core package
         ├── __init__.py             # Package initialization
         ├── config.py               # Configuration loading and validation
