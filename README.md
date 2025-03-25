@@ -40,25 +40,6 @@ pip install --upgrade -e .
 generate-graph.py --input your_text_file.txt --output knowledge_graph.html
 ```
 
-### Usage help
-
-```bash
-generate-graph --help
-usage: generate-graph [-h] [--test] [--config CONFIG] [--output OUTPUT] [--input INPUT] [--debug] [--no-standardize] [--no-inference]
-
-Knowledge Graph Generator and Visualizer
-
-options:
-  -h, --help        show this help message and exit
-  --test            Generate a test visualization with sample data
-  --config CONFIG   Path to configuration file
-  --output OUTPUT   Output HTML file path
-  --input INPUT     Path to input text file (required unless --test is used)
-  --debug           Enable debug output (raw LLM responses and extracted JSON)
-  --no-standardize  Disable entity standardization
-  --no-inference    Disable relationship inference
-```
-
 ## Configuration
 
 The system can be configured using the `config.toml` file:
@@ -94,6 +75,26 @@ apply_transitive = true    # Apply transitive inference rules
 - `--no-standardize`: Disable entity standardization
 - `--no-inference`: Disable relationship inference
 - `--test`: Generate sample visualization using test data
+
+### Usage message (--help)
+
+```bash
+generate-graph --help
+usage: generate-graph [-h] [--test] [--config CONFIG] [--output OUTPUT] [--input INPUT] [--debug] [--no-standardize] [--no-inference]
+
+Knowledge Graph Generator and Visualizer
+
+options:
+  -h, --help        show this help message and exit
+  --test            Generate a test visualization with sample data
+  --config CONFIG   Path to configuration file
+  --output OUTPUT   Output HTML file path
+  --input INPUT     Path to input text file (required unless --test is used)
+  --debug           Enable debug output (raw LLM responses and extracted JSON)
+  --no-standardize  Disable entity standardization
+  --no-inference    Disable relationship inference
+```
+
 
 ## How It Works
 
