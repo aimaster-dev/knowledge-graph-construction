@@ -1,4 +1,6 @@
-# AI Knowledge Graph Generator
+![ai-knowledge-graph-example](data/ai-knowlege-graph-example.png)
+
+# AI Powered Knowledge Graph Generator
 
 This system takes text documents, extracts knowledge in the form of Subject-Predicate-Object (SPO) triplets, and visualizes the relationships as an interactive knowledge graph.
 
