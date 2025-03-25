@@ -41,6 +41,7 @@ def standardize_entities(triples, config):
     # Process entities in order of complexity (longer entities first)
     sorted_entities = sorted(all_entities, key=lambda x: (-len(x), x))
     
+    # First pass: Standard normalization
     for entity in sorted_entities:
         normalized = normalize_text(entity)
         if normalized:  # Skip empty strings
@@ -57,9 +58,9 @@ def standardize_entities(triples, config):
             variant_counts = defaultdict(int)
             for triple in triples:
                 for variant in variants:
-                    if triple["subject"] == variant:
+                    if triple["subject"].lower() == variant:
                         variant_counts[variant] += 1
-                    if triple["object"] == variant:
+                    if triple["object"].lower() == variant:
                         variant_counts[variant] += 1
             
             # Choose the most common variant as the standard form
@@ -67,18 +68,63 @@ def standardize_entities(triples, config):
             for variant in variants:
                 standardized_entities[variant] = standard_form
     
-    # 4. Apply standardization to all triples
+    # 4. Second pass: check for root word relationships
+    # This handles cases like "capitalism" and "capitalist decay"
+    additional_standardizations = {}
+    
+    # Get all standardized entity names (after first pass)
+    standard_forms = set(standardized_entities.values())
+    sorted_standards = sorted(standard_forms, key=len)
+    
+    for i, entity1 in enumerate(sorted_standards):
+        e1_words = set(entity1.split())
+        
+        for entity2 in sorted_standards[i+1:]:
+            if entity1 == entity2:
+                continue
+                
+            # Check if one entity is a subset of the other
+            e2_words = set(entity2.split())
+            
+            # If one entity contains all words from the other
+            if e1_words.issubset(e2_words) and len(e1_words) > 0:
+                # The shorter one is likely the more general concept
+                additional_standardizations[entity2] = entity1
+            elif e2_words.issubset(e1_words) and len(e2_words) > 0:
+                additional_standardizations[entity1] = entity2
+            else:
+                # Check for stemming/root similarities
+                stems1 = {word[:4] for word in e1_words if len(word) > 4}
+                stems2 = {word[:4] for word in e2_words if len(word) > 4}
+                
+                shared_stems = stems1.intersection(stems2)
+                
+                if shared_stems and (len(shared_stems) / max(len(stems1), len(stems2))) > 0.5:
+                    # Use the shorter entity as the standard
+                    if len(entity1) <= len(entity2):
+                        additional_standardizations[entity2] = entity1
+                    else:
+                        additional_standardizations[entity1] = entity2
+    
+    # Apply additional standardizations
+    for entity, standard in additional_standardizations.items():
+        standardized_entities[entity] = standard
+    
+    # 5. Apply standardization to all triples
     standardized_triples = []
     for triple in triples:
+        subj_lower = triple["subject"].lower()
+        obj_lower = triple["object"].lower()
+        
         standardized_triple = {
-            "subject": standardized_entities.get(triple["subject"].lower(), triple["subject"]),
+            "subject": standardized_entities.get(subj_lower, triple["subject"]),
             "predicate": triple["predicate"],
-            "object": standardized_entities.get(triple["object"].lower(), triple["object"]),
+            "object": standardized_entities.get(obj_lower, triple["object"]),
             "chunk": triple.get("chunk", 0)
         }
         standardized_triples.append(standardized_triple)
     
-    # 5. Optional: Use LLM to help with entity resolution for ambiguous cases
+    # 6. Optional: Use LLM to help with entity resolution for ambiguous cases
     if config.get("standardization", {}).get("use_llm_for_entities", False):
         standardized_triples = _resolve_entities_with_llm(standardized_triples, config)
     
@@ -103,25 +149,45 @@ def infer_relationships(triples, config):
     
     # Create a graph representation for easier traversal
     graph = defaultdict(set)
+    all_entities = set()
     for triple in triples:
         subj = triple["subject"]
         obj = triple["object"]
         graph[subj].add(obj)
+        all_entities.add(subj)
+        all_entities.add(obj)
     
     # Find disconnected communities
     communities = _identify_communities(graph)
     print(f"Identified {len(communities)} disconnected communities in the graph")
     
+    new_triples = []
+    
     # Use LLM to infer relationships between isolated communities if configured
     if config.get("inference", {}).get("use_llm_for_inference", True):
-        new_triples = _infer_relationships_with_llm(triples, communities, config)
-        if new_triples:
-            triples.extend(new_triples)
+        # Infer relationships between different communities
+        community_triples = _infer_relationships_with_llm(triples, communities, config)
+        if community_triples:
+            new_triples.extend(community_triples)
+            
+        # Infer relationships within the same communities for semantically related entities
+        within_community_triples = _infer_within_community_relationships(triples, communities, config)
+        if within_community_triples:
+            new_triples.extend(within_community_triples)
     
     # Apply transitive inference rules
     transitive_triples = _apply_transitive_inference(triples, graph)
     if transitive_triples:
-        triples.extend(transitive_triples)
+        new_triples.extend(transitive_triples)
+    
+    # Infer relationships based on lexical similarity
+    lexical_triples = _infer_relationships_by_lexical_similarity(all_entities, triples)
+    if lexical_triples:
+        new_triples.extend(lexical_triples)
+    
+    # Add new triples to the original set
+    if new_triples:
+        triples.extend(new_triples)
     
     # De-duplicate triples
     unique_triples = _deduplicate_triples(triples)
@@ -440,4 +506,231 @@ def _infer_relationships_with_llm(triples, communities, config):
             except Exception as e:
                 print(f"Error in LLM-based relationship inference: {e}")
     
+    return new_triples 
+
+def _infer_within_community_relationships(triples, communities, config):
+    """
+    Use LLM to infer relationships between entities within the same community.
+    Focus on entities that might be semantically related but not directly connected.
+    
+    Args:
+        triples: List of existing triples
+        communities: List of community sets
+        config: Configuration dictionary
+        
+    Returns:
+        List of new inferred triples
+    """
+    new_triples = []
+    
+    # Process larger communities
+    for community in sorted(communities, key=len, reverse=True)[:3]:
+        # Skip small communities
+        if len(community) < 5:
+            continue
+            
+        # Get all entities in this community
+        community_entities = list(community)
+        
+        # Create an adjacency matrix to identify disconnected entity pairs
+        connections = {(a, b): False for a in community_entities for b in community_entities if a != b}
+        
+        # Mark existing connections
+        for triple in triples:
+            if triple["subject"] in community_entities and triple["object"] in community_entities:
+                connections[(triple["subject"], triple["object"])] = True
+        
+        # Find disconnected pairs that might be semantically related
+        disconnected_pairs = []
+        for (a, b), connected in connections.items():
+            if not connected:
+                # Check for potential semantic relationship (e.g., shared words)
+                a_words = set(a.lower().split())
+                b_words = set(b.lower().split())
+                shared_words = a_words.intersection(b_words)
+                
+                # If they share words or one is contained in the other, they might be related
+                if shared_words or a.lower() in b.lower() or b.lower() in a.lower():
+                    disconnected_pairs.append((a, b))
+        
+        # Limit to the most promising pairs
+        disconnected_pairs = disconnected_pairs[:10]
+        
+        if not disconnected_pairs:
+            continue
+            
+        # Get relevant context
+        context_triples = []
+        entities_of_interest = set()
+        for a, b in disconnected_pairs:
+            entities_of_interest.add(a)
+            entities_of_interest.add(b)
+            
+        for triple in triples:
+            if triple["subject"] in entities_of_interest or triple["object"] in entities_of_interest:
+                context_triples.append(triple)
+        
+        # Limit context size
+        if len(context_triples) > 20:
+            context_triples = context_triples[:20]
+            
+        # Convert triples to text for prompt
+        triples_text = "\n".join([
+            f"{t['subject']} {t['predicate']} {t['object']}"
+            for t in context_triples
+        ])
+        
+        # Create pairs text
+        pairs_text = "\n".join([f"{a} and {b}" for a, b in disconnected_pairs])
+        
+        # Create prompt for LLM
+        system_prompt = """
+        You are an expert in knowledge representation and inference. 
+        Your task is to infer plausible relationships between semantically related entities that are not yet connected in a knowledge graph.
+        """
+        
+        user_prompt = f"""
+        I have a knowledge graph with several entities that appear to be semantically related but are not directly connected.
+        
+        Here are some pairs of entities that might be related:
+        {pairs_text}
+        
+        Here are some existing relationships involving these entities:
+        {triples_text}
+        
+        Please infer plausible relationships between these disconnected pairs.
+        Return your answer as a JSON array of triples in the following format:
+        
+        [
+          {{
+            "subject": "entity1",
+            "predicate": "inferred relationship",
+            "object": "entity2"
+          }},
+          ...
+        ]
+        
+        Only include highly plausible relationships with clear predicates.
+        The inferred relationships (predicates) should be very short and concise, 1-3 words maximum.
+        For predicates, use short phrases that clearly describe the relationship.
+        """
+        
+        try:
+            # LLM configuration
+            model = config["llm"]["model"]
+            api_key = config["llm"]["api_key"]
+            max_tokens = config["llm"]["max_tokens"]
+            temperature = config["llm"]["temperature"]
+            base_url = config["llm"]["base_url"]
+            
+            # Call LLM
+            response = call_llm(model, user_prompt, api_key, system_prompt, max_tokens, temperature, base_url)
+            
+            # Extract JSON results
+            from src.knowledge_graph.llm import extract_json_from_text
+            inferred_triples = extract_json_from_text(response)
+            
+            if inferred_triples and isinstance(inferred_triples, list):
+                # Mark as inferred and add to new triples
+                for triple in inferred_triples:
+                    if "subject" in triple and "predicate" in triple and "object" in triple:
+                        triple["inferred"] = True
+                        new_triples.append(triple)
+                
+                print(f"Inferred {len(inferred_triples)} new relationships within communities")
+            else:
+                print("Could not extract valid inferred relationships from LLM response")
+        
+        except Exception as e:
+            print(f"Error in LLM-based relationship inference within communities: {e}")
+    
+    return new_triples
+
+def _infer_relationships_by_lexical_similarity(entities, triples):
+    """
+    Infer relationships between entities based on lexical similarity.
+    This can help connect entities like "capitalism" and "capitalist decay".
+    
+    Args:
+        entities: Set of all entities
+        triples: List of existing triples
+        
+    Returns:
+        List of new inferred triples
+    """
+    new_triples = []
+    processed_pairs = set()
+    
+    # Create a dictionary to track existing relationships
+    existing_relationships = set()
+    for triple in triples:
+        existing_relationships.add((triple["subject"], triple["object"]))
+    
+    # Check for lexical similarity between entities
+    entities_list = list(entities)
+    for i, entity1 in enumerate(entities_list):
+        for entity2 in entities_list[i+1:]:
+            # Skip if already connected
+            if (entity1, entity2) in existing_relationships or (entity2, entity1) in existing_relationships:
+                continue
+                
+            # Skip if already processed this pair
+            if (entity1, entity2) in processed_pairs or (entity2, entity1) in processed_pairs:
+                continue
+                
+            processed_pairs.add((entity1, entity2))
+            
+            # Check for containment or shared roots
+            e1_lower = entity1.lower()
+            e2_lower = entity2.lower()
+            
+            # Simple word overlap check
+            e1_words = set(e1_lower.split())
+            e2_words = set(e2_lower.split())
+            shared_words = e1_words.intersection(e2_words)
+            
+            if shared_words:
+                # Create relationships based on shared words
+                main_shared = max(shared_words, key=len)
+                
+                if len(main_shared) >= 4:  # Only consider significant shared words
+                    if e1_lower.startswith(main_shared) and not e2_lower.startswith(main_shared):
+                        new_triples.append({
+                            "subject": entity2,
+                            "predicate": "relates to",
+                            "object": entity1,
+                            "inferred": True
+                        })
+                    elif e2_lower.startswith(main_shared) and not e1_lower.startswith(main_shared):
+                        new_triples.append({
+                            "subject": entity1,
+                            "predicate": "relates to",
+                            "object": entity2,
+                            "inferred": True
+                        })
+                    else:
+                        new_triples.append({
+                            "subject": entity1,
+                            "predicate": "related to",
+                            "object": entity2,
+                            "inferred": True
+                        })
+            
+            # Check if one entity contains the other
+            elif e1_lower in e2_lower:
+                new_triples.append({
+                    "subject": entity2,
+                    "predicate": "is type of",
+                    "object": entity1,
+                    "inferred": True
+                })
+            elif e2_lower in e1_lower:
+                new_triples.append({
+                    "subject": entity1,
+                    "predicate": "is type of",
+                    "object": entity2,
+                    "inferred": True
+                })
+    
+    print(f"Inferred {len(new_triples)} relationships based on lexical similarity")
     return new_triples 

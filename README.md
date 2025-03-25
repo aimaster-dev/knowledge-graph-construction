@@ -95,6 +95,100 @@ options:
   --no-inference    Disable relationship inference
 ```
 
+### Example output
+
+
+```markdown
+Using input text from file: data/industrial-revolution.txt
+==================================================
+PHASE 1: INITIAL TRIPLE EXTRACTION
+==================================================
+Processing text in 13 chunks (size: 100 words, overlap: 20 words)
+Processing chunk 1/13 (100 words)
+Processing chunk 2/13 (100 words)
+Processing chunk 3/13 (100 words)
+Processing chunk 4/13 (100 words)
+Processing chunk 5/13 (100 words)
+Processing chunk 6/13 (100 words)
+Processing chunk 7/13 (100 words)
+Processing chunk 8/13 (100 words)
+Processing chunk 9/13 (100 words)
+Processing chunk 10/13 (100 words)
+Processing chunk 11/13 (100 words)
+Processing chunk 12/13 (86 words)
+Processing chunk 13/13 (20 words)
+
+Extracted a total of 216 triples from all chunks
+
+==================================================
+PHASE 2: ENTITY STANDARDIZATION
+==================================================
+Starting with 216 triples and 201 unique entities
+Standardizing entity names across all triples...
+Applied LLM-based entity standardization for 15 entity groups
+Standardized 201 entities into 181 standard forms
+After standardization: 216 triples and 160 unique entities
+
+==================================================
+PHASE 3: RELATIONSHIP INFERENCE
+==================================================
+Starting with 216 triples
+Top 5 relationship types before inference:
+  - enables: 20 occurrences
+  - impacts: 15 occurrences
+  - enabled: 12 occurrences
+  - pioneered: 10 occurrences
+  - invented: 9 occurrences
+Inferring additional relationships between entities...
+Identified 9 disconnected communities in the graph
+Inferred 3 new relationships between communities
+Inferred 3 new relationships between communities
+Inferred 3 new relationships between communities
+Inferred 3 new relationships between communities
+Inferred 3 new relationships between communities
+Inferred 3 new relationships between communities
+Inferred 3 new relationships between communities
+Inferred 3 new relationships between communities
+Inferred 3 new relationships between communities
+Inferred 3 new relationships between communities
+Inferred 9 new relationships within communities
+Inferred 2 new relationships within communities
+Inferred 88 relationships based on lexical similarity
+Added -22 inferred relationships
+
+Top 5 relationship types after inference:
+  - related to: 65 occurrences
+  - advances via Artificial Intelligence: 36 occurrences
+  - pioneered via computing: 26 occurrences
+  - enables via computing: 24 occurrences
+  - enables: 21 occurrences
+
+Added 370 inferred relationships
+Final knowledge graph: 564 triples
+Saved raw knowledge graph data to /mnt/c/Users/rmcdermo/Documents/industrial-revolution-kb101.json
+Processing 564 triples for visualization
+Found 161 unique nodes
+Found 355 inferred relationships
+Detected 9 communities using Louvain method
+Nodes in NetworkX graph: 161
+Edges in NetworkX graph: 537
+Knowledge graph visualization saved to /mnt/c/Users/rmcdermo/Documents/industrial-revolution-kb101.html
+Graph Statistics: {
+  "nodes": 161,
+  "edges": 564,
+  "original_edges": 209,
+  "inferred_edges": 355,
+  "communities": 9
+}
+
+Knowledge Graph Statistics:
+Nodes: 161
+Edges: 564
+Communities: 9
+
+To view the visualization, open the following file in your browser:
+file:///mnt/c/Users/rmcdermo/Documents/industrial-revolution-kb101.html
+```
 
 ## How It Works
 

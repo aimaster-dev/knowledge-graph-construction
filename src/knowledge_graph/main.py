@@ -87,12 +87,15 @@ def process_text_in_chunks(config, full_text, debug=False):
     # Split text into chunks
     text_chunks = chunk_text(full_text, chunk_size, overlap)
     
+    print("=" * 50)
+    print("PHASE 1: INITIAL TRIPLE EXTRACTION")
+    print("=" * 50)
     print(f"Processing text in {len(text_chunks)} chunks (size: {chunk_size} words, overlap: {overlap} words)")
     
     # Process each chunk
     all_results = []
     for i, chunk in enumerate(text_chunks):
-        print(f"\nProcessing chunk {i+1}/{len(text_chunks)} ({len(chunk.split())} words)")
+        print(f"Processing chunk {i+1}/{len(text_chunks)} ({len(chunk.split())} words)")
         
         # Process the chunk with LLM
         chunk_results = process_with_llm(config, chunk, debug)
@@ -111,13 +114,64 @@ def process_text_in_chunks(config, full_text, debug=False):
     
     # Apply entity standardization if enabled
     if config.get("standardization", {}).get("enabled", False):
+        print("\n" + "="*50)
+        print("PHASE 2: ENTITY STANDARDIZATION")
+        print("="*50)
+        print(f"Starting with {len(all_results)} triples and {len(get_unique_entities(all_results))} unique entities")
+        
         all_results = standardize_entities(all_results, config)
+        
+        print(f"After standardization: {len(all_results)} triples and {len(get_unique_entities(all_results))} unique entities")
     
     # Apply relationship inference if enabled
     if config.get("inference", {}).get("enabled", False):
+        print("\n" + "="*50)
+        print("PHASE 3: RELATIONSHIP INFERENCE")
+        print("="*50)
+        print(f"Starting with {len(all_results)} triples")
+        
+        # Count existing relationships
+        relationship_counts = {}
+        for triple in all_results:
+            relationship_counts[triple["predicate"]] = relationship_counts.get(triple["predicate"], 0) + 1
+        
+        print("Top 5 relationship types before inference:")
+        for pred, count in sorted(relationship_counts.items(), key=lambda x: x[1], reverse=True)[:5]:
+            print(f"  - {pred}: {count} occurrences")
+        
         all_results = infer_relationships(all_results, config)
+        
+        # Count relationships after inference
+        relationship_counts_after = {}
+        for triple in all_results:
+            relationship_counts_after[triple["predicate"]] = relationship_counts_after.get(triple["predicate"], 0) + 1
+        
+        print("\nTop 5 relationship types after inference:")
+        for pred, count in sorted(relationship_counts_after.items(), key=lambda x: x[1], reverse=True)[:5]:
+            print(f"  - {pred}: {count} occurrences")
+        
+        # Count inferred relationships
+        inferred_count = sum(1 for triple in all_results if triple.get("inferred", False))
+        print(f"\nAdded {inferred_count} inferred relationships")
+        print(f"Final knowledge graph: {len(all_results)} triples")
     
     return all_results
+
+def get_unique_entities(triples):
+    """
+    Get the set of unique entities from the triples.
+    
+    Args:
+        triples: List of triple dictionaries
+        
+    Returns:
+        Set of unique entity names
+    """
+    entities = set()
+    for triple in triples:
+        entities.add(triple["subject"])
+        entities.add(triple["object"])
+    return entities
 
 def main():
     """Main entry point for the knowledge graph generator."""
