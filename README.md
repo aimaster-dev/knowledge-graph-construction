@@ -46,9 +46,9 @@ The system can be configured using the `config.toml` file:
 
 ```toml
 [llm]
-model = "gemma3"
+model = "gemma3"  # Google open weight model
 api_key = "sk-1234"
-base_url = "http://localhost:11434/v1/chat/completions"
+base_url = "http://localhost:11434/v1/chat/completions" # Local Ollama instance running locally (but can be any OpenAI compatible endpoint)
 max_tokens = 8192
 temperature = 0.2
 
