@@ -133,10 +133,16 @@ def main():
     
     args = parser.parse_args()
     
+    # Load configuration
+    config = load_config(args.config)
+    if not config:
+        print(f"Failed to load configuration from {args.config}. Exiting.")
+        return
+    
     # If test flag is provided, generate a sample visualization
     if args.test:
         print("Generating sample data visualization...")
-        sample_data_visualization(args.output)
+        sample_data_visualization(args.output, config=config)
         print(f"\nSample visualization saved to {args.output}")
         print(f"To view the visualization, open the following file in your browser:")
         print(f"file://{os.path.abspath(args.output)}")
@@ -146,13 +152,6 @@ def main():
     if not args.input:
         print("Error: --input is required unless --test is used")
         parser.print_help()
-        return
-    
-    # Normal processing continues below
-    # Load configuration
-    config = load_config(args.config)
-    if not config:
-        print(f"Failed to load configuration from {args.config}. Exiting.")
         return
     
     # Override configuration settings with command line arguments
@@ -184,7 +183,7 @@ def main():
             print(f"Warning: Could not save raw data to {json_output}: {e}")
         
         # Visualize the knowledge graph
-        stats = visualize_knowledge_graph(result, args.output)
+        stats = visualize_knowledge_graph(result, args.output, config=config)
         print("\nKnowledge Graph Statistics:")
         print(f"Nodes: {stats['nodes']}")
         print(f"Edges: {stats['edges']}")

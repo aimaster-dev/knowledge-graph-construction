@@ -21,6 +21,10 @@ enabled = true             # Whether to enable relationship inference
 use_llm_for_inference = true  # Whether to use LLM for relationship inference
 apply_transitive = true    # Whether to apply transitive inference rules
 
+[visualization]
+edge_smooth = false  # Options: false, "dynamic", "continuous", "discrete", "diagonalCross", 
+                         # "straightCross", "horizontal", "vertical", "curvedCW", "curvedCCW", "cubicBezier": true = "continuous"
+
 [prompts]
 system_prompt = """
 You are an advanced AI system specialized in knowledge extraction and knowledge graph generation.

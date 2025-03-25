@@ -16,17 +16,27 @@ def _load_html_template():
         print(f"Warning: Could not load template file: {e}")
         return '<div id="mynetwork" class="card-body"></div>'  # Fallback to basic template
 
-def visualize_knowledge_graph(triples, output_file="knowledge_graph.html"):
+def visualize_knowledge_graph(triples, output_file="knowledge_graph.html", edge_smooth=None, config=None):
     """
     Create and visualize a knowledge graph from subject-predicate-object triples.
     
     Args:
         triples: List of dictionaries with 'subject', 'predicate', and 'object' keys
         output_file: HTML file to save the visualization
+        edge_smooth: Edge smoothing setting (overrides config): 
+                    false, "dynamic", "continuous", "discrete", "diagonalCross", 
+                    "straightCross", "horizontal", "vertical", "curvedCW", "curvedCCW", "cubicBezier"
+        config: Configuration dictionary (optional)
         
     Returns:
         Dictionary with graph statistics
     """
+    # Determine edge smoothing from config if not explicitly provided
+    if edge_smooth is None and config is not None:
+        edge_smooth = config.get("visualization", {}).get("edge_smooth", False)
+    elif edge_smooth is None:
+        edge_smooth = False
+    
     if not triples:
         print("Warning: No triples provided for visualization")
         return {"nodes": 0, "edges": 0, "communities": 0}
@@ -131,7 +141,7 @@ def visualize_knowledge_graph(triples, output_file="knowledge_graph.html"):
     _add_nodes_and_edges_to_network(net, G)
     
     # Set visualization options
-    options = _get_visualization_options()
+    options = _get_visualization_options(edge_smooth)
     
     # Set all options in one go with proper JSON
     net.set_options(json.dumps(options))
@@ -252,8 +262,15 @@ def _add_nodes_and_edges_to_network(net, G):
         
         net.add_edge(source, target, **edge_options)
 
-def _get_visualization_options():
-    """Get options for PyVis visualization."""
+def _get_visualization_options(edge_smooth=False):
+    """
+    Get options for PyVis visualization.
+    
+    Args:
+        edge_smooth: Edge smoothing setting: 
+                    false, "dynamic", "continuous", "discrete", "diagonalCross", 
+                    "straightCross", "horizontal", "vertical", "curvedCW", "curvedCCW", "cubicBezier"
+    """
     # Configure physics for better visualization
     physics_options = {
         "enabled": True,  # Physics on by default
@@ -270,13 +287,24 @@ def _get_visualization_options():
         }
     }
     
+    # Determine edge smoothing based on parameter
+    if isinstance(edge_smooth, str):
+        if edge_smooth.lower() == "false":
+            edge_smoothing = False
+        else:
+            edge_smoothing = {'type': edge_smooth}
+    elif edge_smooth:
+        edge_smoothing = {'type': 'continuous'}  # Default curved type
+    else:
+        edge_smoothing = False
+    
     # Full options for visualization
     return {
         "physics": physics_options,
         "edges": {
             "color": {"inherit": True},
             "font": {"size": 12},
-            "smooth": False  # Straight edges are easier to read
+            "smooth": edge_smoothing  # Apply edge smoothing setting
         },
         "nodes": {
             "font": {"size": 14, "face": "Tahoma"},
@@ -319,12 +347,16 @@ def _save_and_modify_html(net, output_file, community_count, all_nodes, triples)
     
     print(f"Knowledge graph visualization saved to {output_file}")
 
-def sample_data_visualization(output_file="sample_knowledge_graph.html"):
+def sample_data_visualization(output_file="sample_knowledge_graph.html", edge_smooth=None, config=None):
     """
     Generate a visualization using sample data to test the functionality.
     
     Args:
         output_file: Path to save the sample graph HTML
+        edge_smooth: Edge smoothing setting (overrides config): 
+                    false, "dynamic", "continuous", "discrete", "diagonalCross", 
+                    "straightCross", "horizontal", "vertical", "curvedCW", "curvedCCW", "cubicBezier"
+        config: Configuration dictionary (optional)
     """
     # Sample data representing knowledge graph triples
     sample_triples = [
@@ -351,9 +383,25 @@ def sample_data_visualization(output_file="sample_knowledge_graph.html"):
         {"subject": "Robert McDermott", "predicate": "lives in", "object": "North America"}
     ]
     
+    # Determine edge smoothing from config if not explicitly provided
+    if edge_smooth is None and config is not None:
+        edge_smooth = config.get("visualization", {}).get("edge_smooth", False)
+    elif edge_smooth is None:
+        edge_smooth = False
+    
     # Generate the visualization
     print(f"Generating sample visualization with {len(sample_triples)} triples")
-    stats = visualize_knowledge_graph(sample_triples, output_file)
+    
+    # Display edge smoothing type
+    if edge_smooth is False:
+        edge_style = "Straight (no smoothing)"
+    elif isinstance(edge_smooth, str):
+        edge_style = edge_smooth
+    else:
+        edge_style = "continuous (default curved)"
+    
+    print(f"Edge style: {edge_style}")
+    stats = visualize_knowledge_graph(sample_triples, output_file, edge_smooth=edge_smooth, config=config)
     
     print("\nSample Knowledge Graph Statistics:")
     print(f"Nodes: {stats['nodes']}")
@@ -365,4 +413,42 @@ def sample_data_visualization(output_file="sample_knowledge_graph.html"):
 
 if __name__ == "__main__":
     # Run sample visualization when this module is run directly
-    sample_data_visualization() 
+    from src.knowledge_graph.config import load_config
+    
+    # Try to load config, fall back to defaults if not found
+    config = load_config()
+    if config is None:
+        config = {"visualization": {"edge_smooth": False}}
+        print("No config.toml found, using default settings")
+    
+    # Create sample visualizations with different edge types
+    examples = [
+        ("sample_knowledge_graph_straight.html", False, "Straight edges (no smoothing)"),
+        ("sample_knowledge_graph_curvedCW.html", "curvedCW", "Curved clockwise"),
+        ("sample_knowledge_graph_curvedCCW.html", "curvedCCW", "Curved counter-clockwise"),
+        ("sample_knowledge_graph_dynamic.html", "dynamic", "Dynamic edges"),
+        ("sample_knowledge_graph_cubicBezier.html", "cubicBezier", "Cubic Bezier curves"),
+    ]
+    
+    # Create example visualizations
+    for filename, edge_type, description in examples:
+        print(f"\nCreating visualization with {description}...")
+        config_example = {"visualization": {"edge_smooth": edge_type}}
+        sample_data_visualization(filename, config=config_example)
+    
+    # Create visualization using config.toml settings
+    print("\nCreating visualization using configuration from config.toml...")
+    sample_data_visualization("sample_knowledge_graph_config.html", config=config)
+    
+    # Determine edge style from config for output message
+    config_edge_type = config.get("visualization", {}).get("edge_smooth", False)
+    if config_edge_type is False:
+        config_description = "straight edges (no smoothing)"
+    else:
+        config_description = f"edge style '{config_edge_type}'"
+    
+    print(f"\nCreated sample visualizations:")
+    for filename, _, description in examples:
+        print(f"- {filename}: {description}")
+    print(f"- sample_knowledge_graph_config.html: Using {config_description} from config.toml")
+    print("\nTo view these visualizations, open the HTML files in your browser.") 
