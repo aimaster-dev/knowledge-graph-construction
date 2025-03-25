@@ -95,8 +95,14 @@ options:
   --no-inference    Disable relationship inference
 ```
 
-### Example output
+### Example Run
 
+**Command:**
+
+```bash
+generate-graph --input data/industrial-revolution.txt --output industrial-revolution-kg.html
+```
+**Console Output:**
 
 ```markdown
 Using input text from file: data/industrial-revolution.txt
@@ -165,14 +171,14 @@ Top 5 relationship types after inference:
 
 Added 370 inferred relationships
 Final knowledge graph: 564 triples
-Saved raw knowledge graph data to /mnt/c/Users/rmcdermo/Documents/industrial-revolution-kb101.json
+Saved raw knowledge graph data to /mnt/c/Users/rmcdermo/Documents/industrial-revolution-kg.json
 Processing 564 triples for visualization
 Found 161 unique nodes
 Found 355 inferred relationships
 Detected 9 communities using Louvain method
 Nodes in NetworkX graph: 161
 Edges in NetworkX graph: 537
-Knowledge graph visualization saved to /mnt/c/Users/rmcdermo/Documents/industrial-revolution-kb101.html
+Knowledge graph visualization saved to /mnt/c/Users/rmcdermo/Documents/industrial-revolution-kg.html
 Graph Statistics: {
   "nodes": 161,
   "edges": 564,
@@ -187,7 +193,7 @@ Edges: 564
 Communities: 9
 
 To view the visualization, open the following file in your browser:
-file:///mnt/c/Users/rmcdermo/Documents/industrial-revolution-kb101.html
+file:///mnt/c/Users/rmcdermo/Documents/industrial-revolution-kg.html
 ```
 
 ## How It Works
