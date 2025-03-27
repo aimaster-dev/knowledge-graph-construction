@@ -10,7 +10,8 @@ This system takes an unstructured text document, and uses an LLM of your choice 
 - **Knowledge Extraction**: Uses AI to identify entities and their relationships
 - **Entity Standardization**: Ensures consistent entity naming across document chunks
 - **Relationship Inference**: Discovers additional relationships between disconnected parts of the graph
-- **Interactive Visualization**: Creates a beautiful, interactive graph visualization
+- **Interactive Visualization**: Creates an interactive graph visualization
+- **Works with Any OpenAI Compatible API Endpoint**: Ollama, LM Studio, OpenAI, vLLM, LiteLLM (provides access to AWS Bedrock, Azure OpenAI, Anthropic and many other LLM services) 
 
 ## Requirements
 
