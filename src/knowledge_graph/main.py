@@ -13,7 +13,7 @@ from src.knowledge_graph.config import load_config
 from src.knowledge_graph.llm import call_llm, extract_json_from_text
 from src.knowledge_graph.visualization import visualize_knowledge_graph, sample_data_visualization
 from src.knowledge_graph.text_utils import chunk_text
-from src.knowledge_graph.entity_standardization import standardize_entities, infer_relationships
+from src.knowledge_graph.entity_standardization import standardize_entities, infer_relationships, limit_predicate_length
 
 def process_with_llm(config, input_text, debug=False):
     """
@@ -55,6 +55,10 @@ def process_with_llm(config, input_text, debug=False):
     if result:
         # Add metadata to each item
         result = [dict(item, **metadata) for item in result]
+        
+        # Apply predicate length limit to all triples
+        for triple in result:
+            triple["predicate"] = limit_predicate_length(triple["predicate"])
         
         # Print extracted JSON only if debug mode is on
         if debug:

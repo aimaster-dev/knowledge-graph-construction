@@ -3,6 +3,32 @@ import re
 from collections import defaultdict
 from src.knowledge_graph.llm import call_llm
 
+def limit_predicate_length(predicate, max_words=3):
+    """
+    Enforce a maximum word limit on predicates.
+    
+    Args:
+        predicate: The original predicate string
+        max_words: Maximum number of words allowed (default: 3)
+        
+    Returns:
+        Shortened predicate with no more than max_words
+    """
+    words = predicate.split()
+    if len(words) <= max_words:
+        return predicate
+    
+    # If too long, use only the first max_words words
+    shortened = ' '.join(words[:max_words])
+    
+    # Remove trailing prepositions or articles if they're the last word
+    stop_words = {'a', 'an', 'the', 'of', 'with', 'by', 'to', 'from', 'in', 'on', 'for'}
+    last_word = shortened.split()[-1].lower()
+    if last_word in stop_words and len(words) > 1:
+        shortened = ' '.join(shortened.split()[:-1])
+    
+    return shortened
+
 def standardize_entities(triples, config):
     """
     Standardize entity names across all triples.
@@ -118,7 +144,7 @@ def standardize_entities(triples, config):
         
         standardized_triple = {
             "subject": standardized_entities.get(subj_lower, triple["subject"]),
-            "predicate": triple["predicate"],
+            "predicate": limit_predicate_length(triple["predicate"]),
             "object": standardized_entities.get(obj_lower, triple["object"]),
             "chunk": triple.get("chunk", 0)
         }
@@ -191,6 +217,10 @@ def infer_relationships(triples, config):
     
     # De-duplicate triples
     unique_triples = _deduplicate_triples(triples)
+    
+    # Final pass: ensure all predicates follow the 3-word limit
+    for triple in unique_triples:
+        triple["predicate"] = limit_predicate_length(triple["predicate"])
     
     print(f"Added {len(unique_triples) - len(triples)} inferred relationships")
     return unique_triples
@@ -271,7 +301,7 @@ def _apply_transitive_inference(triples, graph):
                     # Add the new transitive relationship
                     new_triples.append({
                         "subject": subj,
-                        "predicate": new_pred,
+                        "predicate": limit_predicate_length(new_pred),
                         "object": obj,
                         "inferred": True  # Mark as inferred
                     })
@@ -473,7 +503,7 @@ def _infer_relationships_with_llm(triples, communities, config):
             ]
             
             Only include highly plausible relationships with clear predicates.
-            The inferred relationships (predicates) should be very short and concise. 1 to 3 words (3 words max). Abreviate long words to keep the predicate short.
+            IMPORTANT: The inferred relationships (predicates) MUST be no more than 3 words maximum. Preferably 1-2 words. Never more than 3.
             For predicates, use short phrases that clearly describe the relationship.
             """
             
@@ -497,6 +527,7 @@ def _infer_relationships_with_llm(triples, communities, config):
                     for triple in inferred_triples:
                         if "subject" in triple and "predicate" in triple and "object" in triple:
                             triple["inferred"] = True
+                            triple["predicate"] = limit_predicate_length(triple["predicate"])
                             new_triples.append(triple)
                     
                     print(f"Inferred {len(inferred_triples)} new relationships between communities")
@@ -611,8 +642,7 @@ def _infer_within_community_relationships(triples, communities, config):
         ]
         
         Only include highly plausible relationships with clear predicates.
-        The inferred relationships (predicates) should be very short and concise, 1-3 words maximum.
-        For predicates, use short phrases that clearly describe the relationship.
+        IMPORTANT: The inferred relationships (predicates) MUST be no more than 3 words maximum. Preferably 1-2 words. Never more than 3.
         """
         
         try:
@@ -635,6 +665,7 @@ def _infer_within_community_relationships(triples, communities, config):
                 for triple in inferred_triples:
                     if "subject" in triple and "predicate" in triple and "object" in triple:
                         triple["inferred"] = True
+                        triple["predicate"] = limit_predicate_length(triple["predicate"])
                         new_triples.append(triple)
                 
                 print(f"Inferred {len(inferred_triples)} new relationships within communities")
