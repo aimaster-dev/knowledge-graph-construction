@@ -38,7 +38,7 @@ Or installing and using as a module:
 
 ```bash
 pip install --upgrade -e .
-generate-graph.py --input your_text_file.txt --output knowledge_graph.html
+generate-graph --input your_text_file.txt --output knowledge_graph.html
 ```
 
 ## Configuration
