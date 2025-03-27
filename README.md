@@ -227,7 +227,7 @@ Both the second and third passes are optional and can be disabled in the configu
 - **Node Size**: Nodes sized by importance (degree, betweenness, eigenvector centrality)
 - **Relationship Types**: Original relationships shown as solid lines, inferred relationships as dashed lines
 - **Interactive Controls**: Zoom, pan, hover for details, filtering and physics controls
-- **Light (default) and Dark mode themes.
+- **Light (default) and Dark mode themes**.
 
 ## Project Layout
 
