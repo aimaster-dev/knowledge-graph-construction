@@ -252,3 +252,137 @@ Both the second and third passes are optional and can be disabled in the configu
             └── graph_template.html # Base template for interactive graph
 ```
 
+## Program Flow
+
+This diagram illustrates the program flow.
+
+```mermaid
+flowchart TD
+    %% Main entry points
+    A[main.py - Entry Point] --> B{Parse Arguments}
+    
+    %% Test mode branch
+    B -->|--test flag| C[sample_data_visualization]
+    C --> D[visualize_knowledge_graph]
+    
+    %% Normal processing branch
+    B -->|normal processing| E[load_config]
+    E --> F[process_text_in_chunks]
+    
+    %% Text processing
+    F --> G[chunk_text]
+    G --> H[process_with_llm]
+    
+    %% LLM processing
+    H --> I[call_llm]
+    I --> J[extract_json_from_text]
+    
+    %% Entity standardization phase
+    F --> K{standardization enabled?}
+    K -->|yes| L[standardize_entities]
+    K -->|no| M{inference enabled?}
+    L --> M
+    
+    %% Relationship inference phase
+    M -->|yes| N[infer_relationships]
+    M -->|no| O[visualize_knowledge_graph]
+    N --> O
+    
+    %% Visualization components
+    O --> P[_calculate_centrality_metrics]
+    O --> Q[_detect_communities]
+    O --> R[_calculate_node_sizes]
+    O --> S[_add_nodes_and_edges_to_network]
+    O --> T[_get_visualization_options]
+    O --> U[_save_and_modify_html]
+    
+    %% Subprocesses
+    L --> L1[_resolve_entities_with_llm]
+    N --> N1[_identify_communities]
+    N --> N2[_infer_relationships_with_llm]
+    N --> N3[_infer_within_community_relationships]
+    N --> N4[_apply_transitive_inference]
+    N --> N5[_infer_relationships_by_lexical_similarity]
+    N --> N6[_deduplicate_triples]
+    
+    %% File outputs
+    U --> V[HTML Visualization]
+    F --> W[JSON Data Export]
+    
+    %% Module dependencies
+    subgraph Modules
+        main.py
+        config.py
+        text_utils.py
+        llm.py
+        entity_standardization.py
+        visualization.py
+    end
+    
+    %% Phases
+    subgraph Phase 1: Triple Extraction
+        G
+        H
+        I
+        J
+    end
+    
+    subgraph Phase 2: Entity Standardization
+        L
+        L1
+    end
+    
+    subgraph Phase 3: Relationship Inference
+        N
+        N1
+        N2
+        N3
+        N4
+        N5
+        N6
+    end
+    
+    subgraph Phase 4: Visualization
+        O
+        P
+        Q
+        R
+        S
+        T
+        U
+    end
+```
+
+## Program Flow Description
+
+1. **Entry Point**: The program starts in `main.py` which parses command-line arguments.
+
+2. **Mode Selection**:
+   - If `--test` flag is provided, it generates a sample visualization
+   - Otherwise, it processes the input text file
+
+3. **Configuration**: Loads settings from `config.toml` using `config.py`
+
+4. **Text Processing**:
+   - Breaks text into chunks with overlap using `text_utils.py`
+   - Processes each chunk with the LLM to extract triples
+
+5. **Entity Standardization** (optional):
+   - Standardizes entity names across all triples
+   - May use LLM for entity resolution in ambiguous cases
+
+6. **Relationship Inference** (optional):
+   - Identifies communities in the graph
+   - Infers relationships between disconnected communities
+   - Applies transitive inference and lexical similarity rules
+   - Deduplicates triples
+
+7. **Visualization**:
+   - Calculates centrality metrics and community detection
+   - Determines node sizes and colors based on importance
+   - Creates an interactive HTML visualization using PyVis
+   - Customizes the HTML with templates
+
+8. **Output**:
+   - Saves the knowledge graph as both HTML and JSON
+   - Displays statistics about nodes, edges, and communities
