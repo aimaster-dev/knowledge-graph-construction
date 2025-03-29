@@ -54,19 +54,34 @@ def process_with_llm(config, input_text, debug=False):
     result = extract_json_from_text(response)
     
     if result:
-        # Add metadata to each item
-        result = [dict(item, **metadata) for item in result]
+        # Validate and filter triples to ensure they have all required fields
+        valid_triples = []
+        invalid_count = 0
         
-        # Apply predicate length limit to all triples
-        for triple in result:
+        for item in result:
+            if isinstance(item, dict) and "subject" in item and "predicate" in item and "object" in item:
+                # Add metadata to valid items
+                valid_triples.append(dict(item, **metadata))
+            else:
+                invalid_count += 1
+        
+        if invalid_count > 0:
+            print(f"Warning: Filtered out {invalid_count} invalid triples missing required fields")
+        
+        if not valid_triples:
+            print("Error: No valid triples found in LLM response")
+            return None
+        
+        # Apply predicate length limit to all valid triples
+        for triple in valid_triples:
             triple["predicate"] = limit_predicate_length(triple["predicate"])
         
         # Print extracted JSON only if debug mode is on
         if debug:
             print("Extracted JSON:")
-            print(json.dumps(result, indent=2))  # Pretty print the JSON
+            print(json.dumps(valid_triples, indent=2))  # Pretty print the JSON
         
-        return result
+        return valid_triples
     else:
         # Always print error messages even if debug is off
         print("\n\nERROR ### Could not extract valid JSON from response: ", response, "\n\n")
@@ -174,8 +189,12 @@ def get_unique_entities(triples):
     """
     entities = set()
     for triple in triples:
-        entities.add(triple["subject"])
-        entities.add(triple["object"])
+        if not isinstance(triple, dict):
+            continue
+        if "subject" in triple:
+            entities.add(triple["subject"])
+        if "object" in triple:
+            entities.add(triple["object"])
     return entities
 
 def main():

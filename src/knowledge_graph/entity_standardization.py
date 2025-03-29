@@ -53,9 +53,26 @@ def standardize_entities(triples, config):
     
     print("Standardizing entity names across all triples...")
     
+    # Validate input triples to ensure they have the required fields
+    valid_triples = []
+    invalid_count = 0
+    
+    for triple in triples:
+        if isinstance(triple, dict) and "subject" in triple and "predicate" in triple and "object" in triple:
+            valid_triples.append(triple)
+        else:
+            invalid_count += 1
+    
+    if invalid_count > 0:
+        print(f"Warning: Filtered out {invalid_count} invalid triples missing required fields")
+    
+    if not valid_triples:
+        print("Error: No valid triples found for entity standardization")
+        return []
+    
     # 1. Extract all unique entities
     all_entities = set()
-    for triple in triples:
+    for triple in valid_triples:
         all_entities.add(triple["subject"].lower())
         all_entities.add(triple["object"].lower())
     
@@ -90,7 +107,7 @@ def standardize_entities(triples, config):
             # Multiple variants, choose the most common or the shortest one as standard
             # Sort by frequency in triples, then by length (shorter is better)
             variant_counts = defaultdict(int)
-            for triple in triples:
+            for triple in valid_triples:
                 for variant in variants:
                     if triple["subject"].lower() == variant:
                         variant_counts[variant] += 1
@@ -146,7 +163,7 @@ def standardize_entities(triples, config):
     
     # 5. Apply standardization to all triples
     standardized_triples = []
-    for triple in triples:
+    for triple in valid_triples:
         subj_lower = triple["subject"].lower()
         obj_lower = triple["object"].lower()
         
@@ -186,10 +203,27 @@ def infer_relationships(triples, config):
     
     print("Inferring additional relationships between entities...")
     
+    # Validate input triples to ensure they have the required fields
+    valid_triples = []
+    invalid_count = 0
+    
+    for triple in triples:
+        if isinstance(triple, dict) and "subject" in triple and "predicate" in triple and "object" in triple:
+            valid_triples.append(triple)
+        else:
+            invalid_count += 1
+    
+    if invalid_count > 0:
+        print(f"Warning: Filtered out {invalid_count} invalid triples missing required fields")
+    
+    if not valid_triples:
+        print("Error: No valid triples found for relationship inference")
+        return []
+    
     # Create a graph representation for easier traversal
     graph = defaultdict(set)
     all_entities = set()
-    for triple in triples:
+    for triple in valid_triples:
         subj = triple["subject"]
         obj = triple["object"]
         graph[subj].add(obj)
@@ -205,31 +239,31 @@ def infer_relationships(triples, config):
     # Use LLM to infer relationships between isolated communities if configured
     if config.get("inference", {}).get("use_llm_for_inference", True):
         # Infer relationships between different communities
-        community_triples = _infer_relationships_with_llm(triples, communities, config)
+        community_triples = _infer_relationships_with_llm(valid_triples, communities, config)
         if community_triples:
             new_triples.extend(community_triples)
             
         # Infer relationships within the same communities for semantically related entities
-        within_community_triples = _infer_within_community_relationships(triples, communities, config)
+        within_community_triples = _infer_within_community_relationships(valid_triples, communities, config)
         if within_community_triples:
             new_triples.extend(within_community_triples)
     
     # Apply transitive inference rules
-    transitive_triples = _apply_transitive_inference(triples, graph)
+    transitive_triples = _apply_transitive_inference(valid_triples, graph)
     if transitive_triples:
         new_triples.extend(transitive_triples)
     
     # Infer relationships based on lexical similarity
-    lexical_triples = _infer_relationships_by_lexical_similarity(all_entities, triples)
+    lexical_triples = _infer_relationships_by_lexical_similarity(all_entities, valid_triples)
     if lexical_triples:
         new_triples.extend(lexical_triples)
     
     # Add new triples to the original set
     if new_triples:
-        triples.extend(new_triples)
+        valid_triples.extend(new_triples)
     
     # De-duplicate triples
-    unique_triples = _deduplicate_triples(triples)
+    unique_triples = _deduplicate_triples(valid_triples)
     
     # Final pass: ensure all predicates follow the 3-word limit
     for triple in unique_triples:
