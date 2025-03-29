@@ -154,8 +154,13 @@ def standardize_entities(triples, config):
     if config.get("standardization", {}).get("use_llm_for_entities", False):
         standardized_triples = _resolve_entities_with_llm(standardized_triples, config)
     
+    # 7. Filter out self-referencing triples
+    filtered_triples = [triple for triple in standardized_triples if triple["subject"] != triple["object"]]
+    if len(filtered_triples) < len(standardized_triples):
+        print(f"Removed {len(standardized_triples) - len(filtered_triples)} self-referencing triples")
+    
     print(f"Standardized {len(all_entities)} entities into {len(set(standardized_entities.values()))} standard forms")
-    return standardized_triples
+    return filtered_triples
 
 def infer_relationships(triples, config):
     """
@@ -222,8 +227,13 @@ def infer_relationships(triples, config):
     for triple in unique_triples:
         triple["predicate"] = limit_predicate_length(triple["predicate"])
     
-    print(f"Added {len(unique_triples) - len(triples)} inferred relationships")
-    return unique_triples
+    # Filter out self-referencing triples
+    filtered_triples = [triple for triple in unique_triples if triple["subject"] != triple["object"]]
+    if len(filtered_triples) < len(unique_triples):
+        print(f"Removed {len(unique_triples) - len(filtered_triples)} self-referencing triples")
+    
+    print(f"Added {len(filtered_triples) - len(triples)} inferred relationships")
+    return filtered_triples
 
 def _identify_communities(graph):
     """
@@ -505,6 +515,7 @@ def _infer_relationships_with_llm(triples, communities, config):
             Only include highly plausible relationships with clear predicates.
             IMPORTANT: The inferred relationships (predicates) MUST be no more than 3 words maximum. Preferably 1-2 words. Never more than 3.
             For predicates, use short phrases that clearly describe the relationship.
+            IMPORTANT: Make sure the subject and object are different entities - avoid self-references.
             """
             
             try:
@@ -526,11 +537,14 @@ def _infer_relationships_with_llm(triples, communities, config):
                     # Mark as inferred and add to new triples
                     for triple in inferred_triples:
                         if "subject" in triple and "predicate" in triple and "object" in triple:
+                            # Skip self-referencing triples
+                            if triple["subject"] == triple["object"]:
+                                continue
                             triple["inferred"] = True
                             triple["predicate"] = limit_predicate_length(triple["predicate"])
                             new_triples.append(triple)
                     
-                    print(f"Inferred {len(inferred_triples)} new relationships between communities")
+                    print(f"Inferred {len(new_triples)} new relationships between communities")
                 else:
                     print("Could not extract valid inferred relationships from LLM response")
             
@@ -574,7 +588,7 @@ def _infer_within_community_relationships(triples, communities, config):
         # Find disconnected pairs that might be semantically related
         disconnected_pairs = []
         for (a, b), connected in connections.items():
-            if not connected:
+            if not connected and a != b:  # Ensure a and b are different entities
                 # Check for potential semantic relationship (e.g., shared words)
                 a_words = set(a.lower().split())
                 b_words = set(b.lower().split())
@@ -643,6 +657,7 @@ def _infer_within_community_relationships(triples, communities, config):
         
         Only include highly plausible relationships with clear predicates.
         IMPORTANT: The inferred relationships (predicates) MUST be no more than 3 words maximum. Preferably 1-2 words. Never more than 3.
+        IMPORTANT: Make sure that the subject and object are different entities - avoid self-references.
         """
         
         try:
@@ -664,6 +679,9 @@ def _infer_within_community_relationships(triples, communities, config):
                 # Mark as inferred and add to new triples
                 for triple in inferred_triples:
                     if "subject" in triple and "predicate" in triple and "object" in triple:
+                        # Skip self-referencing triples
+                        if triple["subject"] == triple["object"]:
+                            continue
                         triple["inferred"] = True
                         triple["predicate"] = limit_predicate_length(triple["predicate"])
                         new_triples.append(triple)
@@ -707,6 +725,10 @@ def _infer_relationships_by_lexical_similarity(entities, triples):
                 
             # Skip if already processed this pair
             if (entity1, entity2) in processed_pairs or (entity2, entity1) in processed_pairs:
+                continue
+                
+            # Skip if the entities are the same (prevent self-reference)
+            if entity1 == entity2:
                 continue
                 
             processed_pairs.add((entity1, entity2))
