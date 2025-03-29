@@ -2,6 +2,14 @@
 import re
 from collections import defaultdict
 from src.knowledge_graph.llm import call_llm
+from src.knowledge_graph.prompts import (
+    ENTITY_RESOLUTION_SYSTEM_PROMPT, 
+    get_entity_resolution_user_prompt,
+    RELATIONSHIP_INFERENCE_SYSTEM_PROMPT,
+    get_relationship_inference_user_prompt,
+    WITHIN_COMMUNITY_INFERENCE_SYSTEM_PROMPT,
+    get_within_community_inference_user_prompt
+)
 
 def limit_predicate_length(predicate, max_words=3):
     """
@@ -370,27 +378,8 @@ def _resolve_entities_with_llm(triples, config):
     
     # Prepare prompt for LLM
     entity_list = "\n".join(sorted(all_entities))
-    system_prompt = """
-    You are an expert in entity resolution and knowledge representation.
-    Your task is to standardize entity names from a knowledge graph to ensure consistency.
-    """
-    user_prompt = f"""
-    Below is a list of entity names extracted from a knowledge graph. 
-    Some may refer to the same real-world entities but with different wording.
-    
-    Please identify groups of entities that refer to the same concept, and provide a standardized name for each group.
-    Return your answer as a JSON object where the keys are the standardized names and the values are arrays of all variant names that should map to that standard name.
-    Only include entities that have multiple variants or need standardization.
-    
-    Entity list:
-    {entity_list}
-    
-    Format your response as valid JSON like this:
-    {{
-      "standardized name 1": ["variant 1", "variant 2"],
-      "standardized name 2": ["variant 3", "variant 4", "variant 5"]
-    }}
-    """
+    system_prompt = ENTITY_RESOLUTION_SYSTEM_PROMPT
+    user_prompt = get_entity_resolution_user_prompt(entity_list)
     
     try:
         # LLM configuration
@@ -486,37 +475,8 @@ def _infer_relationships_with_llm(triples, communities, config):
             entities2 = ", ".join(rep2)
             
             # Create prompt for LLM
-            system_prompt = """
-            You are an expert in knowledge representation and inference. 
-            Your task is to infer plausible relationships between disconnected entities in a knowledge graph.
-            """
-            
-            user_prompt = f"""
-            I have a knowledge graph with two disconnected communities of entities. 
-            
-            Community 1 entities: {entities1}
-            Community 2 entities: {entities2}
-            
-            Here are some existing relationships involving these entities:
-            {triples_text}
-            
-            Please infer 2-3 plausible relationships between entities from Community 1 and entities from Community 2.
-            Return your answer as a JSON array of triples in the following format:
-            
-            [
-              {{
-                "subject": "entity from community 1",
-                "predicate": "inferred relationship",
-                "object": "entity from community 2"
-              }},
-              ...
-            ]
-            
-            Only include highly plausible relationships with clear predicates.
-            IMPORTANT: The inferred relationships (predicates) MUST be no more than 3 words maximum. Preferably 1-2 words. Never more than 3.
-            For predicates, use short phrases that clearly describe the relationship.
-            IMPORTANT: Make sure the subject and object are different entities - avoid self-references.
-            """
+            system_prompt = RELATIONSHIP_INFERENCE_SYSTEM_PROMPT
+            user_prompt = get_relationship_inference_user_prompt(entities1, entities2, triples_text)
             
             try:
                 # LLM configuration
@@ -629,36 +589,8 @@ def _infer_within_community_relationships(triples, communities, config):
         pairs_text = "\n".join([f"{a} and {b}" for a, b in disconnected_pairs])
         
         # Create prompt for LLM
-        system_prompt = """
-        You are an expert in knowledge representation and inference. 
-        Your task is to infer plausible relationships between semantically related entities that are not yet connected in a knowledge graph.
-        """
-        
-        user_prompt = f"""
-        I have a knowledge graph with several entities that appear to be semantically related but are not directly connected.
-        
-        Here are some pairs of entities that might be related:
-        {pairs_text}
-        
-        Here are some existing relationships involving these entities:
-        {triples_text}
-        
-        Please infer plausible relationships between these disconnected pairs.
-        Return your answer as a JSON array of triples in the following format:
-        
-        [
-          {{
-            "subject": "entity1",
-            "predicate": "inferred relationship",
-            "object": "entity2"
-          }},
-          ...
-        ]
-        
-        Only include highly plausible relationships with clear predicates.
-        IMPORTANT: The inferred relationships (predicates) MUST be no more than 3 words maximum. Preferably 1-2 words. Never more than 3.
-        IMPORTANT: Make sure that the subject and object are different entities - avoid self-references.
-        """
+        system_prompt = WITHIN_COMMUNITY_INFERENCE_SYSTEM_PROMPT
+        user_prompt = get_within_community_inference_user_prompt(pairs_text, triples_text)
         
         try:
             # LLM configuration

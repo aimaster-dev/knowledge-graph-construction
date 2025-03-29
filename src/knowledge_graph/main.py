@@ -14,6 +14,7 @@ from src.knowledge_graph.llm import call_llm, extract_json_from_text
 from src.knowledge_graph.visualization import visualize_knowledge_graph, sample_data_visualization
 from src.knowledge_graph.text_utils import chunk_text
 from src.knowledge_graph.entity_standardization import standardize_entities, infer_relationships, limit_predicate_length
+from src.knowledge_graph.prompts import MAIN_SYSTEM_PROMPT, MAIN_USER_PROMPT
 
 def process_with_llm(config, input_text, debug=False):
     """
@@ -27,10 +28,10 @@ def process_with_llm(config, input_text, debug=False):
     Returns:
         List of extracted triples or None if processing failed
     """
-    # Choose which system prompt to use
-    system_prompt = config["prompts"]["system_prompt"]
-    user_prompt = config["prompts"]["user_prompt"]
-    user_prompt += f"context: ```\n{input_text}```\n" 
+    # Use prompts from the prompts module
+    system_prompt = MAIN_SYSTEM_PROMPT
+    user_prompt = MAIN_USER_PROMPT
+    user_prompt += f"```\n{input_text}```\n" 
 
     # LLM configuration
     model = config["llm"]["model"]
