@@ -248,6 +248,7 @@ Both the second and third passes are optional and can be disabled in the configu
         ├── entity_standardization.py # Entity standardization algorithms
         ├── llm.py                  # LLM interaction and response processing
         ├── main.py                 # Main program flow and orchestration
+        ├── prompts.py              # Centralized collection of LLM prompts
         ├── text_utils.py           # Text processing and chunking utilities
         ├── visualization.py        # Knowledge graph visualization generator
         └── templates/              # HTML templates for visualization
@@ -311,6 +312,12 @@ flowchart TD
     U --> V[HTML Visualization]
     F --> W[JSON Data Export]
     
+    %% Prompts usage
+    Y[prompts.py] --> H
+    Y --> L1
+    Y --> N2
+    Y --> N3
+    
     %% Module dependencies
     subgraph Modules
         main.py
@@ -319,6 +326,7 @@ flowchart TD
         llm.py
         entity_standardization.py
         visualization.py
+        prompts.py
     end
     
     %% Phases
@@ -368,15 +376,18 @@ flowchart TD
 4. **Text Processing**:
    - Breaks text into chunks with overlap using `text_utils.py`
    - Processes each chunk with the LLM to extract triples
+   - Uses prompts from `prompts.py` to guide the LLM's extraction process
 
 5. **Entity Standardization** (optional):
    - Standardizes entity names across all triples
    - May use LLM for entity resolution in ambiguous cases
+   - Uses specialized prompts from `prompts.py` for entity resolution
 
 6. **Relationship Inference** (optional):
    - Identifies communities in the graph
    - Infers relationships between disconnected communities
    - Applies transitive inference and lexical similarity rules
+   - Uses specialized prompts from `prompts.py` for relationship inference
    - Deduplicates triples
 
 7. **Visualization**:
