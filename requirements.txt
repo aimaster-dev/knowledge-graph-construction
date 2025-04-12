@@ -1,4 +1,4 @@
--e file:///home/rmcdermo/mycode/ai-knowledge-graph
+# -e file://E:\Project\QI\ai-knowledge-graph
 asttokens==3.0.0
 certifi==2025.1.31
 charset-normalizer==3.4.1

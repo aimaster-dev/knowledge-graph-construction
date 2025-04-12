@@ -3,7 +3,7 @@
 # AI Powered Knowledge Graph Generator
 
 This system takes an unstructured text document, and uses an LLM of your choice to extract knowledge in the form of Subject-Predicate-Object (SPO) triplets, and visualizes the relationships as an interactive knowledge graph.
-A demo of a knowlege graph created with this project can be found here: [Industrial-Revolution Knowledge Graph](https://robert-mcdermott.github.io/ai-knowledge-graph/)
+A demo of a knowlege graph created with this project can be found here: [test](https://robert-mcdermott.github.io/ai-knowledge-graph/)
 
 
 ## Features
@@ -103,12 +103,12 @@ options:
 **Command:**
 
 ```bash
-generate-graph --input data/industrial-revolution.txt --output industrial-revolution-kg.html
+generate-graph --input data/test.txt --output test-kg.html
 ```
 **Console Output:**
 
 ```markdown
-Using input text from file: data/industrial-revolution.txt
+Using input text from file: data/test.txt
 ==================================================
 PHASE 1: INITIAL TRIPLE EXTRACTION
 ==================================================
@@ -174,14 +174,14 @@ Top 5 relationship types after inference:
 
 Added 370 inferred relationships
 Final knowledge graph: 564 triples
-Saved raw knowledge graph data to /mnt/c/Users/rmcdermo/Documents/industrial-revolution-kg.json
+Saved raw knowledge graph data to /mnt/c/Users/rmcdermo/Documents/test.json
 Processing 564 triples for visualization
 Found 161 unique nodes
 Found 355 inferred relationships
 Detected 9 communities using Louvain method
 Nodes in NetworkX graph: 161
 Edges in NetworkX graph: 537
-Knowledge graph visualization saved to /mnt/c/Users/rmcdermo/Documents/industrial-revolution-kg.html
+Knowledge graph visualization saved to /mnt/c/Users/rmcdermo/Documents/test.html
 Graph Statistics: {
   "nodes": 161,
   "edges": 564,

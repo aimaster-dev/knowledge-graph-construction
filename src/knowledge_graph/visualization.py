@@ -325,7 +325,14 @@ def _get_visualization_options(edge_smooth=False):
 def _save_and_modify_html(net, output_file, community_count, all_nodes, triples):
     """Save the network as HTML and modify with custom template."""
     # Save the network as HTML
-    net.save_graph(output_file)
+    # net.save_graph(output_file)
+    # net.write_html(output_file, encoding="utf-8")
+    try:
+        net.save_graph(output_file)
+    except UnicodeEncodeError:
+        # Quick fix: force UTF-8
+        with open(output_file, "w", encoding="utf-8") as f:
+            f.write(net.html)
     
     # Read the generated HTML
     with open(output_file, 'r', encoding='utf-8') as f:

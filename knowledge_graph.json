@@ -1,0 +1,410 @@
+[
+  {
+    "subject": "Library",
+    "predicate": "located in",
+    "object": "aetheria",
+    "chunk": 1
+  },
+  {
+    "subject": "Library",
+    "predicate": "founded by",
+    "object": "eleanor",
+    "chunk": 1
+  },
+  {
+    "subject": "Library",
+    "predicate": "housed",
+    "object": "ancient scrolls",
+    "chunk": 1
+  },
+  {
+    "subject": "eleanor",
+    "predicate": "known for",
+    "object": "scholar",
+    "chunk": 1
+  },
+  {
+    "subject": "eleanor",
+    "predicate": "known for",
+    "object": "founding",
+    "chunk": 1
+  },
+  {
+    "subject": "Magnus Thorn",
+    "predicate": "ally of",
+    "object": "eleanor",
+    "chunk": 1
+  },
+  {
+    "subject": "Magnus Thorn",
+    "predicate": "known for",
+    "object": "cartographer",
+    "chunk": 1
+  },
+  {
+    "subject": "Selene Vale",
+    "predicate": "ally of",
+    "object": "eleanor",
+    "chunk": 1
+  },
+  {
+    "subject": "Selene Vale",
+    "predicate": "known for",
+    "object": "Master Healer",
+    "chunk": 1
+  },
+  {
+    "subject": "Library",
+    "predicate": "contained",
+    "object": "rare works",
+    "chunk": 1
+  },
+  {
+    "subject": "The Book of Stars",
+    "predicate": "written by",
+    "object": "orin flameheart",
+    "chunk": 2
+  },
+  {
+    "subject": "Herbal Codex",
+    "predicate": "compiled by",
+    "object": "Selene Vale",
+    "chunk": 2
+  },
+  {
+    "subject": "The Map of the Endless Seas",
+    "predicate": "drawn by",
+    "object": "Magnus Thorn",
+    "chunk": 2
+  },
+  {
+    "subject": "a fire",
+    "predicate": "broke out in",
+    "object": "the alchemy wing",
+    "chunk": 2
+  },
+  {
+    "subject": "a fire",
+    "predicate": "caused by",
+    "object": "Tobias Grey",
+    "chunk": 2
+  },
+  {
+    "subject": "Herbal Codex",
+    "predicate": "was damaged",
+    "object": "The Book of Stars",
+    "chunk": 2
+  },
+  {
+    "subject": "The Book of Stars",
+    "predicate": "saved by",
+    "object": "young librarian",
+    "chunk": 2
+  },
+  {
+    "subject": "aetheria",
+    "predicate": "funded the",
+    "object": "Library",
+    "chunk": 2
+  },
+  {
+    "subject": "King Roderic IV",
+    "predicate": "King of",
+    "object": "aetheria",
+    "chunk": 2
+  },
+  {
+    "subject": "young librarian",
+    "predicate": "saved by",
+    "object": "Lucan Storm",
+    "chunk": 3
+  },
+  {
+    "subject": "King Roderic IV",
+    "predicate": "funded",
+    "object": "Library",
+    "chunk": 3
+  },
+  {
+    "subject": "King Roderic IV",
+    "predicate": "appointed",
+    "object": "Lydia Moor",
+    "chunk": 3
+  },
+  {
+    "subject": "Lydia Moor",
+    "predicate": "rebuild and expand",
+    "object": "Library",
+    "chunk": 3
+  },
+  {
+    "subject": "Lydia Moor",
+    "predicate": "build",
+    "object": "astronomy tower",
+    "chunk": 3
+  },
+  {
+    "subject": "Lydia Moor",
+    "predicate": "build",
+    "object": "Master Healer",
+    "chunk": 3
+  },
+  {
+    "subject": "Library",
+    "predicate": "became",
+    "object": "training ground",
+    "chunk": 3
+  },
+  {
+    "subject": "Library",
+    "predicate": "became",
+    "object": "scholar",
+    "chunk": 3
+  },
+  {
+    "subject": "Library",
+    "predicate": "became",
+    "object": "Master Healer",
+    "chunk": 3
+  },
+  {
+    "subject": "Library",
+    "predicate": "became",
+    "object": "cartographer",
+    "chunk": 3
+  },
+  {
+    "subject": "Herbal Codex",
+    "predicate": "contains knowledge of",
+    "object": "the alchemy wing",
+    "inferred": true
+  },
+  {
+    "subject": "King Roderic IV",
+    "predicate": "funded",
+    "object": "the alchemy wing",
+    "inferred": true
+  },
+  {
+    "subject": "The Map of the Endless Seas",
+    "predicate": "illustrates",
+    "object": "The Book of Stars",
+    "inferred": true
+  },
+  {
+    "subject": "The Book of Stars",
+    "predicate": "contains",
+    "object": "The Map of the Endless Seas",
+    "inferred": true
+  },
+  {
+    "subject": "Library",
+    "predicate": "founded by via",
+    "object": "founding",
+    "inferred": true
+  },
+  {
+    "subject": "Magnus Thorn",
+    "predicate": "ally of via",
+    "object": "founding",
+    "inferred": true
+  },
+  {
+    "subject": "Magnus Thorn",
+    "predicate": "ally of via",
+    "object": "scholar",
+    "inferred": true
+  },
+  {
+    "subject": "Selene Vale",
+    "predicate": "ally of via",
+    "object": "founding",
+    "inferred": true
+  },
+  {
+    "subject": "Selene Vale",
+    "predicate": "ally of via",
+    "object": "scholar",
+    "inferred": true
+  },
+  {
+    "subject": "The Book of Stars",
+    "predicate": "indirectly saved by",
+    "object": "Lucan Storm",
+    "inferred": true
+  },
+  {
+    "subject": "Herbal Codex",
+    "predicate": "was damaged via",
+    "object": "young librarian",
+    "inferred": true
+  },
+  {
+    "subject": "Herbal Codex",
+    "predicate": "was damaged via",
+    "object": "orin flameheart",
+    "inferred": true
+  },
+  {
+    "subject": "Herbal Codex",
+    "predicate": "compiled by via",
+    "object": "eleanor",
+    "inferred": true
+  },
+  {
+    "subject": "Herbal Codex",
+    "predicate": "compiled by via",
+    "object": "Master Healer",
+    "inferred": true
+  },
+  {
+    "subject": "The Map of the Endless Seas",
+    "predicate": "drawn by via",
+    "object": "eleanor",
+    "inferred": true
+  },
+  {
+    "subject": "The Map of the Endless Seas",
+    "predicate": "drawn by via",
+    "object": "cartographer",
+    "inferred": true
+  },
+  {
+    "subject": "aetheria",
+    "predicate": "funded the via",
+    "object": "scholar",
+    "inferred": true
+  },
+  {
+    "subject": "aetheria",
+    "predicate": "funded the via",
+    "object": "cartographer",
+    "inferred": true
+  },
+  {
+    "subject": "aetheria",
+    "predicate": "funded the via",
+    "object": "Master Healer",
+    "inferred": true
+  },
+  {
+    "subject": "aetheria",
+    "predicate": "funded the via",
+    "object": "rare works",
+    "inferred": true
+  },
+  {
+    "subject": "aetheria",
+    "predicate": "funded the via",
+    "object": "eleanor",
+    "inferred": true
+  },
+  {
+    "subject": "aetheria",
+    "predicate": "funded the via",
+    "object": "training ground",
+    "inferred": true
+  },
+  {
+    "subject": "aetheria",
+    "predicate": "funded the via",
+    "object": "ancient scrolls",
+    "inferred": true
+  },
+  {
+    "subject": "King Roderic IV",
+    "predicate": "funded via Library",
+    "object": "scholar",
+    "inferred": true
+  },
+  {
+    "subject": "King Roderic IV",
+    "predicate": "funded via Library",
+    "object": "cartographer",
+    "inferred": true
+  },
+  {
+    "subject": "King Roderic IV",
+    "predicate": "funded via Library",
+    "object": "Master Healer",
+    "inferred": true
+  },
+  {
+    "subject": "King Roderic IV",
+    "predicate": "funded via Library",
+    "object": "rare works",
+    "inferred": true
+  },
+  {
+    "subject": "King Roderic IV",
+    "predicate": "funded via Library",
+    "object": "eleanor",
+    "inferred": true
+  },
+  {
+    "subject": "King Roderic IV",
+    "predicate": "funded via Library",
+    "object": "training ground",
+    "inferred": true
+  },
+  {
+    "subject": "King Roderic IV",
+    "predicate": "funded via Library",
+    "object": "ancient scrolls",
+    "inferred": true
+  },
+  {
+    "subject": "King Roderic IV",
+    "predicate": "appointed via Lydia",
+    "object": "astronomy tower",
+    "inferred": true
+  },
+  {
+    "subject": "King Roderic IV",
+    "predicate": "appointed via Lydia",
+    "object": "Master Healer",
+    "inferred": true
+  },
+  {
+    "subject": "Lydia Moor",
+    "predicate": "rebuild and expand",
+    "object": "scholar",
+    "inferred": true
+  },
+  {
+    "subject": "Lydia Moor",
+    "predicate": "rebuild and expand",
+    "object": "cartographer",
+    "inferred": true
+  },
+  {
+    "subject": "Lydia Moor",
+    "predicate": "rebuild and expand",
+    "object": "rare works",
+    "inferred": true
+  },
+  {
+    "subject": "Lydia Moor",
+    "predicate": "rebuild and expand",
+    "object": "aetheria",
+    "inferred": true
+  },
+  {
+    "subject": "Lydia Moor",
+    "predicate": "rebuild and expand",
+    "object": "eleanor",
+    "inferred": true
+  },
+  {
+    "subject": "Lydia Moor",
+    "predicate": "rebuild and expand",
+    "object": "training ground",
+    "inferred": true
+  },
+  {
+    "subject": "Lydia Moor",
+    "predicate": "rebuild and expand",
+    "object": "ancient scrolls",
+    "inferred": true
+  }
+]
