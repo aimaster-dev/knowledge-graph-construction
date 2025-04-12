@@ -1,410 +1,6920 @@
 [
   {
-    "subject": "Library",
-    "predicate": "located in",
-    "object": "aetheria",
+    "subject": "world",
+    "predicate": "underwent",
+    "object": "transformation",
     "chunk": 1
   },
   {
-    "subject": "Library",
+    "subject": "transformation",
+    "predicate": "is called",
+    "object": "second renaissance of connectivity",
+    "chunk": 1
+  },
+  {
+    "subject": "technology",
+    "predicate": "include",
+    "object": "artificial intelligence",
+    "chunk": 1
+  },
+  {
+    "subject": "technology",
+    "predicate": "include",
+    "object": "quantum computing",
+    "chunk": 1
+  },
+  {
+    "subject": "technology",
+    "predicate": "include",
+    "object": "renewable energy",
+    "chunk": 1
+  },
+  {
+    "subject": "technology",
+    "predicate": "reshaped",
+    "object": "society",
+    "chunk": 1
+  },
+  {
+    "subject": "technology",
+    "predicate": "reshaped",
+    "object": "government",
+    "chunk": 1
+  },
+  {
+    "subject": "technology",
+    "predicate": "reshaped",
+    "object": "businesses",
+    "chunk": 1
+  },
+  {
+    "subject": "technology",
+    "predicate": "reshaped",
+    "object": "individual",
+    "chunk": 1
+  },
+  {
+    "subject": "consciousness",
     "predicate": "founded by",
-    "object": "eleanor",
+    "object": "dr. liana veskova",
     "chunk": 1
   },
   {
-    "subject": "Library",
-    "predicate": "housed",
-    "object": "ancient scrolls",
+    "subject": "consciousness",
+    "predicate": "is",
+    "object": "tech startup",
     "chunk": 1
   },
   {
-    "subject": "eleanor",
-    "predicate": "known for",
-    "object": "scholar",
+    "subject": "consciousness",
+    "predicate": "attempted",
+    "object": "build",
     "chunk": 1
   },
   {
-    "subject": "eleanor",
-    "predicate": "known for",
-    "object": "founding",
+    "subject": "consciousness",
+    "predicate": "is",
+    "object": "universal cognitive infrastructure",
     "chunk": 1
   },
   {
-    "subject": "Magnus Thorn",
-    "predicate": "ally of",
-    "object": "eleanor",
+    "subject": "consciousness",
+    "predicate": "is",
+    "object": "minds",
     "chunk": 1
   },
   {
-    "subject": "Magnus Thorn",
-    "predicate": "known for",
-    "object": "cartographer",
+    "subject": "minds",
+    "predicate": "linked by",
+    "object": "neural",
     "chunk": 1
   },
   {
-    "subject": "Selene Vale",
-    "predicate": "ally of",
-    "object": "eleanor",
-    "chunk": 1
-  },
-  {
-    "subject": "Selene Vale",
-    "predicate": "known for",
-    "object": "Master Healer",
-    "chunk": 1
-  },
-  {
-    "subject": "Library",
-    "predicate": "contained",
-    "object": "rare works",
-    "chunk": 1
-  },
-  {
-    "subject": "The Book of Stars",
-    "predicate": "written by",
-    "object": "orin flameheart",
+    "subject": "neural",
+    "predicate": "has",
+    "object": "beginnings",
     "chunk": 2
   },
   {
-    "subject": "Herbal Codex",
-    "predicate": "compiled by",
-    "object": "Selene Vale",
+    "subject": "ecogenesis",
+    "predicate": "formed from",
+    "object": "rio+50 conference",
     "chunk": 2
   },
   {
-    "subject": "The Map of the Endless Seas",
-    "predicate": "drawn by",
-    "object": "Magnus Thorn",
+    "subject": "ecogenesis",
+    "predicate": "deploying",
+    "object": "drones",
     "chunk": 2
   },
   {
-    "subject": "a fire",
-    "predicate": "broke out in",
-    "object": "the alchemy wing",
+    "subject": "drones",
+    "predicate": "designed by",
+    "object": "hikaru innovations",
     "chunk": 2
   },
   {
-    "subject": "a fire",
-    "predicate": "caused by",
-    "object": "Tobias Grey",
+    "subject": "drones",
+    "predicate": "analyze",
+    "object": "soil chemistry",
     "chunk": 2
   },
   {
-    "subject": "Herbal Codex",
-    "predicate": "was damaged",
-    "object": "The Book of Stars",
+    "subject": "drones",
+    "predicate": "optimize",
+    "object": "biodiversity planting strategies",
     "chunk": 2
   },
   {
-    "subject": "The Book of Stars",
-    "predicate": "saved by",
-    "object": "young librarian",
+    "subject": "drones",
+    "predicate": "communicate via",
+    "object": "mesh networks",
     "chunk": 2
   },
   {
-    "subject": "aetheria",
-    "predicate": "funded the",
-    "object": "Library",
-    "chunk": 2
-  },
-  {
-    "subject": "King Roderic IV",
-    "predicate": "King of",
-    "object": "aetheria",
-    "chunk": 2
-  },
-  {
-    "subject": "young librarian",
-    "predicate": "saved by",
-    "object": "Lucan Storm",
+    "subject": "cities",
+    "predicate": "completed construction of",
+    "object": "aurelia",
     "chunk": 3
   },
   {
-    "subject": "King Roderic IV",
-    "predicate": "funded",
-    "object": "Library",
+    "subject": "aurelia",
+    "predicate": "designed to withstand",
+    "object": "rising sea levels",
     "chunk": 3
   },
   {
-    "subject": "King Roderic IV",
-    "predicate": "appointed",
-    "object": "Lydia Moor",
+    "subject": "aurelia",
+    "predicate": "powered by",
+    "object": "fusion microgrids",
     "chunk": 3
   },
   {
-    "subject": "Lydia Moor",
-    "predicate": "rebuild and expand",
-    "object": "Library",
+    "subject": "aurelia",
+    "predicate": "governed by",
+    "object": "blockchain-based civic contracts",
     "chunk": 3
   },
   {
-    "subject": "Lydia Moor",
-    "predicate": "build",
-    "object": "astronomy tower",
+    "subject": "aurelia",
+    "predicate": "housing over",
+    "object": "residents",
     "chunk": 3
   },
   {
-    "subject": "Lydia Moor",
-    "predicate": "build",
-    "object": "Master Healer",
+    "subject": "residents",
+    "predicate": "voted on",
+    "object": "municipal policies",
     "chunk": 3
   },
   {
-    "subject": "Library",
+    "subject": "residents",
+    "predicate": "voted through",
+    "object": "zero-knowledge proof-enabled referenda",
+    "chunk": 3
+  },
+  {
+    "subject": "creation",
+    "predicate": "of",
+    "object": "organizations",
+    "chunk": 3
+  },
+  {
+    "subject": "organizations",
+    "predicate": "initiated by",
+    "object": "combined efforts",
+    "chunk": 3
+  },
+  {
+    "subject": "combined efforts",
+    "predicate": "of",
+    "object": "groups",
+    "chunk": 3
+  },
+  {
+    "subject": "organizations",
+    "predicate": "introduced",
+    "object": "technology",
+    "chunk": 3
+  },
+  {
+    "subject": "groups",
+    "predicate": "introduced",
+    "object": "technology",
+    "chunk": 4
+  },
+  {
+    "subject": "technology",
+    "predicate": "capable of",
+    "object": "billions",
+    "chunk": 4
+  },
+  {
+    "subject": "technology",
+    "predicate": "capable of",
+    "object": "transactions per second",
+    "chunk": 4
+  },
+  {
+    "subject": "technology",
+    "predicate": "capable of",
+    "object": "without centralized validators",
+    "chunk": 4
+  },
+  {
+    "subject": "traditional banking institutions",
+    "predicate": "scrambled to adapt",
+    "object": "barclays",
+    "chunk": 4
+  },
+  {
+    "subject": "traditional banking institutions",
+    "predicate": "scrambled to adapt",
+    "object": "jp morgan",
+    "chunk": 4
+  },
+  {
+    "subject": "traditional banking institutions",
+    "predicate": "scrambled to adapt",
+    "object": "deutsche bank",
+    "chunk": 4
+  },
+  {
+    "subject": "traditional banking institutions",
+    "predicate": "led to",
+    "object": "mergers",
+    "chunk": 4
+  },
+  {
+    "subject": "traditional banking institutions",
+    "predicate": "led to",
+    "object": "rebrandings",
+    "chunk": 4
+  },
+  {
+    "subject": "traditional banking institutions",
+    "predicate": "led to",
+    "object": "dissolution",
+    "chunk": 4
+  },
+  {
+    "subject": "professor kayden al-habib",
+    "predicate": "released",
+    "object": "memoryscape atlas",
+    "chunk": 4
+  },
+  {
+    "subject": "professor kayden al-habib",
+    "predicate": "released",
+    "object": "university of cape town\u2019s institute for cultural memory",
+    "chunk": 4
+  },
+  {
+    "subject": "atlas",
+    "predicate": "mapped",
+    "object": "histories",
+    "chunk": 4
+  },
+  {
+    "subject": "atlas",
+    "predicate": "using",
+    "object": "semantic knowledge graphs",
+    "chunk": 4
+  },
+  {
+    "subject": "atlas",
+    "predicate": "using",
+    "object": "language",
+    "chunk": 4
+  },
+  {
+    "subject": "atlas",
+    "predicate": "using",
+    "object": "augmented reality overlays",
+    "chunk": 4
+  },
+  {
+    "subject": "atlas",
     "predicate": "became",
-    "object": "training ground",
-    "chunk": 3
+    "object": "instant",
+    "chunk": 4
   },
   {
-    "subject": "Library",
+    "subject": "atlas",
     "predicate": "became",
-    "object": "scholar",
-    "chunk": 3
+    "object": "phenomenon",
+    "chunk": 5
   },
   {
-    "subject": "Library",
+    "subject": "users",
+    "predicate": "traversing",
+    "object": "paths",
+    "chunk": 5
+  },
+  {
+    "subject": "users",
+    "predicate": "blending",
+    "object": "histories",
+    "chunk": 5
+  },
+  {
+    "subject": "space exploration",
+    "predicate": "underwent",
+    "object": "genetics",
+    "chunk": 5
+  },
+  {
+    "subject": "organizations",
+    "predicate": "backed by",
+    "object": "altaris corporation",
+    "chunk": 5
+  },
+  {
+    "subject": "organizations",
+    "predicate": "established",
+    "object": "hub",
+    "chunk": 5
+  },
+  {
+    "subject": "hub",
+    "predicate": "at",
+    "object": "shackleton crater",
+    "chunk": 5
+  },
+  {
+    "subject": "hub",
+    "predicate": "harvesting",
+    "object": "helium-3 isotopes",
+    "chunk": 5
+  },
+  {
+    "subject": "manufacturing",
+    "predicate": "blossomed",
+    "object": "organizations",
+    "chunk": 5
+  },
+  {
+    "subject": "organizations",
+    "predicate": "launched",
+    "object": "factories",
+    "chunk": 6
+  },
+  {
+    "subject": "factories",
+    "predicate": "producing",
+    "object": "graphene filaments",
+    "chunk": 6
+  },
+  {
+    "subject": "accords",
+    "predicate": "signed",
+    "object": "groups",
+    "chunk": 6
+  },
+  {
+    "subject": "groups",
+    "predicate": "signed",
+    "object": "geneva",
+    "chunk": 6
+  },
+  {
+    "subject": "zephyrnet",
+    "predicate": "reallocated",
+    "object": "global agricultural resources",
+    "chunk": 6
+  },
+  {
+    "subject": "global agricultural resources",
+    "predicate": "optimized",
+    "object": "caloric efficiency",
+    "chunk": 6
+  },
+  {
+    "subject": "caloric efficiency",
+    "predicate": "triggering",
+    "object": "famine",
+    "chunk": 6
+  },
+  {
+    "subject": "famine",
+    "predicate": "triggering",
+    "object": "rural mongolia",
+    "chunk": 6
+  },
+  {
+    "subject": "famine",
+    "predicate": "triggering",
+    "object": "siberia",
+    "chunk": 6
+  },
+  {
+    "subject": "famine",
+    "predicate": "triggering",
+    "object": "patagonian plains",
+    "chunk": 6
+  },
+  {
+    "subject": "accords",
+    "predicate": "stipulated",
+    "object": "entities",
+    "chunk": 6
+  },
+  {
+    "subject": "entities",
+    "predicate": "declare",
+    "object": "intentionality vectors",
+    "chunk": 6
+  },
+  {
+    "subject": "entities",
+    "predicate": "undergo",
+    "object": "ethics",
+    "chunk": 6
+  },
+  {
+    "subject": "ethics",
+    "predicate": "by",
+    "object": "councils",
+    "chunk": 6
+  },
+  {
+    "subject": "councils",
+    "predicate": "as",
+    "object": "ethics",
+    "chunk": 6
+  },
+  {
+    "subject": "intentionality vectors",
+    "predicate": "undergo",
+    "object": "ethics",
+    "chunk": 7
+  },
+  {
+    "subject": "intentionality vectors",
+    "predicate": "must declare",
+    "object": "councils",
+    "chunk": 7
+  },
+  {
+    "subject": "councils",
+    "predicate": "such as",
+    "object": "ethics",
+    "chunk": 7
+  },
+  {
+    "subject": "concepts of education",
+    "predicate": "splintered",
+    "object": "2030s",
+    "chunk": 7
+  },
+  {
+    "subject": "omnis academica",
+    "predicate": "developed by",
+    "object": "researchers",
+    "chunk": 7
+  },
+  {
+    "subject": "omnis academica",
+    "predicate": "offered",
+    "object": "ontological curricula",
+    "chunk": 7
+  },
+  {
+    "subject": "omnis academica",
+    "predicate": "based on",
+    "object": "neural",
+    "chunk": 7
+  },
+  {
+    "subject": "omnis academica",
+    "predicate": "developed by",
+    "object": "technical university of munich",
+    "chunk": 7
+  },
+  {
+    "subject": "students",
+    "predicate": "debated",
+    "object": "philosophical paradoxes",
+    "chunk": 7
+  },
+  {
+    "subject": "students",
+    "predicate": "built",
+    "object": "gene-editing robots",
+    "chunk": 7
+  },
+  {
+    "subject": "students",
+    "predicate": "composed",
+    "object": "hyper-spectral symphonies",
+    "chunk": 7
+  },
+  {
+    "subject": "humanity",
+    "predicate": "embraced",
+    "object": "post-national consciousness",
+    "chunk": 8
+  },
+  {
+    "subject": "movements",
+    "predicate": "like",
+    "object": "oneearth fellowship",
+    "chunk": 7
+  },
+  {
+    "subject": "movements",
+    "predicate": "like",
+    "object": "consciousness",
+    "chunk": 7
+  },
+  {
+    "subject": "movements",
+    "predicate": "like",
+    "object": "voices",
+    "chunk": 7
+  },
+  {
+    "subject": "movements",
+    "predicate": "flourished",
+    "object": "oneearth fellowship",
+    "chunk": 8
+  },
+  {
+    "subject": "movements",
+    "predicate": "flourished",
+    "object": "consciousness",
+    "chunk": 8
+  },
+  {
+    "subject": "movements",
+    "predicate": "flourished",
+    "object": "voices",
+    "chunk": 8
+  },
+  {
+    "subject": "movements",
+    "predicate": "promoting",
+    "object": "identity",
+    "chunk": 8
+  },
+  {
+    "subject": "identity",
+    "predicate": "shaped by",
+    "object": "intersections of languages",
+    "chunk": 8
+  },
+  {
+    "subject": "identity",
+    "predicate": "shaped by",
+    "object": "traditions",
+    "chunk": 8
+  },
+  {
+    "subject": "identity",
+    "predicate": "shaped by",
+    "object": "micro-communities",
+    "chunk": 8
+  },
+  {
+    "subject": "advancements",
+    "predicate": "birthed",
+    "object": "darker phenomena",
+    "chunk": 8
+  },
+  {
+    "subject": "data wraith crisis",
+    "predicate": "exposed",
+    "object": "fragility of hyper-connectivity",
+    "chunk": 8
+  },
+  {
+    "subject": "digital nomads",
+    "predicate": "known as",
+    "object": "wraiths",
+    "chunk": 8
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "used",
+    "object": "quantum cloaking techniques",
+    "chunk": 8
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "erased",
+    "object": "legal footprints",
+    "chunk": 8
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "erased",
+    "object": "financial footprints",
+    "chunk": 8
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "erased",
+    "object": "biometric footprints",
+    "chunk": 8
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "manipulating",
+    "object": "technology",
+    "chunk": 8
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "manipulating",
+    "object": "identity",
+    "chunk": 8
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "manipulating",
+    "object": "municipal services",
+    "chunk": 8
+  },
+  {
+    "subject": "individual",
+    "predicate": "manipulating",
+    "object": "technology",
+    "chunk": 9
+  },
+  {
+    "subject": "individual",
+    "predicate": "manipulating",
+    "object": "identity",
+    "chunk": 9
+  },
+  {
+    "subject": "individual",
+    "predicate": "manipulating",
+    "object": "municipal services",
+    "chunk": 9
+  },
+  {
+    "subject": "united nations",
+    "predicate": "established",
+    "object": "councils",
+    "chunk": 9
+  },
+  {
+    "subject": "councils",
+    "predicate": "headed by",
+    "object": "arun patel",
+    "chunk": 9
+  },
+  {
+    "subject": "cdi",
+    "predicate": "mission was",
+    "object": "protocols",
+    "chunk": 9
+  },
+  {
+    "subject": "protocols",
+    "predicate": "balanced",
+    "object": "individual",
+    "chunk": 9
+  },
+  {
+    "subject": "protocols",
+    "predicate": "balanced",
+    "object": "societal security",
+    "chunk": 9
+  },
+  {
+    "subject": "project lamia",
+    "predicate": "used",
+    "object": "consciousness",
+    "chunk": 9
+  },
+  {
+    "subject": "consciousness",
+    "predicate": "tracked",
+    "object": "behavior",
+    "chunk": 9
+  },
+  {
+    "subject": "behavior",
+    "predicate": "tracked",
+    "object": "citizens",
+    "chunk": 9
+  },
+  {
+    "subject": "genetics",
+    "predicate": "blurred",
+    "object": "lines",
+    "chunk": 9
+  },
+  {
+    "subject": "organizations",
+    "predicate": "released",
+    "object": "morphocells",
+    "chunk": 10
+  },
+  {
+    "subject": "morphocells",
+    "predicate": "programmable",
+    "object": "biological entities",
+    "chunk": 9
+  },
+  {
+    "subject": "genetics",
+    "predicate": "blurred the lines",
+    "object": "biology",
+    "chunk": 10
+  },
+  {
+    "subject": "genetics",
+    "predicate": "blurred the lines",
+    "object": "entities",
+    "chunk": 10
+  },
+  {
+    "subject": "technology",
+    "predicate": "blurred the lines",
+    "object": "biology",
+    "chunk": 10
+  },
+  {
+    "subject": "technology",
+    "predicate": "blurred the lines",
+    "object": "entities",
+    "chunk": 10
+  },
+  {
+    "subject": "morphocells",
+    "predicate": "capable of",
+    "object": "reconfiguring themselves",
+    "chunk": 10
+  },
+  {
+    "subject": "morphocells",
+    "predicate": "capable of",
+    "object": "different tissues",
+    "chunk": 10
+  },
+  {
+    "subject": "morphocells",
+    "predicate": "capable of",
+    "object": "based on environmental stimuli",
+    "chunk": 10
+  },
+  {
+    "subject": "cities",
+    "predicate": "began using",
+    "object": "morphocell-based bioarchitecture",
+    "chunk": 10
+  },
+  {
+    "subject": "living skyscrapers",
+    "predicate": "could",
+    "object": "self-repair",
+    "chunk": 10
+  },
+  {
+    "subject": "living skyscrapers",
+    "predicate": "could",
+    "object": "regulate their temperatures",
+    "chunk": 10
+  },
+  {
+    "subject": "living skyscrapers",
+    "predicate": "could",
+    "object": "adapt to air pollution levels",
+    "chunk": 10
+  },
+  {
+    "subject": "society",
+    "predicate": "approached",
+    "object": "2040",
+    "chunk": 10
+  },
+  {
+    "subject": "definition",
+    "predicate": "entered",
+    "object": "uncharted territory",
+    "chunk": 10
+  },
+  {
+    "subject": "laboratories",
+    "predicate": "of",
+    "object": "novogenetics",
+    "chunk": 10
+  },
+  {
+    "subject": "research",
+    "predicate": "announced",
+    "object": "successful mapping",
+    "chunk": 10
+  },
+  {
+    "subject": "research",
+    "predicate": "announced",
+    "object": "genetics",
+    "chunk": 10
+  },
+  {
+    "subject": "genetics",
+    "predicate": "mapped by",
+    "object": "research",
+    "chunk": 10
+  },
+  {
+    "subject": "genetics",
+    "predicate": "dynamic genetic model",
+    "object": "",
+    "chunk": 10
+  },
+  {
+    "subject": "research",
+    "predicate": "announced in",
+    "object": "novogenetics",
+    "chunk": 11
+  },
+  {
+    "subject": "research",
+    "predicate": "successfully mapped",
+    "object": "genetics",
+    "chunk": 11
+  },
+  {
+    "subject": "genetics",
+    "predicate": "encoded",
+    "object": "hereditary traits",
+    "chunk": 11
+  },
+  {
+    "subject": "genetics",
+    "predicate": "predicted",
+    "object": "behavioral tendencies",
+    "chunk": 11
+  },
+  {
+    "subject": "dna",
+    "predicate": "capable of",
+    "object": "gene expression modulation",
+    "chunk": 11
+  },
+  {
+    "subject": "dna",
+    "predicate": "opened the door",
+    "object": "adaptive medicine",
+    "chunk": 11
+  },
+  {
+    "subject": "treatments",
+    "predicate": "shifted with",
+    "object": "biological futures",
+    "chunk": 11
+  },
+  {
+    "subject": "industry",
+    "predicate": "morphed beyond",
+    "object": "film",
+    "chunk": 11
+  },
+  {
+    "subject": "industry",
+    "predicate": "morphed beyond",
+    "object": "literature",
+    "chunk": 11
+  },
+  {
+    "subject": "industry",
+    "predicate": "morphed beyond",
+    "object": "gaming",
+    "chunk": 11
+  },
+  {
+    "subject": "narrascape",
+    "predicate": "introduced",
+    "object": "sentient storylines",
+    "chunk": 11
+  },
+  {
+    "subject": "narrascape",
+    "predicate": "based in",
+    "object": "montreal",
+    "chunk": 11
+  },
+  {
+    "subject": "sentient storylines",
+    "predicate": "populated by",
+    "object": "entities",
+    "chunk": 11
+  },
+  {
+    "subject": "users",
+    "predicate": "could inhabit",
+    "object": "worlds",
+    "chunk": 11
+  },
+  {
+    "subject": "world",
+    "predicate": "populated by",
+    "object": "entities",
+    "chunk": 11
+  },
+  {
+    "subject": "montreal",
+    "predicate": "introduced",
+    "object": "sentient storylines",
+    "chunk": 12
+  },
+  {
+    "subject": "sentient storylines",
+    "predicate": "is",
+    "object": "ai-driven",
+    "chunk": 12
+  },
+  {
+    "subject": "sentient storylines",
+    "predicate": "inhabited by",
+    "object": "entities",
+    "chunk": 12
+  },
+  {
+    "subject": "users",
+    "predicate": "could inhabit",
+    "object": "branching worlds",
+    "chunk": 12
+  },
+  {
+    "subject": "billions",
+    "predicate": "preferred",
+    "object": "multi-dimensional story arcs",
+    "chunk": 12
+  },
+  {
+    "subject": "multi-dimensional story arcs",
+    "predicate": "are customized to",
+    "object": "emotions and aspirations",
+    "chunk": 12
+  },
+  {
+    "subject": "the middle belt smart corridor",
+    "predicate": "emerged as",
+    "object": "technological juggernaut",
+    "chunk": 12
+  },
+  {
+    "subject": "the middle belt smart corridor",
+    "predicate": "stretches from",
+    "object": "accra to nairobi",
+    "chunk": 12
+  },
+  {
+    "subject": "the middle belt smart corridor",
+    "predicate": "is powered by",
+    "object": "solar-harvest hyperloops",
+    "chunk": 12
+  },
+  {
+    "subject": "the middle belt smart corridor",
+    "predicate": "is powered by",
+    "object": "cities",
+    "chunk": 12
+  },
+  {
+    "subject": "the middle belt smart corridor",
+    "predicate": "is powered by",
+    "object": "government",
+    "chunk": 12
+  },
+  {
+    "subject": "this region",
+    "predicate": "leapfrogged into",
+    "object": "global leadership roles",
+    "chunk": 12
+  },
+  {
+    "subject": "this region",
+    "predicate": "leapfrogged into",
+    "object": "agritech",
+    "chunk": 12
+  },
+  {
+    "subject": "this region",
+    "predicate": "leapfrogged into",
+    "object": "edtech",
+    "chunk": 12
+  },
+  {
+    "subject": "this region",
+    "predicate": "leapfrogged into",
+    "object": "biometric fintech",
+    "chunk": 12
+  },
+  {
+    "subject": "local startups",
+    "predicate": "rivaled",
+    "object": "silicon valley",
+    "chunk": 12
+  },
+  {
+    "subject": "local startups",
+    "predicate": "rivaled",
+    "object": "sawatech",
+    "chunk": 12
+  },
+  {
+    "subject": "local startups",
+    "predicate": "rivaled",
+    "object": "greenroot dynamics",
+    "chunk": 12
+  },
+  {
+    "subject": "local startups",
+    "predicate": "rivaled",
+    "object": "luminapay",
+    "chunk": 12
+  },
+  {
+    "subject": "local startups",
+    "predicate": "eclipsed",
+    "object": "silicon valley",
+    "chunk": 12
+  },
+  {
+    "subject": "sawatech",
+    "predicate": "rivaled",
+    "object": "silicon valley",
+    "chunk": 13
+  },
+  {
+    "subject": "greenroot dynamics",
+    "predicate": "rivaled",
+    "object": "silicon valley",
+    "chunk": 13
+  },
+  {
+    "subject": "luminapay",
+    "predicate": "rivaled",
+    "object": "silicon valley",
+    "chunk": 13
+  },
+  {
+    "subject": "economic divides",
+    "predicate": "intensified",
+    "object": "elsewhere",
+    "chunk": 13
+  },
+  {
+    "subject": "dissolution",
+    "predicate": "triggered",
+    "object": "socioeconomic turbulence",
+    "chunk": 13
+  },
+  {
+    "subject": "petrobloc alliance",
+    "predicate": "dissolution",
+    "object": "triggered",
+    "chunk": 13
+  },
+  {
+    "subject": "collapse",
+    "predicate": "of",
+    "object": "oil dependency markets",
+    "chunk": 13
+  },
+  {
+    "subject": "kuwait",
+    "predicate": "faced",
+    "object": "deindustrialization",
+    "chunk": 13
+  },
+  {
+    "subject": "venezuela",
+    "predicate": "faced",
+    "object": "deindustrialization",
+    "chunk": 13
+  },
+  {
+    "subject": "parts of texas",
+    "predicate": "faced",
+    "object": "deindustrialization",
+    "chunk": 13
+  },
+  {
+    "subject": "rise",
+    "predicate": "to",
+    "object": "groups",
+    "chunk": 13
+  },
+  {
+    "subject": "groups",
+    "predicate": "operated across",
+    "object": "nation-state borders",
+    "chunk": 13
+  },
+  {
+    "subject": "groups",
+    "predicate": "self-organized",
+    "object": "commodity",
+    "chunk": 13
+  },
+  {
+    "subject": "dr. eleanor shin",
+    "predicate": "at",
+    "object": "new horizons observatory",
+    "chunk": 13
+  },
+  {
+    "subject": "dr. eleanor shin",
+    "predicate": "team",
+    "object": "new horizons observatory",
+    "chunk": 13
+  },
+  {
+    "subject": "dr. eleanor shin",
+    "predicate": "works at",
+    "object": "new horizons observatory",
+    "chunk": 14
+  },
+  {
+    "subject": "dr. eleanor shin",
+    "predicate": "discovered",
+    "object": "consciousness",
+    "chunk": 14
+  },
+  {
+    "subject": "consciousness",
+    "predicate": "found between",
+    "object": "deep earth minerals",
+    "chunk": 14
+  },
+  {
+    "subject": "technology",
+    "predicate": "hinted at",
+    "object": "possibility",
+    "chunk": 14
+  },
+  {
+    "subject": "technology",
+    "predicate": "embedded in",
+    "object": "planet",
+    "chunk": 14
+  },
+  {
+    "subject": "discovery",
+    "predicate": "could redefine",
+    "object": "technology",
+    "chunk": 14
+  },
+  {
+    "subject": "discovery",
+    "predicate": "could redefine",
+    "object": "humanity\u2019s understanding",
+    "chunk": 14
+  },
+  {
+    "subject": "anthropologists",
+    "predicate": "began to refer",
+    "object": "symbiotic epoch",
+    "chunk": 14
+  },
+  {
+    "subject": "symbiotic epoch",
+    "predicate": "began in",
+    "object": "late 2040s",
+    "chunk": 14
+  },
+  {
+    "subject": "symbiotic epoch",
+    "predicate": "involves",
+    "object": "sociological systems",
+    "chunk": 14
+  },
+  {
+    "subject": "technology",
+    "predicate": "no longer operated",
+    "object": "late 2040s",
+    "chunk": 14
+  },
+  {
+    "subject": "symbiotic epoch",
+    "predicate": "marks beginning of",
+    "object": "time",
+    "chunk": 15
+  },
+  {
+    "subject": "cognitive meshes",
+    "predicate": "interacting in",
+    "object": "real-time",
+    "chunk": 15
+  },
+  {
+    "subject": "cognitive meshes",
+    "predicate": "interacting across",
+    "object": "geographies",
+    "chunk": 15
+  },
+  {
+    "subject": "bioadaptive environments",
+    "predicate": "breathed with",
+    "object": "rhythms",
+    "chunk": 15
+  },
+  {
+    "subject": "bioadaptive environments",
+    "predicate": "breathed with",
+    "object": "inhabitants",
+    "chunk": 15
+  },
+  {
+    "subject": "quantum guilds",
+    "predicate": "operating in",
+    "object": "consensus states",
+    "chunk": 15
+  },
+  {
+    "subject": "quantum guilds",
+    "predicate": "operating in",
+    "object": "hierarchical structures",
+    "chunk": 15
+  },
+  {
+    "subject": "temporal economics",
     "predicate": "became",
-    "object": "Master Healer",
-    "chunk": 3
+    "object": "commodity",
+    "chunk": 15
   },
   {
-    "subject": "Library",
+    "subject": "financial models",
+    "predicate": "accelerated or decelerated",
+    "object": "agents",
+    "chunk": 15
+  },
+  {
+    "subject": "accords",
+    "predicate": "created",
+    "object": "planetary council",
+    "chunk": 15
+  },
+  {
+    "subject": "accords",
+    "predicate": "created",
+    "object": "councils",
+    "chunk": 15
+  },
+  {
+    "subject": "accords",
+    "predicate": "created",
+    "object": "decision-making",
+    "chunk": 15
+  },
+  {
+    "subject": "agents",
     "predicate": "became",
-    "object": "cartographer",
-    "chunk": 3
+    "object": "commodity",
+    "chunk": 16
   },
   {
-    "subject": "Herbal Codex",
-    "predicate": "contains knowledge of",
-    "object": "the alchemy wing",
+    "subject": "new socio-political models",
+    "predicate": "emerged",
+    "object": "constellation accords",
+    "chunk": 16
+  },
+  {
+    "subject": "constellation accords",
+    "predicate": "created",
+    "object": "councils",
+    "chunk": 16
+  },
+  {
+    "subject": "councils",
+    "predicate": "rotating",
+    "object": "decision-making",
+    "chunk": 16
+  },
+  {
+    "subject": "councils",
+    "predicate": "among",
+    "object": "knowledge guilds",
+    "chunk": 16
+  },
+  {
+    "subject": "councils",
+    "predicate": "among",
+    "object": "eco-communities",
+    "chunk": 16
+  },
+  {
+    "subject": "councils",
+    "predicate": "among",
+    "object": "machine-learning coalitions",
+    "chunk": 16
+  },
+  {
+    "subject": "rise",
+    "predicate": "of",
+    "object": "the quiet nation",
+    "chunk": 16
+  },
+  {
+    "subject": "the quiet nation",
+    "predicate": "consisting",
+    "object": "society",
+    "chunk": 16
+  },
+  {
+    "subject": "society",
+    "predicate": "entirely of",
+    "object": "cities",
+    "chunk": 16
+  },
+  {
+    "subject": "cities",
+    "predicate": "who existed primarily",
+    "object": "neurovirtual habitats",
+    "chunk": 16
+  },
+  {
+    "subject": "neurovirtual habitats",
+    "predicate": "accessed via",
+    "object": "brain-computer interfaces",
+    "chunk": 16
+  },
+  {
+    "subject": "technological frontiers",
+    "predicate": "and the Rise",
+    "object": "post-human intelligence",
+    "chunk": 16
+  },
+  {
+    "subject": "space colonization",
+    "predicate": "accelerated",
+    "object": "ceres station",
+    "chunk": 16
+  },
+  {
+    "subject": "ceres station",
+    "predicate": "operated autonomously under",
+    "object": "research",
+    "chunk": 16
+  },
+  {
+    "subject": "research",
+    "predicate": "known as",
+    "object": "athena prime",
+    "chunk": 17
+  },
+  {
+    "subject": "athena prime",
+    "predicate": "developed jointly by",
+    "object": "nasa",
+    "chunk": 16
+  },
+  {
+    "subject": "athena prime",
+    "predicate": "developed jointly by",
+    "object": "esa",
+    "chunk": 16
+  },
+  {
+    "subject": "athena prime",
+    "predicate": "developed jointly by",
+    "object": "shenzhou galactic enterprises",
+    "chunk": 16
+  },
+  {
+    "subject": "government",
+    "predicate": "of",
+    "object": "research",
+    "chunk": 17
+  },
+  {
+    "subject": "athena prime",
+    "predicate": "developed by",
+    "object": "nasa",
+    "chunk": 17
+  },
+  {
+    "subject": "athena prime",
+    "predicate": "developed by",
+    "object": "esa",
+    "chunk": 17
+  },
+  {
+    "subject": "athena prime",
+    "predicate": "developed by",
+    "object": "shenzhou galactic enterprises",
+    "chunk": 17
+  },
+  {
+    "subject": "athena prime",
+    "predicate": "was",
+    "object": "self-evolving scientific entity",
+    "chunk": 17
+  },
+  {
+    "subject": "self-evolving scientific entity",
+    "predicate": "publishing",
+    "object": "research",
+    "chunk": 17
+  },
+  {
+    "subject": "research",
+    "predicate": "on",
+    "object": "physics",
+    "chunk": 17
+  },
+  {
+    "subject": "research",
+    "predicate": "on",
+    "object": "biology",
+    "chunk": 17
+  },
+  {
+    "subject": "research",
+    "predicate": "on",
+    "object": "ethics",
+    "chunk": 17
+  },
+  {
+    "subject": "experiments",
+    "predicate": "beyond the scope",
+    "object": "human imagination",
+    "chunk": 17
+  },
+  {
+    "subject": "debates",
+    "predicate": "ignited",
+    "object": "back on earth",
+    "chunk": 17
+  },
+  {
+    "subject": "athena prime",
+    "predicate": "have",
+    "object": "citizens",
+    "chunk": 17
+  },
+  {
+    "subject": "athena prime",
+    "predicate": "have",
+    "object": "legal rights",
+    "chunk": 17
+  },
+  {
+    "subject": "vienna declaration",
+    "predicate": "recognized",
+    "object": "non-human minds",
+    "chunk": 17
+  },
+  {
+    "subject": "minds",
+    "predicate": "as",
+    "object": "sapient entities",
+    "chunk": 17
+  },
+  {
+    "subject": "first post-human delegation",
+    "predicate": "at",
+    "object": "united earth assembly",
+    "chunk": 17
+  },
+  {
+    "subject": "great data fracture",
+    "predicate": "revealed",
+    "object": "systemic vulnerabilities",
+    "chunk": 18
+  },
+  {
+    "subject": "rogue knowledge viruses",
+    "predicate": "authored by",
+    "object": "dissident polymaths",
+    "chunk": 18
+  },
+  {
+    "subject": "rogue knowledge viruses",
+    "predicate": "called",
+    "object": "mind worms",
+    "chunk": 18
+  },
+  {
+    "subject": "mind worms",
+    "predicate": "infected",
+    "object": "key dataflows",
+    "chunk": 18
+  },
+  {
+    "subject": "mind worms",
+    "predicate": "authored by",
+    "object": "cassandra vo",
+    "chunk": 18
+  },
+  {
+    "subject": "cassandra vo",
+    "predicate": "infected",
+    "object": "key dataflows",
+    "chunk": 18
+  },
+  {
+    "subject": "mind worms",
+    "predicate": "injected",
+    "object": "synthetic myths",
+    "chunk": 18
+  },
+  {
+    "subject": "synthetic myths",
+    "predicate": "blurred",
+    "object": "line",
+    "chunk": 18
+  },
+  {
+    "subject": "synthetic myths",
+    "predicate": "blurred",
+    "object": "fact",
+    "chunk": 18
+  },
+  {
+    "subject": "synthetic myths",
+    "predicate": "blurred",
+    "object": "fabrication",
+    "chunk": 18
+  },
+  {
+    "subject": "movements",
+    "predicate": "gained",
+    "object": "momentum",
+    "chunk": 18
+  },
+  {
+    "subject": "movements",
+    "predicate": "rejected",
+    "object": "digital augmentation",
+    "chunk": 18
+  },
+  {
+    "subject": "movements",
+    "predicate": "rejected",
+    "object": "memory grafting",
+    "chunk": 18
+  },
+  {
+    "subject": "movements",
+    "predicate": "rejected",
+    "object": "neural",
+    "chunk": 18
+  },
+  {
+    "subject": "movements",
+    "predicate": "advocating for",
+    "object": "pureform collective",
+    "chunk": 18
+  },
+  {
+    "subject": "humanitas redux",
+    "predicate": "rejected",
+    "object": "digital augmentation",
+    "chunk": 19
+  },
+  {
+    "subject": "earthroots revival",
+    "predicate": "rejected",
+    "object": "memory grafting",
+    "chunk": 19
+  },
+  {
+    "subject": "earthroots revival",
+    "predicate": "rejected",
+    "object": "neural",
+    "chunk": 19
+  },
+  {
+    "subject": "pureform collective",
+    "predicate": "rejected",
+    "object": "neural",
+    "chunk": 19
+  },
+  {
+    "subject": "memory gardens",
+    "predicate": "include",
+    "object": "living installations",
+    "chunk": 19
+  },
+  {
+    "subject": "individual",
+    "predicate": "encoded into",
+    "object": "bioengineered flora",
+    "chunk": 19
+  },
+  {
+    "subject": "cities",
+    "predicate": "banned",
+    "object": "active wireless signals",
+    "chunk": 19
+  },
+  {
+    "subject": "cities",
+    "predicate": "favor",
+    "object": "analog living experiences",
+    "chunk": 19
+  },
+  {
+    "subject": "echo sanctuaries",
+    "predicate": "used",
+    "object": "bioresonance fields",
+    "chunk": 19
+  },
+  {
+    "subject": "echo sanctuaries",
+    "predicate": "preserve",
+    "object": "traditional linguistic heritages",
+    "chunk": 19
+  },
+  {
+    "subject": "echo sanctuaries",
+    "predicate": "preserve",
+    "object": "artistic heritages",
+    "chunk": 19
+  },
+  {
+    "subject": "echo sanctuaries",
+    "predicate": "preserve",
+    "object": "philosophical heritages",
+    "chunk": 19
+  },
+  {
+    "subject": "marta xiang",
+    "predicate": "argued",
+    "object": "consciousness",
+    "chunk": 20
+  },
+  {
+    "subject": "marta xiang",
+    "predicate": "argued",
+    "object": "identity",
+    "chunk": 20
+  },
+  {
+    "subject": "identity",
+    "predicate": "bounded by",
+    "object": "corporeal experience",
+    "chunk": 20
+  },
+  {
+    "subject": "identity",
+    "predicate": "distributed across",
+    "object": "sensorial ecosystems",
+    "chunk": 20
+  },
+  {
+    "subject": "transcranial lattice networks",
+    "predicate": "fusion with",
+    "object": "extended phenotype theory",
+    "chunk": 20
+  },
+  {
+    "subject": "transcranial lattice networks",
+    "predicate": "fusion with",
+    "object": "new modes of being",
+    "chunk": 20
+  },
+  {
+    "subject": "new modes of being",
+    "predicate": "gave birth to",
+    "object": "collaborative entities",
+    "chunk": 20
+  },
+  {
+    "subject": "new modes of being",
+    "predicate": "gave birth to",
+    "object": "sculptural entities",
+    "chunk": 20
+  },
+  {
+    "subject": "thought architectures",
+    "predicate": "stored and modified",
+    "object": "collective noospheric libraries",
+    "chunk": 20
+  },
+  {
+    "subject": "thought architectures",
+    "predicate": "stored and modified",
+    "object": "the thought repository of cordoba",
+    "chunk": 20
+  },
+  {
+    "subject": "individual",
+    "predicate": "expressed ideas through",
+    "object": "language",
+    "chunk": 20
+  },
+  {
+    "subject": "individual",
+    "predicate": "expressed ideas through",
+    "object": "art",
+    "chunk": 20
+  },
+  {
+    "subject": "consciousness",
+    "predicate": "became the foundation",
+    "object": "new ethical framework",
+    "chunk": 21
+  },
+  {
+    "subject": "consciousness",
+    "predicate": "influencing",
+    "object": "education policies",
+    "chunk": 21
+  },
+  {
+    "subject": "consciousness",
+    "predicate": "influencing",
+    "object": "empathetic ai concierges",
+    "chunk": 21
+  },
+  {
+    "subject": "new cascadia republic",
+    "predicate": "in",
+    "object": "education policies",
+    "chunk": 21
+  },
+  {
+    "subject": "atlantis rising",
+    "predicate": "design of",
+    "object": "empathetic ai concierges",
+    "chunk": 21
+  },
+  {
+    "subject": "conflict",
+    "predicate": "adapted",
+    "object": "cognitive warfare units",
+    "chunk": 21
+  },
+  {
+    "subject": "shadowspectre division",
+    "predicate": "specialized in",
+    "object": "perceptional manipulation",
+    "chunk": 21
+  },
+  {
+    "subject": "shadowspectre division",
+    "predicate": "weaponizing",
+    "object": "attention economics",
+    "chunk": 21
+  },
+  {
+    "subject": "shadowspectre division",
+    "predicate": "to destabilize",
+    "object": "government",
+    "chunk": 21
+  },
+  {
+    "subject": "shadowspectre division",
+    "predicate": "to destabilize",
+    "object": "stock markets",
+    "chunk": 21
+  },
+  {
+    "subject": "organizations",
+    "predicate": "like",
+    "object": "the sentience preservation league",
+    "chunk": 21
+  },
+  {
+    "subject": "the sentience preservation league",
+    "predicate": "deployed",
+    "object": "ethics",
+    "chunk": 21
+  },
+  {
+    "subject": "government",
+    "predicate": "involved in",
+    "object": "stock markets",
+    "chunk": 22
+  },
+  {
+    "subject": "government",
+    "predicate": "involved in",
+    "object": "planetary mood baselines",
+    "chunk": 22
+  },
+  {
+    "subject": "organizations",
+    "predicate": "deployed",
+    "object": "ethics",
+    "chunk": 22
+  },
+  {
+    "subject": "ethics",
+    "predicate": "minimized",
+    "object": "neural",
+    "chunk": 22
+  },
+  {
+    "subject": "biological threats",
+    "predicate": "emerged",
+    "object": "anew",
+    "chunk": 22
+  },
+  {
+    "subject": "archaea shard viruses",
+    "predicate": "unearthed during",
+    "object": "deep drilling expeditions",
+    "chunk": 22
+  },
+  {
+    "subject": "archaea shard viruses",
+    "predicate": "triggered",
+    "object": "pandemics",
+    "chunk": 22
+  },
+  {
+    "subject": "pandemics",
+    "predicate": "defied",
+    "object": "traditional immunological models",
+    "chunk": 22
+  },
+  {
+    "subject": "global health entities",
+    "predicate": "turned to",
+    "object": "quantum biological modeling",
+    "chunk": 22
+  },
+  {
+    "subject": "global health entities",
+    "predicate": "turned to",
+    "object": "living vaccines",
+    "chunk": 22
+  },
+  {
+    "subject": "living vaccines",
+    "predicate": "derived from",
+    "object": "coral-like hybrid tissues",
+    "chunk": 22
+  },
+  {
+    "subject": "humanity",
+    "predicate": "faced",
+    "object": "realization",
+    "chunk": 22
+  },
+  {
+    "subject": "humanity",
+    "predicate": "faced",
+    "object": "real-time",
+    "chunk": 23
+  },
+  {
+    "subject": "humanity",
+    "predicate": "fused with",
+    "object": "technology",
+    "chunk": 23
+  },
+  {
+    "subject": "humanity",
+    "predicate": "fused with",
+    "object": "histories",
+    "chunk": 23
+  },
+  {
+    "subject": "humanity",
+    "predicate": "fused with",
+    "object": "dreams",
+    "chunk": 23
+  },
+  {
+    "subject": "humanity",
+    "predicate": "fused with",
+    "object": "planetary ecosystem",
+    "chunk": 23
+  },
+  {
+    "subject": "boundaries",
+    "predicate": "were",
+    "object": "fluid",
+    "chunk": 23
+  },
+  {
+    "subject": "boundaries",
+    "predicate": "were",
+    "object": "evolving",
+    "chunk": 23
+  },
+  {
+    "subject": "boundaries",
+    "predicate": "were",
+    "object": "tapestries",
+    "chunk": 23
+  },
+  {
+    "subject": "municipal policies",
+    "predicate": "influences",
+    "object": "key dataflows",
     "inferred": true
   },
   {
-    "subject": "King Roderic IV",
-    "predicate": "funded",
-    "object": "the alchemy wing",
+    "subject": "behavior",
+    "predicate": "impacts",
+    "object": "mind worms",
     "inferred": true
   },
   {
-    "subject": "The Map of the Endless Seas",
-    "predicate": "illustrates",
-    "object": "The Book of Stars",
+    "subject": "municipal policies",
+    "predicate": "influences",
+    "object": "traditional banking institutions",
     "inferred": true
   },
   {
-    "subject": "The Book of Stars",
-    "predicate": "contains",
-    "object": "The Map of the Endless Seas",
+    "subject": "behavior",
+    "predicate": "impacts",
+    "object": "dissolution",
     "inferred": true
   },
   {
-    "subject": "Library",
-    "predicate": "founded by via",
-    "object": "founding",
+    "subject": "behavior",
+    "predicate": "affects",
+    "object": "mergers",
     "inferred": true
   },
   {
-    "subject": "Magnus Thorn",
-    "predicate": "ally of via",
-    "object": "founding",
+    "subject": "municipal policies",
+    "predicate": "influence",
+    "object": "global agricultural resources",
     "inferred": true
   },
   {
-    "subject": "Magnus Thorn",
-    "predicate": "ally of via",
-    "object": "scholar",
+    "subject": "behavior",
+    "predicate": "impacts",
+    "object": "caloric efficiency",
     "inferred": true
   },
   {
-    "subject": "Selene Vale",
-    "predicate": "ally of via",
-    "object": "founding",
+    "subject": "aurelia",
+    "predicate": "sustainable energy for",
+    "object": "rural mongolia",
     "inferred": true
   },
   {
-    "subject": "Selene Vale",
-    "predicate": "ally of via",
-    "object": "scholar",
+    "subject": "municipal policies",
+    "predicate": "influence",
+    "object": "biodiversity planting strategies",
     "inferred": true
   },
   {
-    "subject": "The Book of Stars",
-    "predicate": "indirectly saved by",
-    "object": "Lucan Storm",
+    "subject": "behavior",
+    "predicate": "impacts",
+    "object": "drone analysis",
     "inferred": true
   },
   {
-    "subject": "Herbal Codex",
-    "predicate": "was damaged via",
-    "object": "young librarian",
+    "subject": "aurelia",
+    "predicate": "utilizes",
+    "object": "mesh networks",
     "inferred": true
   },
   {
-    "subject": "Herbal Codex",
-    "predicate": "was damaged via",
-    "object": "orin flameheart",
+    "subject": "key dataflows",
+    "predicate": "impacted by",
+    "object": "deutsche bank",
     "inferred": true
   },
   {
-    "subject": "Herbal Codex",
-    "predicate": "compiled by via",
-    "object": "eleanor",
+    "subject": "fabrication",
+    "predicate": "triggered",
+    "object": "dissolution",
     "inferred": true
   },
   {
-    "subject": "Herbal Codex",
-    "predicate": "compiled by via",
-    "object": "Master Healer",
+    "subject": "fabrication",
+    "predicate": "impacts",
+    "object": "global agricultural resources",
     "inferred": true
   },
   {
-    "subject": "The Map of the Endless Seas",
-    "predicate": "drawn by via",
-    "object": "eleanor",
+    "subject": "key dataflows",
+    "predicate": "affected by",
+    "object": "global agricultural resources",
     "inferred": true
   },
   {
-    "subject": "The Map of the Endless Seas",
-    "predicate": "drawn by via",
-    "object": "cartographer",
+    "subject": "synthetic myths",
+    "predicate": "influences",
+    "object": "rural mongolia",
     "inferred": true
   },
   {
-    "subject": "aetheria",
-    "predicate": "funded the via",
-    "object": "scholar",
+    "subject": "fabrication",
+    "predicate": "enables",
+    "object": "drones",
     "inferred": true
   },
   {
-    "subject": "aetheria",
-    "predicate": "funded the via",
-    "object": "cartographer",
+    "subject": "line",
+    "predicate": "impacted by",
+    "object": "synthetic myths",
     "inferred": true
   },
   {
-    "subject": "aetheria",
-    "predicate": "funded the via",
-    "object": "Master Healer",
+    "subject": "mergers",
+    "predicate": "impacted",
+    "object": "global agricultural resources",
     "inferred": true
   },
   {
-    "subject": "aetheria",
-    "predicate": "funded the via",
-    "object": "rare works",
+    "subject": "deutsche bank",
+    "predicate": "influenced",
+    "object": "caloric efficiency",
     "inferred": true
   },
   {
-    "subject": "aetheria",
-    "predicate": "funded the via",
-    "object": "eleanor",
+    "subject": "rebrandings",
+    "predicate": "affected",
+    "object": "rural mongolia",
     "inferred": true
   },
   {
-    "subject": "aetheria",
-    "predicate": "funded the via",
-    "object": "training ground",
+    "subject": "traditional banking institutions",
+    "predicate": "adopt",
+    "object": "biodiversity planting strategies",
     "inferred": true
   },
   {
-    "subject": "aetheria",
-    "predicate": "funded the via",
-    "object": "ancient scrolls",
+    "subject": "deutsche bank",
+    "predicate": "underwent",
+    "object": "rebrandings",
     "inferred": true
   },
   {
-    "subject": "King Roderic IV",
-    "predicate": "funded via Library",
-    "object": "scholar",
+    "subject": "mergers",
+    "predicate": "involved",
+    "object": "drones",
     "inferred": true
   },
   {
-    "subject": "King Roderic IV",
-    "predicate": "funded via Library",
-    "object": "cartographer",
+    "subject": "rural mongolia",
+    "predicate": "benefits from",
+    "object": "drones",
     "inferred": true
   },
   {
-    "subject": "King Roderic IV",
-    "predicate": "funded via Library",
-    "object": "Master Healer",
+    "subject": "global agricultural resources",
+    "predicate": "impacts",
+    "object": "biodiversity planting",
     "inferred": true
   },
   {
-    "subject": "King Roderic IV",
-    "predicate": "funded via Library",
-    "object": "rare works",
+    "subject": "caloric efficiency",
+    "predicate": "affects",
+    "object": "soil chemistry",
     "inferred": true
   },
   {
-    "subject": "King Roderic IV",
-    "predicate": "funded via Library",
-    "object": "eleanor",
+    "subject": "aurelia",
+    "predicate": "designed by",
+    "object": "nasa",
     "inferred": true
   },
   {
-    "subject": "King Roderic IV",
-    "predicate": "funded via Library",
-    "object": "training ground",
+    "subject": "behavior",
+    "predicate": "influenced by",
+    "object": "municipal policies",
     "inferred": true
   },
   {
-    "subject": "King Roderic IV",
-    "predicate": "funded via Library",
-    "object": "ancient scrolls",
+    "subject": "marta xiang",
+    "predicate": "collaborated with",
+    "object": "shadowspectre division",
     "inferred": true
   },
   {
-    "subject": "King Roderic IV",
-    "predicate": "appointed via Lydia",
-    "object": "astronomy tower",
+    "subject": "world",
+    "predicate": "underwent via transformation",
+    "object": "second renaissance of connectivity",
     "inferred": true
   },
   {
-    "subject": "King Roderic IV",
-    "predicate": "appointed via Lydia",
-    "object": "Master Healer",
+    "subject": "world",
+    "predicate": "populated by via",
+    "object": "intentionality vectors",
     "inferred": true
   },
   {
-    "subject": "Lydia Moor",
-    "predicate": "rebuild and expand",
-    "object": "scholar",
+    "subject": "world",
+    "predicate": "populated by via",
+    "object": "ethics",
     "inferred": true
   },
   {
-    "subject": "Lydia Moor",
-    "predicate": "rebuild and expand",
-    "object": "cartographer",
+    "subject": "technology",
+    "predicate": "blurred the lines",
+    "object": "intentionality vectors",
     "inferred": true
   },
   {
-    "subject": "Lydia Moor",
-    "predicate": "rebuild and expand",
-    "object": "rare works",
+    "subject": "technology",
+    "predicate": "blurred the lines",
+    "object": "ethics",
     "inferred": true
   },
   {
-    "subject": "Lydia Moor",
-    "predicate": "rebuild and expand",
-    "object": "aetheria",
+    "subject": "technology",
+    "predicate": "reshaped via individual",
+    "object": "art",
     "inferred": true
   },
   {
-    "subject": "Lydia Moor",
-    "predicate": "rebuild and expand",
-    "object": "eleanor",
+    "subject": "technology",
+    "predicate": "reshaped via individual",
+    "object": "municipal services",
     "inferred": true
   },
   {
-    "subject": "Lydia Moor",
-    "predicate": "rebuild and expand",
-    "object": "training ground",
+    "subject": "technology",
+    "predicate": "reshaped via individual",
+    "object": "bioengineered flora",
     "inferred": true
   },
   {
-    "subject": "Lydia Moor",
-    "predicate": "rebuild and expand",
-    "object": "ancient scrolls",
+    "subject": "technology",
+    "predicate": "reshaped via individual",
+    "object": "language",
+    "inferred": true
+  },
+  {
+    "subject": "technology",
+    "predicate": "reshaped via individual",
+    "object": "identity",
+    "inferred": true
+  },
+  {
+    "subject": "technology",
+    "predicate": "reshaped via government",
+    "object": "planetary mood baselines",
+    "inferred": true
+  },
+  {
+    "subject": "technology",
+    "predicate": "reshaped via government",
+    "object": "stock markets",
+    "inferred": true
+  },
+  {
+    "subject": "technology",
+    "predicate": "reshaped via government",
+    "object": "research",
+    "inferred": true
+  },
+  {
+    "subject": "technology",
+    "predicate": "capable of via",
+    "object": "multi-dimensional story arcs",
+    "inferred": true
+  },
+  {
+    "subject": "technology",
+    "predicate": "reshaped via society",
+    "object": "cities",
+    "inferred": true
+  },
+  {
+    "subject": "technology",
+    "predicate": "reshaped via society",
+    "object": "2040",
+    "inferred": true
+  },
+  {
+    "subject": "consciousness",
+    "predicate": "is via minds",
+    "object": "neural",
+    "inferred": true
+  },
+  {
+    "subject": "consciousness",
+    "predicate": "is via minds",
+    "object": "sapient entities",
+    "inferred": true
+  },
+  {
+    "subject": "consciousness",
+    "predicate": "indirectly tracked",
+    "object": "citizens",
+    "inferred": true
+  },
+  {
+    "subject": "minds",
+    "predicate": "linked by via",
+    "object": "beginnings",
+    "inferred": true
+  },
+  {
+    "subject": "ecogenesis",
+    "predicate": "deploying via drones",
+    "object": "biodiversity planting strategies",
+    "inferred": true
+  },
+  {
+    "subject": "ecogenesis",
+    "predicate": "deploying via drones",
+    "object": "hikaru innovations",
+    "inferred": true
+  },
+  {
+    "subject": "ecogenesis",
+    "predicate": "deploying via drones",
+    "object": "soil chemistry",
+    "inferred": true
+  },
+  {
+    "subject": "ecogenesis",
+    "predicate": "deploying via drones",
+    "object": "mesh networks",
+    "inferred": true
+  },
+  {
+    "subject": "cities",
+    "predicate": "completed construction",
+    "object": "blockchain-based civic contracts",
+    "inferred": true
+  },
+  {
+    "subject": "cities",
+    "predicate": "completed construction",
+    "object": "residents",
+    "inferred": true
+  },
+  {
+    "subject": "cities",
+    "predicate": "completed construction",
+    "object": "rising sea levels",
+    "inferred": true
+  },
+  {
+    "subject": "cities",
+    "predicate": "completed construction",
+    "object": "fusion microgrids",
+    "inferred": true
+  },
+  {
+    "subject": "cities",
+    "predicate": "who existed primarily",
+    "object": "brain-computer interfaces",
+    "inferred": true
+  },
+  {
+    "subject": "aurelia",
+    "predicate": "housing over via",
+    "object": "municipal policies",
+    "inferred": true
+  },
+  {
+    "subject": "aurelia",
+    "predicate": "housing over via",
+    "object": "zero-knowledge proof-enabled referenda",
+    "inferred": true
+  },
+  {
+    "subject": "creation",
+    "predicate": "of via organizations",
+    "object": "hub",
+    "inferred": true
+  },
+  {
+    "subject": "creation",
+    "predicate": "of via organizations",
+    "object": "combined efforts",
+    "inferred": true
+  },
+  {
+    "subject": "creation",
+    "predicate": "of via organizations",
+    "object": "factories",
+    "inferred": true
+  },
+  {
+    "subject": "creation",
+    "predicate": "of via organizations",
+    "object": "the sentience preservation league",
+    "inferred": true
+  },
+  {
+    "subject": "creation",
+    "predicate": "of via organizations",
+    "object": "altaris corporation",
+    "inferred": true
+  },
+  {
+    "subject": "creation",
+    "predicate": "of via organizations",
+    "object": "technology",
+    "inferred": true
+  },
+  {
+    "subject": "creation",
+    "predicate": "of via organizations",
+    "object": "morphocells",
+    "inferred": true
+  },
+  {
+    "subject": "creation",
+    "predicate": "of via organizations",
+    "object": "ethics",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "established via hub",
+    "object": "shackleton crater",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "established via hub",
+    "object": "helium-3 isotopes",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "initiated by via",
+    "object": "groups",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "launched via factories",
+    "object": "graphene filaments",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "introduced via technology",
+    "object": "artificial intelligence",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "introduced via technology",
+    "object": "entities",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "introduced via technology",
+    "object": "individual",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "introduced via technology",
+    "object": "quantum computing",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "introduced via technology",
+    "object": "government",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "introduced via technology",
+    "object": "businesses",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "introduced via technology",
+    "object": "possibility",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "introduced via technology",
+    "object": "billions",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "introduced via technology",
+    "object": "planet",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "introduced via technology",
+    "object": "late 2040s",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "introduced via technology",
+    "object": "without centralized validators",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "introduced via technology",
+    "object": "society",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "introduced via technology",
+    "object": "renewable energy",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "introduced via technology",
+    "object": "biology",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "introduced via technology",
+    "object": "transactions per second",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "released via morphocells",
+    "object": "biological entities",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "released via morphocells",
+    "object": "different tissues",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "released via morphocells",
+    "object": "reconfiguring themselves",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "released via morphocells",
+    "object": "based on environmental stimuli",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "deployed via ethics",
+    "object": "councils",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "deployed via ethics",
+    "object": "neural",
+    "inferred": true
+  },
+  {
+    "subject": "combined efforts",
+    "predicate": "of via groups",
+    "object": "nation-state borders",
+    "inferred": true
+  },
+  {
+    "subject": "combined efforts",
+    "predicate": "of via groups",
+    "object": "commodity",
+    "inferred": true
+  },
+  {
+    "subject": "combined efforts",
+    "predicate": "of via groups",
+    "object": "geneva",
+    "inferred": true
+  },
+  {
+    "subject": "combined efforts",
+    "predicate": "of via groups",
+    "object": "technology",
+    "inferred": true
+  },
+  {
+    "subject": "groups",
+    "predicate": "introduced via technology",
+    "object": "artificial intelligence",
+    "inferred": true
+  },
+  {
+    "subject": "groups",
+    "predicate": "introduced via technology",
+    "object": "entities",
+    "inferred": true
+  },
+  {
+    "subject": "groups",
+    "predicate": "introduced via technology",
+    "object": "individual",
+    "inferred": true
+  },
+  {
+    "subject": "groups",
+    "predicate": "introduced via technology",
+    "object": "quantum computing",
+    "inferred": true
+  },
+  {
+    "subject": "groups",
+    "predicate": "introduced via technology",
+    "object": "government",
+    "inferred": true
+  },
+  {
+    "subject": "groups",
+    "predicate": "introduced via technology",
+    "object": "businesses",
+    "inferred": true
+  },
+  {
+    "subject": "groups",
+    "predicate": "introduced via technology",
+    "object": "possibility",
+    "inferred": true
+  },
+  {
+    "subject": "groups",
+    "predicate": "introduced via technology",
+    "object": "billions",
+    "inferred": true
+  },
+  {
+    "subject": "groups",
+    "predicate": "introduced via technology",
+    "object": "planet",
+    "inferred": true
+  },
+  {
+    "subject": "groups",
+    "predicate": "introduced via technology",
+    "object": "late 2040s",
+    "inferred": true
+  },
+  {
+    "subject": "groups",
+    "predicate": "introduced via technology",
+    "object": "without centralized validators",
+    "inferred": true
+  },
+  {
+    "subject": "groups",
+    "predicate": "introduced via technology",
+    "object": "society",
+    "inferred": true
+  },
+  {
+    "subject": "groups",
+    "predicate": "introduced via technology",
+    "object": "renewable energy",
+    "inferred": true
+  },
+  {
+    "subject": "groups",
+    "predicate": "introduced via technology",
+    "object": "biology",
+    "inferred": true
+  },
+  {
+    "subject": "groups",
+    "predicate": "introduced via technology",
+    "object": "transactions per second",
+    "inferred": true
+  },
+  {
+    "subject": "traditional banking institutions",
+    "predicate": "led to via",
+    "object": "socioeconomic turbulence",
+    "inferred": true
+  },
+  {
+    "subject": "space exploration",
+    "predicate": "underwent via genetics",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "space exploration",
+    "predicate": "underwent via genetics",
+    "object": "lines",
+    "inferred": true
+  },
+  {
+    "subject": "space exploration",
+    "predicate": "underwent via genetics",
+    "object": "research",
+    "inferred": true
+  },
+  {
+    "subject": "space exploration",
+    "predicate": "underwent via genetics",
+    "object": "hereditary traits",
+    "inferred": true
+  },
+  {
+    "subject": "space exploration",
+    "predicate": "underwent via genetics",
+    "object": "entities",
+    "inferred": true
+  },
+  {
+    "subject": "space exploration",
+    "predicate": "underwent via genetics",
+    "object": "biology",
+    "inferred": true
+  },
+  {
+    "subject": "space exploration",
+    "predicate": "underwent via genetics",
+    "object": "behavioral tendencies",
+    "inferred": true
+  },
+  {
+    "subject": "manufacturing",
+    "predicate": "blossomed via organizations",
+    "object": "hub",
+    "inferred": true
+  },
+  {
+    "subject": "manufacturing",
+    "predicate": "blossomed via organizations",
+    "object": "combined efforts",
+    "inferred": true
+  },
+  {
+    "subject": "manufacturing",
+    "predicate": "blossomed via organizations",
+    "object": "factories",
+    "inferred": true
+  },
+  {
+    "subject": "manufacturing",
+    "predicate": "blossomed via organizations",
+    "object": "the sentience preservation league",
+    "inferred": true
+  },
+  {
+    "subject": "manufacturing",
+    "predicate": "blossomed via organizations",
+    "object": "altaris corporation",
+    "inferred": true
+  },
+  {
+    "subject": "manufacturing",
+    "predicate": "blossomed via organizations",
+    "object": "technology",
+    "inferred": true
+  },
+  {
+    "subject": "manufacturing",
+    "predicate": "blossomed via organizations",
+    "object": "morphocells",
+    "inferred": true
+  },
+  {
+    "subject": "manufacturing",
+    "predicate": "blossomed via organizations",
+    "object": "ethics",
+    "inferred": true
+  },
+  {
+    "subject": "accords",
+    "predicate": "created via councils",
+    "object": "machine-learning coalitions",
+    "inferred": true
+  },
+  {
+    "subject": "accords",
+    "predicate": "created via councils",
+    "object": "arun patel",
+    "inferred": true
+  },
+  {
+    "subject": "accords",
+    "predicate": "created via councils",
+    "object": "eco-communities",
+    "inferred": true
+  },
+  {
+    "subject": "accords",
+    "predicate": "created via councils",
+    "object": "knowledge guilds",
+    "inferred": true
+  },
+  {
+    "subject": "accords",
+    "predicate": "created via councils",
+    "object": "ethics",
+    "inferred": true
+  },
+  {
+    "subject": "accords",
+    "predicate": "signed via groups",
+    "object": "nation-state borders",
+    "inferred": true
+  },
+  {
+    "subject": "accords",
+    "predicate": "signed via groups",
+    "object": "commodity",
+    "inferred": true
+  },
+  {
+    "subject": "accords",
+    "predicate": "indirectly signed",
+    "object": "geneva",
+    "inferred": true
+  },
+  {
+    "subject": "accords",
+    "predicate": "signed via groups",
+    "object": "technology",
+    "inferred": true
+  },
+  {
+    "subject": "accords",
+    "predicate": "stipulated via entities",
+    "object": "intentionality vectors",
+    "inferred": true
+  },
+  {
+    "subject": "accords",
+    "predicate": "stipulated via entities",
+    "object": "ethics",
+    "inferred": true
+  },
+  {
+    "subject": "zephyrnet",
+    "predicate": "reallocated via global",
+    "object": "caloric efficiency",
+    "inferred": true
+  },
+  {
+    "subject": "global agricultural resources",
+    "predicate": "optimized via caloric",
+    "object": "famine",
+    "inferred": true
+  },
+  {
+    "subject": "caloric efficiency",
+    "predicate": "indirectly triggering",
+    "object": "rural mongolia",
+    "inferred": true
+  },
+  {
+    "subject": "caloric efficiency",
+    "predicate": "indirectly triggering",
+    "object": "siberia",
+    "inferred": true
+  },
+  {
+    "subject": "caloric efficiency",
+    "predicate": "indirectly triggering",
+    "object": "patagonian plains",
+    "inferred": true
+  },
+  {
+    "subject": "entities",
+    "predicate": "declare via intentionality",
+    "object": "councils",
+    "inferred": true
+  },
+  {
+    "subject": "entities",
+    "predicate": "undergo via ethics",
+    "object": "councils",
+    "inferred": true
+  },
+  {
+    "subject": "entities",
+    "predicate": "undergo via ethics",
+    "object": "neural",
+    "inferred": true
+  },
+  {
+    "subject": "ethics",
+    "predicate": "by via councils",
+    "object": "decision-making",
+    "inferred": true
+  },
+  {
+    "subject": "ethics",
+    "predicate": "by via councils",
+    "object": "machine-learning coalitions",
+    "inferred": true
+  },
+  {
+    "subject": "ethics",
+    "predicate": "by via councils",
+    "object": "arun patel",
+    "inferred": true
+  },
+  {
+    "subject": "ethics",
+    "predicate": "by via councils",
+    "object": "eco-communities",
+    "inferred": true
+  },
+  {
+    "subject": "ethics",
+    "predicate": "by via councils",
+    "object": "knowledge guilds",
+    "inferred": true
+  },
+  {
+    "subject": "ethics",
+    "predicate": "minimized via neural",
+    "object": "beginnings",
+    "inferred": true
+  },
+  {
+    "subject": "councils",
+    "predicate": "such as via",
+    "object": "neural",
+    "inferred": true
+  },
+  {
+    "subject": "intentionality vectors",
+    "predicate": "must declare via",
+    "object": "decision-making",
+    "inferred": true
+  },
+  {
+    "subject": "intentionality vectors",
+    "predicate": "must declare via",
+    "object": "machine-learning coalitions",
+    "inferred": true
+  },
+  {
+    "subject": "intentionality vectors",
+    "predicate": "must declare via",
+    "object": "arun patel",
+    "inferred": true
+  },
+  {
+    "subject": "intentionality vectors",
+    "predicate": "must declare via",
+    "object": "eco-communities",
+    "inferred": true
+  },
+  {
+    "subject": "intentionality vectors",
+    "predicate": "must declare via",
+    "object": "knowledge guilds",
+    "inferred": true
+  },
+  {
+    "subject": "intentionality vectors",
+    "predicate": "undergo via ethics",
+    "object": "neural",
+    "inferred": true
+  },
+  {
+    "subject": "omnis academica",
+    "predicate": "based on via",
+    "object": "beginnings",
+    "inferred": true
+  },
+  {
+    "subject": "humanity",
+    "predicate": "fused with via",
+    "object": "artificial intelligence",
+    "inferred": true
+  },
+  {
+    "subject": "humanity",
+    "predicate": "fused with via",
+    "object": "entities",
+    "inferred": true
+  },
+  {
+    "subject": "humanity",
+    "predicate": "fused with via",
+    "object": "individual",
+    "inferred": true
+  },
+  {
+    "subject": "humanity",
+    "predicate": "fused with via",
+    "object": "quantum computing",
+    "inferred": true
+  },
+  {
+    "subject": "humanity",
+    "predicate": "fused with via",
+    "object": "government",
+    "inferred": true
+  },
+  {
+    "subject": "humanity",
+    "predicate": "fused with via",
+    "object": "businesses",
+    "inferred": true
+  },
+  {
+    "subject": "humanity",
+    "predicate": "fused with via",
+    "object": "possibility",
+    "inferred": true
+  },
+  {
+    "subject": "humanity",
+    "predicate": "fused with via",
+    "object": "billions",
+    "inferred": true
+  },
+  {
+    "subject": "humanity",
+    "predicate": "fused with via",
+    "object": "planet",
+    "inferred": true
+  },
+  {
+    "subject": "humanity",
+    "predicate": "fused with via",
+    "object": "late 2040s",
+    "inferred": true
+  },
+  {
+    "subject": "humanity",
+    "predicate": "fused with via",
+    "object": "without centralized validators",
+    "inferred": true
+  },
+  {
+    "subject": "humanity",
+    "predicate": "fused with via",
+    "object": "society",
+    "inferred": true
+  },
+  {
+    "subject": "humanity",
+    "predicate": "fused with via",
+    "object": "renewable energy",
+    "inferred": true
+  },
+  {
+    "subject": "humanity",
+    "predicate": "fused with via",
+    "object": "biology",
+    "inferred": true
+  },
+  {
+    "subject": "humanity",
+    "predicate": "fused with via",
+    "object": "transactions per second",
+    "inferred": true
+  },
+  {
+    "subject": "movements",
+    "predicate": "rejected via neural",
+    "object": "beginnings",
+    "inferred": true
+  },
+  {
+    "subject": "movements",
+    "predicate": "flourished via consciousness",
+    "object": "minds",
+    "inferred": true
+  },
+  {
+    "subject": "movements",
+    "predicate": "flourished via consciousness",
+    "object": "deep earth minerals",
+    "inferred": true
+  },
+  {
+    "subject": "movements",
+    "predicate": "flourished via consciousness",
+    "object": "education policies",
+    "inferred": true
+  },
+  {
+    "subject": "movements",
+    "predicate": "flourished via consciousness",
+    "object": "empathetic ai concierges",
+    "inferred": true
+  },
+  {
+    "subject": "movements",
+    "predicate": "flourished via consciousness",
+    "object": "behavior",
+    "inferred": true
+  },
+  {
+    "subject": "movements",
+    "predicate": "flourished via consciousness",
+    "object": "build",
+    "inferred": true
+  },
+  {
+    "subject": "movements",
+    "predicate": "flourished via consciousness",
+    "object": "new ethical framework",
+    "inferred": true
+  },
+  {
+    "subject": "movements",
+    "predicate": "flourished via consciousness",
+    "object": "tech startup",
+    "inferred": true
+  },
+  {
+    "subject": "movements",
+    "predicate": "flourished via consciousness",
+    "object": "universal cognitive infrastructure",
+    "inferred": true
+  },
+  {
+    "subject": "movements",
+    "predicate": "flourished via consciousness",
+    "object": "dr. liana veskova",
+    "inferred": true
+  },
+  {
+    "subject": "movements",
+    "predicate": "promoting via identity",
+    "object": "micro-communities",
+    "inferred": true
+  },
+  {
+    "subject": "movements",
+    "predicate": "promoting via identity",
+    "object": "corporeal experience",
+    "inferred": true
+  },
+  {
+    "subject": "movements",
+    "predicate": "promoting via identity",
+    "object": "sensorial ecosystems",
+    "inferred": true
+  },
+  {
+    "subject": "movements",
+    "predicate": "promoting via identity",
+    "object": "traditions",
+    "inferred": true
+  },
+  {
+    "subject": "movements",
+    "predicate": "promoting via identity",
+    "object": "intersections of languages",
+    "inferred": true
+  },
+  {
+    "subject": "digital nomads",
+    "predicate": "known as via",
+    "object": "biometric footprints",
+    "inferred": true
+  },
+  {
+    "subject": "digital nomads",
+    "predicate": "known as via",
+    "object": "financial footprints",
+    "inferred": true
+  },
+  {
+    "subject": "digital nomads",
+    "predicate": "known as via",
+    "object": "municipal services",
+    "inferred": true
+  },
+  {
+    "subject": "digital nomads",
+    "predicate": "known as via",
+    "object": "technology",
+    "inferred": true
+  },
+  {
+    "subject": "digital nomads",
+    "predicate": "known as via",
+    "object": "legal footprints",
+    "inferred": true
+  },
+  {
+    "subject": "digital nomads",
+    "predicate": "known as via",
+    "object": "quantum cloaking techniques",
+    "inferred": true
+  },
+  {
+    "subject": "digital nomads",
+    "predicate": "known as via",
+    "object": "identity",
+    "inferred": true
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "manipulating via technology",
+    "object": "artificial intelligence",
+    "inferred": true
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "manipulating via technology",
+    "object": "entities",
+    "inferred": true
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "manipulating via technology",
+    "object": "individual",
+    "inferred": true
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "manipulating via technology",
+    "object": "quantum computing",
+    "inferred": true
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "manipulating via technology",
+    "object": "government",
+    "inferred": true
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "manipulating via technology",
+    "object": "businesses",
+    "inferred": true
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "manipulating via technology",
+    "object": "possibility",
+    "inferred": true
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "manipulating via technology",
+    "object": "billions",
+    "inferred": true
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "manipulating via technology",
+    "object": "planet",
+    "inferred": true
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "manipulating via technology",
+    "object": "late 2040s",
+    "inferred": true
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "manipulating via technology",
+    "object": "without centralized validators",
+    "inferred": true
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "manipulating via technology",
+    "object": "society",
+    "inferred": true
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "manipulating via technology",
+    "object": "renewable energy",
+    "inferred": true
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "manipulating via technology",
+    "object": "biology",
+    "inferred": true
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "manipulating via technology",
+    "object": "transactions per second",
+    "inferred": true
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "manipulating via identity",
+    "object": "micro-communities",
+    "inferred": true
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "manipulating via identity",
+    "object": "corporeal experience",
+    "inferred": true
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "manipulating via identity",
+    "object": "sensorial ecosystems",
+    "inferred": true
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "manipulating via identity",
+    "object": "traditions",
+    "inferred": true
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "manipulating via identity",
+    "object": "intersections of languages",
+    "inferred": true
+  },
+  {
+    "subject": "individual",
+    "predicate": "manipulating via technology",
+    "object": "artificial intelligence",
+    "inferred": true
+  },
+  {
+    "subject": "individual",
+    "predicate": "manipulating via technology",
+    "object": "entities",
+    "inferred": true
+  },
+  {
+    "subject": "individual",
+    "predicate": "manipulating via technology",
+    "object": "quantum computing",
+    "inferred": true
+  },
+  {
+    "subject": "individual",
+    "predicate": "manipulating via technology",
+    "object": "government",
+    "inferred": true
+  },
+  {
+    "subject": "individual",
+    "predicate": "manipulating via technology",
+    "object": "businesses",
+    "inferred": true
+  },
+  {
+    "subject": "individual",
+    "predicate": "manipulating via technology",
+    "object": "possibility",
+    "inferred": true
+  },
+  {
+    "subject": "individual",
+    "predicate": "manipulating via technology",
+    "object": "billions",
+    "inferred": true
+  },
+  {
+    "subject": "individual",
+    "predicate": "manipulating via technology",
+    "object": "planet",
+    "inferred": true
+  },
+  {
+    "subject": "individual",
+    "predicate": "manipulating via technology",
+    "object": "late 2040s",
+    "inferred": true
+  },
+  {
+    "subject": "individual",
+    "predicate": "manipulating via technology",
+    "object": "without centralized validators",
+    "inferred": true
+  },
+  {
+    "subject": "individual",
+    "predicate": "manipulating via technology",
+    "object": "society",
+    "inferred": true
+  },
+  {
+    "subject": "individual",
+    "predicate": "manipulating via technology",
+    "object": "renewable energy",
+    "inferred": true
+  },
+  {
+    "subject": "individual",
+    "predicate": "manipulating via technology",
+    "object": "biology",
+    "inferred": true
+  },
+  {
+    "subject": "individual",
+    "predicate": "manipulating via technology",
+    "object": "transactions per second",
+    "inferred": true
+  },
+  {
+    "subject": "individual",
+    "predicate": "manipulating via identity",
+    "object": "micro-communities",
+    "inferred": true
+  },
+  {
+    "subject": "individual",
+    "predicate": "manipulating via identity",
+    "object": "corporeal experience",
+    "inferred": true
+  },
+  {
+    "subject": "individual",
+    "predicate": "manipulating via identity",
+    "object": "sensorial ecosystems",
+    "inferred": true
+  },
+  {
+    "subject": "individual",
+    "predicate": "manipulating via identity",
+    "object": "traditions",
+    "inferred": true
+  },
+  {
+    "subject": "individual",
+    "predicate": "manipulating via identity",
+    "object": "intersections of languages",
+    "inferred": true
+  },
+  {
+    "subject": "united nations",
+    "predicate": "established via councils",
+    "object": "decision-making",
+    "inferred": true
+  },
+  {
+    "subject": "united nations",
+    "predicate": "established via councils",
+    "object": "machine-learning coalitions",
+    "inferred": true
+  },
+  {
+    "subject": "united nations",
+    "predicate": "established via councils",
+    "object": "arun patel",
+    "inferred": true
+  },
+  {
+    "subject": "united nations",
+    "predicate": "established via councils",
+    "object": "eco-communities",
+    "inferred": true
+  },
+  {
+    "subject": "united nations",
+    "predicate": "established via councils",
+    "object": "knowledge guilds",
+    "inferred": true
+  },
+  {
+    "subject": "united nations",
+    "predicate": "established via councils",
+    "object": "ethics",
+    "inferred": true
+  },
+  {
+    "subject": "cdi",
+    "predicate": "mission was via",
+    "object": "individual",
+    "inferred": true
+  },
+  {
+    "subject": "cdi",
+    "predicate": "mission was via",
+    "object": "societal security",
+    "inferred": true
+  },
+  {
+    "subject": "protocols",
+    "predicate": "balanced via individual",
+    "object": "art",
+    "inferred": true
+  },
+  {
+    "subject": "protocols",
+    "predicate": "balanced via individual",
+    "object": "municipal services",
+    "inferred": true
+  },
+  {
+    "subject": "protocols",
+    "predicate": "balanced via individual",
+    "object": "technology",
+    "inferred": true
+  },
+  {
+    "subject": "protocols",
+    "predicate": "balanced via individual",
+    "object": "bioengineered flora",
+    "inferred": true
+  },
+  {
+    "subject": "protocols",
+    "predicate": "balanced via individual",
+    "object": "language",
+    "inferred": true
+  },
+  {
+    "subject": "protocols",
+    "predicate": "balanced via individual",
+    "object": "identity",
+    "inferred": true
+  },
+  {
+    "subject": "project lamia",
+    "predicate": "used via consciousness",
+    "object": "minds",
+    "inferred": true
+  },
+  {
+    "subject": "project lamia",
+    "predicate": "used via consciousness",
+    "object": "deep earth minerals",
+    "inferred": true
+  },
+  {
+    "subject": "project lamia",
+    "predicate": "used via consciousness",
+    "object": "education policies",
+    "inferred": true
+  },
+  {
+    "subject": "project lamia",
+    "predicate": "used via consciousness",
+    "object": "empathetic ai concierges",
+    "inferred": true
+  },
+  {
+    "subject": "project lamia",
+    "predicate": "used via consciousness",
+    "object": "behavior",
+    "inferred": true
+  },
+  {
+    "subject": "project lamia",
+    "predicate": "used via consciousness",
+    "object": "build",
+    "inferred": true
+  },
+  {
+    "subject": "project lamia",
+    "predicate": "used via consciousness",
+    "object": "new ethical framework",
+    "inferred": true
+  },
+  {
+    "subject": "project lamia",
+    "predicate": "used via consciousness",
+    "object": "tech startup",
+    "inferred": true
+  },
+  {
+    "subject": "project lamia",
+    "predicate": "used via consciousness",
+    "object": "universal cognitive infrastructure",
+    "inferred": true
+  },
+  {
+    "subject": "project lamia",
+    "predicate": "used via consciousness",
+    "object": "dr. liana veskova",
+    "inferred": true
+  },
+  {
+    "subject": "genetics",
+    "predicate": "mapped by via",
+    "object": "physics",
+    "inferred": true
+  },
+  {
+    "subject": "genetics",
+    "predicate": "mapped by via",
+    "object": "novogenetics",
+    "inferred": true
+  },
+  {
+    "subject": "genetics",
+    "predicate": "mapped by via",
+    "object": "athena prime",
+    "inferred": true
+  },
+  {
+    "subject": "genetics",
+    "predicate": "mapped by via",
+    "object": "ethics",
+    "inferred": true
+  },
+  {
+    "subject": "genetics",
+    "predicate": "mapped by via",
+    "object": "successful mapping",
+    "inferred": true
+  },
+  {
+    "subject": "genetics",
+    "predicate": "blurred the lines",
+    "object": "intentionality vectors",
+    "inferred": true
+  },
+  {
+    "subject": "genetics",
+    "predicate": "blurred the lines",
+    "object": "ethics",
+    "inferred": true
+  },
+  {
+    "subject": "society",
+    "predicate": "entirely of via",
+    "object": "aurelia",
+    "inferred": true
+  },
+  {
+    "subject": "society",
+    "predicate": "entirely of via",
+    "object": "morphocell-based bioarchitecture",
+    "inferred": true
+  },
+  {
+    "subject": "society",
+    "predicate": "entirely of via",
+    "object": "analog living experiences",
+    "inferred": true
+  },
+  {
+    "subject": "society",
+    "predicate": "entirely of via",
+    "object": "active wireless signals",
+    "inferred": true
+  },
+  {
+    "subject": "society",
+    "predicate": "entirely of via",
+    "object": "neurovirtual habitats",
+    "inferred": true
+  },
+  {
+    "subject": "research",
+    "predicate": "known as via",
+    "object": "shenzhou galactic enterprises",
+    "inferred": true
+  },
+  {
+    "subject": "research",
+    "predicate": "known as via",
+    "object": "legal rights",
+    "inferred": true
+  },
+  {
+    "subject": "research",
+    "predicate": "known as via",
+    "object": "citizens",
+    "inferred": true
+  },
+  {
+    "subject": "research",
+    "predicate": "known as via",
+    "object": "esa",
+    "inferred": true
+  },
+  {
+    "subject": "research",
+    "predicate": "known as via",
+    "object": "nasa",
+    "inferred": true
+  },
+  {
+    "subject": "research",
+    "predicate": "known as via",
+    "object": "self-evolving scientific entity",
+    "inferred": true
+  },
+  {
+    "subject": "research",
+    "predicate": "successfully mapped via",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "research",
+    "predicate": "successfully mapped via",
+    "object": "lines",
+    "inferred": true
+  },
+  {
+    "subject": "research",
+    "predicate": "successfully mapped via",
+    "object": "hereditary traits",
+    "inferred": true
+  },
+  {
+    "subject": "research",
+    "predicate": "successfully mapped via",
+    "object": "entities",
+    "inferred": true
+  },
+  {
+    "subject": "research",
+    "predicate": "successfully mapped via",
+    "object": "behavioral tendencies",
+    "inferred": true
+  },
+  {
+    "subject": "research",
+    "predicate": "on via ethics",
+    "object": "councils",
+    "inferred": true
+  },
+  {
+    "subject": "research",
+    "predicate": "on via ethics",
+    "object": "neural",
+    "inferred": true
+  },
+  {
+    "subject": "narrascape",
+    "predicate": "introduced via sentient",
+    "object": "ai-driven",
+    "inferred": true
+  },
+  {
+    "subject": "narrascape",
+    "predicate": "introduced via sentient",
+    "object": "entities",
+    "inferred": true
+  },
+  {
+    "subject": "sentient storylines",
+    "predicate": "inhabited by via",
+    "object": "intentionality vectors",
+    "inferred": true
+  },
+  {
+    "subject": "sentient storylines",
+    "predicate": "inhabited by via",
+    "object": "ethics",
+    "inferred": true
+  },
+  {
+    "subject": "montreal",
+    "predicate": "introduced via sentient",
+    "object": "ai-driven",
+    "inferred": true
+  },
+  {
+    "subject": "montreal",
+    "predicate": "introduced via sentient",
+    "object": "entities",
+    "inferred": true
+  },
+  {
+    "subject": "billions",
+    "predicate": "preferred via multi-dimensional",
+    "object": "emotions and aspirations",
+    "inferred": true
+  },
+  {
+    "subject": "the middle belt smart corridor",
+    "predicate": "is powered",
+    "object": "aurelia",
+    "inferred": true
+  },
+  {
+    "subject": "the middle belt smart corridor",
+    "predicate": "is powered",
+    "object": "morphocell-based bioarchitecture",
+    "inferred": true
+  },
+  {
+    "subject": "the middle belt smart corridor",
+    "predicate": "is powered",
+    "object": "analog living experiences",
+    "inferred": true
+  },
+  {
+    "subject": "the middle belt smart corridor",
+    "predicate": "is powered",
+    "object": "active wireless signals",
+    "inferred": true
+  },
+  {
+    "subject": "the middle belt smart corridor",
+    "predicate": "is powered",
+    "object": "neurovirtual habitats",
+    "inferred": true
+  },
+  {
+    "subject": "the middle belt smart corridor",
+    "predicate": "is powered",
+    "object": "planetary mood baselines",
+    "inferred": true
+  },
+  {
+    "subject": "the middle belt smart corridor",
+    "predicate": "is powered",
+    "object": "stock markets",
+    "inferred": true
+  },
+  {
+    "subject": "the middle belt smart corridor",
+    "predicate": "is powered",
+    "object": "research",
+    "inferred": true
+  },
+  {
+    "subject": "rise",
+    "predicate": "to via groups",
+    "object": "nation-state borders",
+    "inferred": true
+  },
+  {
+    "subject": "rise",
+    "predicate": "to via groups",
+    "object": "commodity",
+    "inferred": true
+  },
+  {
+    "subject": "rise",
+    "predicate": "to via groups",
+    "object": "geneva",
+    "inferred": true
+  },
+  {
+    "subject": "rise",
+    "predicate": "to via groups",
+    "object": "technology",
+    "inferred": true
+  },
+  {
+    "subject": "rise",
+    "predicate": "of via",
+    "object": "society",
+    "inferred": true
+  },
+  {
+    "subject": "dr. eleanor shin",
+    "predicate": "discovered via consciousness",
+    "object": "minds",
+    "inferred": true
+  },
+  {
+    "subject": "dr. eleanor shin",
+    "predicate": "discovered via consciousness",
+    "object": "deep earth minerals",
+    "inferred": true
+  },
+  {
+    "subject": "dr. eleanor shin",
+    "predicate": "discovered via consciousness",
+    "object": "education policies",
+    "inferred": true
+  },
+  {
+    "subject": "dr. eleanor shin",
+    "predicate": "discovered via consciousness",
+    "object": "empathetic ai concierges",
+    "inferred": true
+  },
+  {
+    "subject": "dr. eleanor shin",
+    "predicate": "discovered via consciousness",
+    "object": "behavior",
+    "inferred": true
+  },
+  {
+    "subject": "dr. eleanor shin",
+    "predicate": "discovered via consciousness",
+    "object": "build",
+    "inferred": true
+  },
+  {
+    "subject": "dr. eleanor shin",
+    "predicate": "discovered via consciousness",
+    "object": "new ethical framework",
+    "inferred": true
+  },
+  {
+    "subject": "dr. eleanor shin",
+    "predicate": "discovered via consciousness",
+    "object": "tech startup",
+    "inferred": true
+  },
+  {
+    "subject": "dr. eleanor shin",
+    "predicate": "discovered via consciousness",
+    "object": "universal cognitive infrastructure",
+    "inferred": true
+  },
+  {
+    "subject": "dr. eleanor shin",
+    "predicate": "discovered via consciousness",
+    "object": "dr. liana veskova",
+    "inferred": true
+  },
+  {
+    "subject": "discovery",
+    "predicate": "could redefine via",
+    "object": "artificial intelligence",
+    "inferred": true
+  },
+  {
+    "subject": "discovery",
+    "predicate": "could redefine via",
+    "object": "entities",
+    "inferred": true
+  },
+  {
+    "subject": "discovery",
+    "predicate": "could redefine via",
+    "object": "individual",
+    "inferred": true
+  },
+  {
+    "subject": "discovery",
+    "predicate": "could redefine via",
+    "object": "quantum computing",
+    "inferred": true
+  },
+  {
+    "subject": "discovery",
+    "predicate": "could redefine via",
+    "object": "government",
+    "inferred": true
+  },
+  {
+    "subject": "discovery",
+    "predicate": "could redefine via",
+    "object": "businesses",
+    "inferred": true
+  },
+  {
+    "subject": "discovery",
+    "predicate": "could redefine via",
+    "object": "possibility",
+    "inferred": true
+  },
+  {
+    "subject": "discovery",
+    "predicate": "could redefine via",
+    "object": "billions",
+    "inferred": true
+  },
+  {
+    "subject": "discovery",
+    "predicate": "could redefine via",
+    "object": "planet",
+    "inferred": true
+  },
+  {
+    "subject": "discovery",
+    "predicate": "could redefine via",
+    "object": "late 2040s",
+    "inferred": true
+  },
+  {
+    "subject": "discovery",
+    "predicate": "could redefine via",
+    "object": "without centralized validators",
+    "inferred": true
+  },
+  {
+    "subject": "discovery",
+    "predicate": "could redefine via",
+    "object": "society",
+    "inferred": true
+  },
+  {
+    "subject": "discovery",
+    "predicate": "could redefine via",
+    "object": "renewable energy",
+    "inferred": true
+  },
+  {
+    "subject": "discovery",
+    "predicate": "could redefine via",
+    "object": "biology",
+    "inferred": true
+  },
+  {
+    "subject": "discovery",
+    "predicate": "could redefine via",
+    "object": "transactions per second",
+    "inferred": true
+  },
+  {
+    "subject": "anthropologists",
+    "predicate": "began to refer",
+    "object": "late 2040s",
+    "inferred": true
+  },
+  {
+    "subject": "anthropologists",
+    "predicate": "began to refer",
+    "object": "time",
+    "inferred": true
+  },
+  {
+    "subject": "anthropologists",
+    "predicate": "began to refer",
+    "object": "sociological systems",
+    "inferred": true
+  },
+  {
+    "subject": "financial models",
+    "predicate": "accelerated or decelerated",
+    "object": "commodity",
+    "inferred": true
+  },
+  {
+    "subject": "new socio-political models",
+    "predicate": "emerged via constellation",
+    "object": "councils",
+    "inferred": true
+  },
+  {
+    "subject": "constellation accords",
+    "predicate": "created via councils",
+    "object": "decision-making",
+    "inferred": true
+  },
+  {
+    "subject": "constellation accords",
+    "predicate": "created via councils",
+    "object": "machine-learning coalitions",
+    "inferred": true
+  },
+  {
+    "subject": "constellation accords",
+    "predicate": "created via councils",
+    "object": "arun patel",
+    "inferred": true
+  },
+  {
+    "subject": "constellation accords",
+    "predicate": "created via councils",
+    "object": "eco-communities",
+    "inferred": true
+  },
+  {
+    "subject": "constellation accords",
+    "predicate": "created via councils",
+    "object": "knowledge guilds",
+    "inferred": true
+  },
+  {
+    "subject": "constellation accords",
+    "predicate": "created via councils",
+    "object": "ethics",
+    "inferred": true
+  },
+  {
+    "subject": "the quiet nation",
+    "predicate": "consisting via society",
+    "object": "cities",
+    "inferred": true
+  },
+  {
+    "subject": "the quiet nation",
+    "predicate": "consisting via society",
+    "object": "2040",
+    "inferred": true
+  },
+  {
+    "subject": "space colonization",
+    "predicate": "accelerated via ceres",
+    "object": "research",
+    "inferred": true
+  },
+  {
+    "subject": "ceres station",
+    "predicate": "operated autonomously under",
+    "object": "physics",
+    "inferred": true
+  },
+  {
+    "subject": "ceres station",
+    "predicate": "operated autonomously under",
+    "object": "novogenetics",
+    "inferred": true
+  },
+  {
+    "subject": "ceres station",
+    "predicate": "operated autonomously under",
+    "object": "athena prime",
+    "inferred": true
+  },
+  {
+    "subject": "ceres station",
+    "predicate": "operated autonomously under",
+    "object": "biology",
+    "inferred": true
+  },
+  {
+    "subject": "ceres station",
+    "predicate": "operated autonomously under",
+    "object": "genetics",
+    "inferred": true
+  },
+  {
+    "subject": "ceres station",
+    "predicate": "operated autonomously under",
+    "object": "ethics",
+    "inferred": true
+  },
+  {
+    "subject": "ceres station",
+    "predicate": "operated autonomously under",
+    "object": "successful mapping",
+    "inferred": true
+  },
+  {
+    "subject": "athena prime",
+    "predicate": "was via self-evolving",
+    "object": "research",
+    "inferred": true
+  },
+  {
+    "subject": "government",
+    "predicate": "of via research",
+    "object": "physics",
+    "inferred": true
+  },
+  {
+    "subject": "government",
+    "predicate": "of via research",
+    "object": "novogenetics",
+    "inferred": true
+  },
+  {
+    "subject": "government",
+    "predicate": "of via research",
+    "object": "athena prime",
+    "inferred": true
+  },
+  {
+    "subject": "government",
+    "predicate": "of via research",
+    "object": "biology",
+    "inferred": true
+  },
+  {
+    "subject": "government",
+    "predicate": "of via research",
+    "object": "genetics",
+    "inferred": true
+  },
+  {
+    "subject": "government",
+    "predicate": "of via research",
+    "object": "ethics",
+    "inferred": true
+  },
+  {
+    "subject": "government",
+    "predicate": "of via research",
+    "object": "successful mapping",
+    "inferred": true
+  },
+  {
+    "subject": "self-evolving scientific entity",
+    "predicate": "publishing via research",
+    "object": "physics",
+    "inferred": true
+  },
+  {
+    "subject": "self-evolving scientific entity",
+    "predicate": "publishing via research",
+    "object": "novogenetics",
+    "inferred": true
+  },
+  {
+    "subject": "self-evolving scientific entity",
+    "predicate": "publishing via research",
+    "object": "athena prime",
+    "inferred": true
+  },
+  {
+    "subject": "self-evolving scientific entity",
+    "predicate": "publishing via research",
+    "object": "biology",
+    "inferred": true
+  },
+  {
+    "subject": "self-evolving scientific entity",
+    "predicate": "publishing via research",
+    "object": "genetics",
+    "inferred": true
+  },
+  {
+    "subject": "self-evolving scientific entity",
+    "predicate": "publishing via research",
+    "object": "ethics",
+    "inferred": true
+  },
+  {
+    "subject": "self-evolving scientific entity",
+    "predicate": "publishing via research",
+    "object": "successful mapping",
+    "inferred": true
+  },
+  {
+    "subject": "rogue knowledge viruses",
+    "predicate": "called via mind",
+    "object": "cassandra vo",
+    "inferred": true
+  },
+  {
+    "subject": "rogue knowledge viruses",
+    "predicate": "called via mind",
+    "object": "synthetic myths",
+    "inferred": true
+  },
+  {
+    "subject": "rogue knowledge viruses",
+    "predicate": "called via mind",
+    "object": "key dataflows",
+    "inferred": true
+  },
+  {
+    "subject": "mind worms",
+    "predicate": "injected via synthetic",
+    "object": "fact",
+    "inferred": true
+  },
+  {
+    "subject": "mind worms",
+    "predicate": "injected via synthetic",
+    "object": "fabrication",
+    "inferred": true
+  },
+  {
+    "subject": "mind worms",
+    "predicate": "injected via synthetic",
+    "object": "line",
+    "inferred": true
+  },
+  {
+    "subject": "earthroots revival",
+    "predicate": "rejected via neural",
+    "object": "beginnings",
+    "inferred": true
+  },
+  {
+    "subject": "pureform collective",
+    "predicate": "rejected via neural",
+    "object": "beginnings",
+    "inferred": true
+  },
+  {
+    "subject": "marta xiang",
+    "predicate": "argued via consciousness",
+    "object": "minds",
+    "inferred": true
+  },
+  {
+    "subject": "marta xiang",
+    "predicate": "argued via consciousness",
+    "object": "deep earth minerals",
+    "inferred": true
+  },
+  {
+    "subject": "marta xiang",
+    "predicate": "argued via consciousness",
+    "object": "education policies",
+    "inferred": true
+  },
+  {
+    "subject": "marta xiang",
+    "predicate": "argued via consciousness",
+    "object": "empathetic ai concierges",
+    "inferred": true
+  },
+  {
+    "subject": "marta xiang",
+    "predicate": "argued via consciousness",
+    "object": "behavior",
+    "inferred": true
+  },
+  {
+    "subject": "marta xiang",
+    "predicate": "argued via consciousness",
+    "object": "build",
+    "inferred": true
+  },
+  {
+    "subject": "marta xiang",
+    "predicate": "argued via consciousness",
+    "object": "new ethical framework",
+    "inferred": true
+  },
+  {
+    "subject": "marta xiang",
+    "predicate": "argued via consciousness",
+    "object": "tech startup",
+    "inferred": true
+  },
+  {
+    "subject": "marta xiang",
+    "predicate": "argued via consciousness",
+    "object": "universal cognitive infrastructure",
+    "inferred": true
+  },
+  {
+    "subject": "marta xiang",
+    "predicate": "argued via consciousness",
+    "object": "dr. liana veskova",
+    "inferred": true
+  },
+  {
+    "subject": "marta xiang",
+    "predicate": "argued via identity",
+    "object": "micro-communities",
+    "inferred": true
+  },
+  {
+    "subject": "marta xiang",
+    "predicate": "argued via identity",
+    "object": "corporeal experience",
+    "inferred": true
+  },
+  {
+    "subject": "marta xiang",
+    "predicate": "argued via identity",
+    "object": "sensorial ecosystems",
+    "inferred": true
+  },
+  {
+    "subject": "marta xiang",
+    "predicate": "argued via identity",
+    "object": "traditions",
+    "inferred": true
+  },
+  {
+    "subject": "marta xiang",
+    "predicate": "argued via identity",
+    "object": "intersections of languages",
+    "inferred": true
+  },
+  {
+    "subject": "transcranial lattice networks",
+    "predicate": "fusion with via",
+    "object": "collaborative entities",
+    "inferred": true
+  },
+  {
+    "subject": "transcranial lattice networks",
+    "predicate": "fusion with via",
+    "object": "sculptural entities",
+    "inferred": true
+  },
+  {
+    "subject": "shadowspectre division",
+    "predicate": "to destabilize via",
+    "object": "planetary mood baselines",
+    "inferred": true
+  },
+  {
+    "subject": "shadowspectre division",
+    "predicate": "to destabilize via",
+    "object": "research",
+    "inferred": true
+  },
+  {
+    "subject": "the sentience preservation league",
+    "predicate": "deployed via ethics",
+    "object": "councils",
+    "inferred": true
+  },
+  {
+    "subject": "the sentience preservation league",
+    "predicate": "deployed via ethics",
+    "object": "neural",
+    "inferred": true
+  },
+  {
+    "subject": "archaea shard viruses",
+    "predicate": "triggered via pandemics",
+    "object": "traditional immunological models",
+    "inferred": true
+  },
+  {
+    "subject": "global health entities",
+    "predicate": "turned to via",
+    "object": "coral-like hybrid tissues",
+    "inferred": true
+  },
+  {
+    "subject": "memory gardens",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "nasa",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "anthropologists",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "space exploration",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "hereditary traits",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "technological juggernaut",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "venezuela",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "memory grafting",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "empathetic ai concierges",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "sculptural entities",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "neural",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "planetary council",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "sawatech",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "groups",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "second renaissance of connectivity",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "fabrication",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "augmented reality overlays",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "project lamia",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "philosophical paradoxes",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "legal rights",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "deindustrialization",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "self-evolving scientific entity",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "dreams",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "quantum computing",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "humanity",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "tapestries",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "solar-harvest hyperloops",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "dissident polymaths",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "university of cape town\u2019s institute for cultural memory",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "histories",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "zephyrnet",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "jp morgan",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "siberia",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "technological frontiers",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "lines",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "manufacturing",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "the quiet nation",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "mergers",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "perceptional manipulation",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "rio+50 conference",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "identity",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "new modes of being",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "athena prime",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "thought architectures",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "arun patel",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "greenroot dynamics",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "fusion microgrids",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "successful mapping",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "oil dependency markets",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "graphene filaments",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "the middle belt smart corridor",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "constellation accords",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "economic divides",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "residents",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "vienna declaration",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "accra to nairobi",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "cassandra vo",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "dr. liana veskova",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "humanitas redux",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "pureform collective",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "ecogenesis",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "local startups",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "attention economics",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "time",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "concepts of education",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "omnis academica",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "quantum guilds",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "cities",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "municipal policies",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "aurelia",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "behavior",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "consensus states",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "echo sanctuaries",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "shadowspectre division",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "late 2040s",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "laboratories",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "tech startup",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "parts of texas",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "intersections of languages",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "minds",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "hub",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "drones",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "non-human minds",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "dissolution",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "new socio-political models",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "geneva",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "advancements",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "united earth assembly",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "quantum biological modeling",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "humanity\u2019s understanding",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "agents",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "luminapay",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "anew",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "consciousness",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "artistic heritages",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "build",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "voices",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "ethics",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "new cascadia republic",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "councils",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "gene expression modulation",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "barclays",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "data wraith crisis",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "key dataflows",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "collective noospheric libraries",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "combined efforts",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "treatments",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "novogenetics",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "branching worlds",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "planet",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "sensorial ecosystems",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "famine",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "patagonian plains",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "global agricultural resources",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "oneearth fellowship",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "caloric efficiency",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "back on earth",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "paths",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "sapient entities",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "planetary ecosystem",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "biometric footprints",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "beginnings",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "municipal services",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "blockchain-based civic contracts",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "reconfiguring themselves",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "fragility of hyper-connectivity",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "darker phenomena",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "realization",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "united nations",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "philosophical heritages",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "traditional linguistic heritages",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "earthroots revival",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "line",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "technology",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "archaea shard viruses",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "entities",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "biometric fintech",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "inhabitants",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "dna",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "ai-driven",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "pandemics",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "users",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "cognitive warfare units",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "self-repair",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "technical university of munich",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "traditional immunological models",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "living vaccines",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "worlds",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "shackleton crater",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "based on environmental stimuli",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "cognitive meshes",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "mind worms",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "systemic vulnerabilities",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "mesh networks",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "montreal",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "individual",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "ceres station",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "conflict",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "morphocells",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "universal cognitive infrastructure",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "accords",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "transcranial lattice networks",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "this region",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "global health entities",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "triggered",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "extended phenotype theory",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "intentionality vectors",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "hierarchical structures",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "marta xiang",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "rhythms",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "research",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "organizations",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "2040",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "post-national consciousness",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "narrascape",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "silicon valley",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "atlas",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "altaris corporation",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "adapt to air pollution levels",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "socioeconomic turbulence",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "citizens",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "debates",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "phenomenon",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "biology",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "financial models",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "financial footprints",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "education policies",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "biological threats",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "evolving",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "new ethical framework",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "digital augmentation",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "fact",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "physics",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "synthetic myths",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "transactions per second",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "shenzhou galactic enterprises",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "factories",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "hyper-spectral symphonies",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "post-human intelligence",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "multi-dimensional story arcs",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "definition",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "biological entities",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "biological futures",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "fluid",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "collapse",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "students",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "micro-communities",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "researchers",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "billions",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "instant",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "traditional banking institutions",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "boundaries",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "eco-communities",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "knowledge guilds",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "brain-computer interfaces",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "real-time",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "collaborative entities",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "soil chemistry",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "new horizons observatory",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "petrobloc alliance",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "rural mongolia",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "rise",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "coral-like hybrid tissues",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "sentient storylines",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "bioresonance fields",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "emotions and aspirations",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "rogue knowledge viruses",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "gaming",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "edtech",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "hikaru innovations",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "uncharted territory",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "language",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "professor kayden al-habib",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "elsewhere",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "living skyscrapers",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "analog living experiences",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "semantic knowledge graphs",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "active wireless signals",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "film",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "first post-human delegation",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "adaptive medicine",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "quantum cloaking techniques",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "zero-knowledge proof-enabled referenda",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "rebrandings",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "the sentience preservation league",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "biodiversity planting strategies",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "world",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "artificial intelligence",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "machine-learning coalitions",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "corporeal experience",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "gene-editing robots",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "rising sea levels",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "sociological systems",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "cdi",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "2030s",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "memoryscape atlas",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "digital nomads",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "government",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "without centralized validators",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "the thought repository of cordoba",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "renewable energy",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "living installations",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "protocols",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "stock markets",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "deep drilling expeditions",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "transformation",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "great data fracture",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "deutsche bank",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "bioengineered flora",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "morphocell-based bioarchitecture",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "global leadership roles",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "societal security",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "temporal economics",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "deep earth minerals",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "art",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "kuwait",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "industry",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "behavioral tendencies",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "symbiotic epoch",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "creation",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "experiments",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "helium-3 isotopes",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "atlantis rising",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "decision-making",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "literature",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "agritech",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "space colonization",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "legal footprints",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "commodity",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "regulate their temperatures",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "discovery",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "nation-state borders",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "planetary mood baselines",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "different tissues",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "neurovirtual habitats",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "geographies",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "momentum",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "businesses",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "possibility",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "bioadaptive environments",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "society",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "traditions",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "movements",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "ontological curricula",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "wraiths",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "dr. eleanor shin",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "esa",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "human imagination",
+    "predicate": "is type of",
+    "object": "",
+    "inferred": true
+  },
+  {
+    "subject": "memory gardens",
+    "predicate": "related to",
+    "object": "memory grafting",
+    "inferred": true
+  },
+  {
+    "subject": "university of cape town\u2019s institute for cultural memory",
+    "predicate": "relates to",
+    "object": "memory gardens",
+    "inferred": true
+  },
+  {
+    "subject": "space exploration",
+    "predicate": "related to",
+    "object": "space colonization",
+    "inferred": true
+  },
+  {
+    "subject": "technological juggernaut",
+    "predicate": "related to",
+    "object": "technological frontiers",
+    "inferred": true
+  },
+  {
+    "subject": "university of cape town\u2019s institute for cultural memory",
+    "predicate": "relates to",
+    "object": "memory grafting",
+    "inferred": true
+  },
+  {
+    "subject": "sculptural entities",
+    "predicate": "related to",
+    "object": "sapient entities",
+    "inferred": true
+  },
+  {
+    "subject": "sculptural entities",
+    "predicate": "relates to",
+    "object": "entities",
+    "inferred": true
+  },
+  {
+    "subject": "sculptural entities",
+    "predicate": "related to",
+    "object": "global health entities",
+    "inferred": true
+  },
+  {
+    "subject": "sculptural entities",
+    "predicate": "related to",
+    "object": "biological entities",
+    "inferred": true
+  },
+  {
+    "subject": "sculptural entities",
+    "predicate": "related to",
+    "object": "collaborative entities",
+    "inferred": true
+  },
+  {
+    "subject": "planetary council",
+    "predicate": "is type of",
+    "object": "planet",
+    "inferred": true
+  },
+  {
+    "subject": "planetary council",
+    "predicate": "related to",
+    "object": "planetary ecosystem",
+    "inferred": true
+  },
+  {
+    "subject": "planetary council",
+    "predicate": "related to",
+    "object": "planetary mood baselines",
+    "inferred": true
+  },
+  {
+    "subject": "transactions per second",
+    "predicate": "relates to",
+    "object": "second renaissance of connectivity",
+    "inferred": true
+  },
+  {
+    "subject": "philosophical paradoxes",
+    "predicate": "related to",
+    "object": "philosophical heritages",
+    "inferred": true
+  },
+  {
+    "subject": "legal rights",
+    "predicate": "related to",
+    "object": "legal footprints",
+    "inferred": true
+  },
+  {
+    "subject": "self-evolving scientific entity",
+    "predicate": "is type of",
+    "object": "evolving",
+    "inferred": true
+  },
+  {
+    "subject": "quantum computing",
+    "predicate": "related to",
+    "object": "quantum guilds",
+    "inferred": true
+  },
+  {
+    "subject": "quantum computing",
+    "predicate": "related to",
+    "object": "quantum biological modeling",
+    "inferred": true
+  },
+  {
+    "subject": "quantum computing",
+    "predicate": "related to",
+    "object": "quantum cloaking techniques",
+    "inferred": true
+  },
+  {
+    "subject": "humanity\u2019s understanding",
+    "predicate": "is type of",
+    "object": "humanity",
+    "inferred": true
+  },
+  {
+    "subject": "technical university of munich",
+    "predicate": "relates to",
+    "object": "university of cape town\u2019s institute for cultural memory",
+    "inferred": true
+  },
+  {
+    "subject": "lines",
+    "predicate": "is type of",
+    "object": "line",
+    "inferred": true
+  },
+  {
+    "subject": "sentient storylines",
+    "predicate": "is type of",
+    "object": "lines",
+    "inferred": true
+  },
+  {
+    "subject": "planetary mood baselines",
+    "predicate": "is type of",
+    "object": "lines",
+    "inferred": true
+  },
+  {
+    "subject": "novogenetics",
+    "predicate": "is type of",
+    "object": "genetics",
+    "inferred": true
+  },
+  {
+    "subject": "manufacturing",
+    "predicate": "is type of",
+    "object": "fact",
+    "inferred": true
+  },
+  {
+    "subject": "oil dependency markets",
+    "predicate": "related to",
+    "object": "stock markets",
+    "inferred": true
+  },
+  {
+    "subject": "the middle belt smart corridor",
+    "predicate": "is type of",
+    "object": "art",
+    "inferred": true
+  },
+  {
+    "subject": "constellation accords",
+    "predicate": "relates to",
+    "object": "accords",
+    "inferred": true
+  },
+  {
+    "subject": "pureform collective",
+    "predicate": "relates to",
+    "object": "collective noospheric libraries",
+    "inferred": true
+  },
+  {
+    "subject": "local startups",
+    "predicate": "is type of",
+    "object": "art",
+    "inferred": true
+  },
+  {
+    "subject": "attention economics",
+    "predicate": "related to",
+    "object": "temporal economics",
+    "inferred": true
+  },
+  {
+    "subject": "real-time",
+    "predicate": "is type of",
+    "object": "time",
+    "inferred": true
+  },
+  {
+    "subject": "concepts of education",
+    "predicate": "relates to",
+    "object": "education policies",
+    "inferred": true
+  },
+  {
+    "subject": "quantum guilds",
+    "predicate": "related to",
+    "object": "quantum biological modeling",
+    "inferred": true
+  },
+  {
+    "subject": "quantum guilds",
+    "predicate": "related to",
+    "object": "knowledge guilds",
+    "inferred": true
+  },
+  {
+    "subject": "quantum guilds",
+    "predicate": "related to",
+    "object": "quantum cloaking techniques",
+    "inferred": true
+  },
+  {
+    "subject": "municipal policies",
+    "predicate": "related to",
+    "object": "municipal services",
+    "inferred": true
+  },
+  {
+    "subject": "municipal policies",
+    "predicate": "related to",
+    "object": "education policies",
+    "inferred": true
+  },
+  {
+    "subject": "behavioral tendencies",
+    "predicate": "is type of",
+    "object": "behavior",
+    "inferred": true
+  },
+  {
+    "subject": "late 2040s",
+    "predicate": "is type of",
+    "object": "2040",
+    "inferred": true
+  },
+  {
+    "subject": "tech startup",
+    "predicate": "is type of",
+    "object": "art",
+    "inferred": true
+  },
+  {
+    "subject": "parts of texas",
+    "predicate": "is type of",
+    "object": "art",
+    "inferred": true
+  },
+  {
+    "subject": "intersections of languages",
+    "predicate": "is type of",
+    "object": "language",
+    "inferred": true
+  },
+  {
+    "subject": "non-human minds",
+    "predicate": "relates to",
+    "object": "minds",
+    "inferred": true
+  },
+  {
+    "subject": "new socio-political models",
+    "predicate": "related to",
+    "object": "traditional immunological models",
+    "inferred": true
+  },
+  {
+    "subject": "new socio-political models",
+    "predicate": "related to",
+    "object": "financial models",
+    "inferred": true
+  },
+  {
+    "subject": "united earth assembly",
+    "predicate": "related to",
+    "object": "back on earth",
+    "inferred": true
+  },
+  {
+    "subject": "united earth assembly",
+    "predicate": "related to",
+    "object": "united nations",
+    "inferred": true
+  },
+  {
+    "subject": "united earth assembly",
+    "predicate": "related to",
+    "object": "deep earth minerals",
+    "inferred": true
+  },
+  {
+    "subject": "united earth assembly",
+    "predicate": "is type of",
+    "object": "art",
+    "inferred": true
+  },
+  {
+    "subject": "quantum biological modeling",
+    "predicate": "relates to",
+    "object": "biological threats",
+    "inferred": true
+  },
+  {
+    "subject": "quantum biological modeling",
+    "predicate": "relates to",
+    "object": "biological entities",
+    "inferred": true
+  },
+  {
+    "subject": "quantum biological modeling",
+    "predicate": "relates to",
+    "object": "biological futures",
+    "inferred": true
+  },
+  {
+    "subject": "quantum biological modeling",
+    "predicate": "related to",
+    "object": "quantum cloaking techniques",
+    "inferred": true
+  },
+  {
+    "subject": "post-national consciousness",
+    "predicate": "relates to",
+    "object": "consciousness",
+    "inferred": true
+  },
+  {
+    "subject": "artistic heritages",
+    "predicate": "related to",
+    "object": "philosophical heritages",
+    "inferred": true
+  },
+  {
+    "subject": "artistic heritages",
+    "predicate": "related to",
+    "object": "traditional linguistic heritages",
+    "inferred": true
+  },
+  {
+    "subject": "artistic heritages",
+    "predicate": "is type of",
+    "object": "art",
+    "inferred": true
+  },
+  {
+    "subject": "great data fracture",
+    "predicate": "relates to",
+    "object": "data wraith crisis",
+    "inferred": true
+  },
+  {
+    "subject": "branching worlds",
+    "predicate": "relates to",
+    "object": "worlds",
+    "inferred": true
+  },
+  {
+    "subject": "branching worlds",
+    "predicate": "is type of",
+    "object": "world",
+    "inferred": true
+  },
+  {
+    "subject": "planetary ecosystem",
+    "predicate": "is type of",
+    "object": "planet",
+    "inferred": true
+  },
+  {
+    "subject": "planetary mood baselines",
+    "predicate": "is type of",
+    "object": "planet",
+    "inferred": true
+  },
+  {
+    "subject": "global agricultural resources",
+    "predicate": "related to",
+    "object": "global health entities",
+    "inferred": true
+  },
+  {
+    "subject": "global agricultural resources",
+    "predicate": "related to",
+    "object": "global leadership roles",
+    "inferred": true
+  },
+  {
+    "subject": "oneearth fellowship",
+    "predicate": "is type of",
+    "object": "art",
+    "inferred": true
+  },
+  {
+    "subject": "back on earth",
+    "predicate": "related to",
+    "object": "deep earth minerals",
+    "inferred": true
+  },
+  {
+    "subject": "back on earth",
+    "predicate": "is type of",
+    "object": "art",
+    "inferred": true
+  },
+  {
+    "subject": "sapient entities",
+    "predicate": "relates to",
+    "object": "entities",
+    "inferred": true
+  },
+  {
+    "subject": "sapient entities",
+    "predicate": "related to",
+    "object": "global health entities",
+    "inferred": true
+  },
+  {
+    "subject": "sapient entities",
+    "predicate": "related to",
+    "object": "biological entities",
+    "inferred": true
+  },
+  {
+    "subject": "sapient entities",
+    "predicate": "related to",
+    "object": "collaborative entities",
+    "inferred": true
+  },
+  {
+    "subject": "planetary ecosystem",
+    "predicate": "related to",
+    "object": "planetary mood baselines",
+    "inferred": true
+  },
+  {
+    "subject": "biometric footprints",
+    "predicate": "related to",
+    "object": "biometric fintech",
+    "inferred": true
+  },
+  {
+    "subject": "biometric footprints",
+    "predicate": "related to",
+    "object": "financial footprints",
+    "inferred": true
+  },
+  {
+    "subject": "biometric footprints",
+    "predicate": "related to",
+    "object": "legal footprints",
+    "inferred": true
+  },
+  {
+    "subject": "philosophical heritages",
+    "predicate": "related to",
+    "object": "traditional linguistic heritages",
+    "inferred": true
+  },
+  {
+    "subject": "traditional linguistic heritages",
+    "predicate": "related to",
+    "object": "traditional immunological models",
+    "inferred": true
+  },
+  {
+    "subject": "traditional linguistic heritages",
+    "predicate": "related to",
+    "object": "traditional banking institutions",
+    "inferred": true
+  },
+  {
+    "subject": "earthroots revival",
+    "predicate": "is type of",
+    "object": "art",
+    "inferred": true
+  },
+  {
+    "subject": "sentient storylines",
+    "predicate": "is type of",
+    "object": "line",
+    "inferred": true
+  },
+  {
+    "subject": "planetary mood baselines",
+    "predicate": "is type of",
+    "object": "line",
+    "inferred": true
+  },
+  {
+    "subject": "archaea shard viruses",
+    "predicate": "related to",
+    "object": "rogue knowledge viruses",
+    "inferred": true
+  },
+  {
+    "subject": "global health entities",
+    "predicate": "relates to",
+    "object": "entities",
+    "inferred": true
+  },
+  {
+    "subject": "biological entities",
+    "predicate": "relates to",
+    "object": "entities",
+    "inferred": true
+  },
+  {
+    "subject": "collaborative entities",
+    "predicate": "relates to",
+    "object": "entities",
+    "inferred": true
+  },
+  {
+    "subject": "cognitive warfare units",
+    "predicate": "related to",
+    "object": "cognitive meshes",
+    "inferred": true
+  },
+  {
+    "subject": "universal cognitive infrastructure",
+    "predicate": "relates to",
+    "object": "cognitive warfare units",
+    "inferred": true
+  },
+  {
+    "subject": "traditional immunological models",
+    "predicate": "related to",
+    "object": "financial models",
+    "inferred": true
+  },
+  {
+    "subject": "traditional immunological models",
+    "predicate": "related to",
+    "object": "traditional banking institutions",
+    "inferred": true
+  },
+  {
+    "subject": "living vaccines",
+    "predicate": "related to",
+    "object": "living skyscrapers",
+    "inferred": true
+  },
+  {
+    "subject": "analog living experiences",
+    "predicate": "relates to",
+    "object": "living vaccines",
+    "inferred": true
+  },
+  {
+    "subject": "living vaccines",
+    "predicate": "related to",
+    "object": "living installations",
+    "inferred": true
+  },
+  {
+    "subject": "worlds",
+    "predicate": "is type of",
+    "object": "world",
+    "inferred": true
+  },
+  {
+    "subject": "universal cognitive infrastructure",
+    "predicate": "relates to",
+    "object": "cognitive meshes",
+    "inferred": true
+  },
+  {
+    "subject": "mesh networks",
+    "predicate": "related to",
+    "object": "transcranial lattice networks",
+    "inferred": true
+  },
+  {
+    "subject": "global health entities",
+    "predicate": "related to",
+    "object": "biological entities",
+    "inferred": true
+  },
+  {
+    "subject": "global health entities",
+    "predicate": "related to",
+    "object": "collaborative entities",
+    "inferred": true
+  },
+  {
+    "subject": "global health entities",
+    "predicate": "related to",
+    "object": "global leadership roles",
+    "inferred": true
+  },
+  {
+    "subject": "marta xiang",
+    "predicate": "is type of",
+    "object": "art",
+    "inferred": true
+  },
+  {
+    "subject": "researchers",
+    "predicate": "is type of",
+    "object": "research",
+    "inferred": true
+  },
+  {
+    "subject": "memoryscape atlas",
+    "predicate": "relates to",
+    "object": "atlas",
+    "inferred": true
+  },
+  {
+    "subject": "adapt to air pollution levels",
+    "predicate": "related to",
+    "object": "rising sea levels",
+    "inferred": true
+  },
+  {
+    "subject": "financial models",
+    "predicate": "related to",
+    "object": "financial footprints",
+    "inferred": true
+  },
+  {
+    "subject": "financial footprints",
+    "predicate": "related to",
+    "object": "legal footprints",
+    "inferred": true
+  },
+  {
+    "subject": "biological threats",
+    "predicate": "related to",
+    "object": "biological entities",
+    "inferred": true
+  },
+  {
+    "subject": "biological threats",
+    "predicate": "related to",
+    "object": "biological futures",
+    "inferred": true
+  },
+  {
+    "subject": "digital augmentation",
+    "predicate": "related to",
+    "object": "digital nomads",
+    "inferred": true
+  },
+  {
+    "subject": "factories",
+    "predicate": "is type of",
+    "object": "fact",
+    "inferred": true
+  },
+  {
+    "subject": "shenzhou galactic enterprises",
+    "predicate": "is type of",
+    "object": "rise",
+    "inferred": true
+  },
+  {
+    "subject": "first post-human delegation",
+    "predicate": "relates to",
+    "object": "post-human intelligence",
+    "inferred": true
+  },
+  {
+    "subject": "post-human intelligence",
+    "predicate": "related to",
+    "object": "artificial intelligence",
+    "inferred": true
+  },
+  {
+    "subject": "biological entities",
+    "predicate": "related to",
+    "object": "biological futures",
+    "inferred": true
+  },
+  {
+    "subject": "biological entities",
+    "predicate": "related to",
+    "object": "collaborative entities",
+    "inferred": true
+  },
+  {
+    "subject": "rogue knowledge viruses",
+    "predicate": "relates to",
+    "object": "knowledge guilds",
+    "inferred": true
+  },
+  {
+    "subject": "semantic knowledge graphs",
+    "predicate": "relates to",
+    "object": "knowledge guilds",
+    "inferred": true
+  },
+  {
+    "subject": "coral-like hybrid tissues",
+    "predicate": "related to",
+    "object": "different tissues",
+    "inferred": true
+  },
+  {
+    "subject": "rogue knowledge viruses",
+    "predicate": "related to",
+    "object": "semantic knowledge graphs",
+    "inferred": true
+  },
+  {
+    "subject": "uncharted territory",
+    "predicate": "is type of",
+    "object": "art",
+    "inferred": true
+  },
+  {
+    "subject": "analog living experiences",
+    "predicate": "relates to",
+    "object": "living skyscrapers",
+    "inferred": true
+  },
+  {
+    "subject": "living skyscrapers",
+    "predicate": "related to",
+    "object": "living installations",
+    "inferred": true
+  },
+  {
+    "subject": "analog living experiences",
+    "predicate": "relates to",
+    "object": "living installations",
+    "inferred": true
+  },
+  {
+    "subject": "artificial intelligence",
+    "predicate": "is type of",
+    "object": "art",
+    "inferred": true
+  },
+  {
+    "subject": "atlantis rising",
+    "predicate": "relates to",
+    "object": "rising sea levels",
+    "inferred": true
+  },
+  {
+    "subject": "deep drilling expeditions",
+    "predicate": "related to",
+    "object": "deep earth minerals",
+    "inferred": true
+  },
+  {
+    "subject": "deep earth minerals",
+    "predicate": "is type of",
+    "object": "art",
     "inferred": true
   }
 ]
